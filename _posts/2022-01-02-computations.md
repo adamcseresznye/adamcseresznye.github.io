@@ -39,10 +39,6 @@ plt.show(fig)
 
 <img src="{{site.baseurl | prepend: site.url}}assets/images/cell-3-output-1.png" alt="cell-3-output-1" />
 
-<!-- OR -->
-
-<img src="{{ "/assets/images/cell-3-output-1.png" | prepend: site.baseurl | prepend: site.url}}" alt="cell-3-output-1" />
-
 ## Plotly
 
 ``` python
