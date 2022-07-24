@@ -37,7 +37,7 @@ plt.legend(loc='lower right')
 plt.show(fig)
 ```
 
-![](computations_files/figure-gfm/cell-3-output-1.png)
+![](assets/images/cell-3-output-1.png)
 
 ## Plotly
 
