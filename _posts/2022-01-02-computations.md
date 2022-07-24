@@ -39,39 +39,3 @@ plt.show(fig)
 
 <img src="{{site.baseurl | prepend: site.url}}assets/images/cell-3-output-1.png" alt="cell-3-output-1" />
 
-## Plotly
-
-``` python
-import plotly.express as px
-import plotly.io as pio
-gapminder = px.data.gapminder()
-gapminder2007 = gapminder.query("year == 2007")
-fig = px.scatter(gapminder2007, 
-                 x="gdpPercap", y="lifeExp", color="continent", 
-                 size="pop", size_max=60,
-                 hover_name="country")
-fig.show()
-```
-
-![](computations_files/figure-gfm/cell-4-output-1.png)
-
-``` python
-import plotly.express as px
-import plotly.io as pio
-gapminder = px.data.gapminder()
-def gapminder_plot(year):
-    gapminderYear = gapminder.query("year == " + 
-                                    str(year))
-    fig = px.scatter(gapminderYear, 
-                     x="gdpPercap", y="lifeExp",
-                     size="pop", size_max=60,
-                     hover_name="country")
-    fig.show()
-    
-gapminder_plot(1957)
-gapminder_plot(2007)
-```
-
-![](computations_files/figure-gfm/cell-5-output-1.png)
-
-![](computations_files/figure-gfm/cell-5-output-2.png)
