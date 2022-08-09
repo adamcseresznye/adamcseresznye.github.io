@@ -468,13 +468,13 @@ publications.head()
 
 To extract country names from the citation records we will use the
 pycountry library. For installation instructions please visit [this
-website.](https://pypi.org/project/pycountry/). First, we will save the
+website](https://pypi.org/project/pycountry/). First, we will save the
 extracted country names in a list of dictionaries. Please keep in mind
-that there could be multiple countries (or institutions from multiple
+there could be multiple countries (or institutions from multiple
 countries) countributing to the articles.
 
 Python dictionary is an ideal way of storing such data. Country names
-belonging to the same publication recieves the same key.
+belonging to similar publications recieve similar keys.
 
 For example, if the first article in our institute column is the result
 of the collaboration of two countries, let’s say China and Germany, our
