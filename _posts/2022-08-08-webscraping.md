@@ -1,5 +1,4 @@
-Scraping and analyzing Pubmed articles related to Machine learning and
-Deep learning
+Scraping and analyzing Pubmed articles related to Machine learning and Deep learning
 ================
 
 # Scraping Pubmed articles
