@@ -1914,6 +1914,7 @@ plt.figtext(0.9, 0.01, "Contains articles up to and including 08/08/2022", ha="c
 
 plt.tight_layout() #w_pad=0.5, h_pad=1.0
 ```
+<img src="{{site.baseurl | prepend: site.url}}assets/images/webscrape.png" alt="webscrape" />
 
 ## To sum up:
 
