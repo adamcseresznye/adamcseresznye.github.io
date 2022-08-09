@@ -1,6 +1,3 @@
-
-================
-
 # Scraping Pubmed articles
 
 ## Aim:
