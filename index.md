@@ -2,12 +2,7 @@
 layout: page
 title: "Home"
 ---
-<div align="center";>
-    
-  # Hi! Welcome to my website!
-</div>
-
-<br/>  
+<h1 style="text-align: center;">Hi! Welcome to my website!</h1>
 <br/> 
 My name is Adam. I am a PhD candidate at the University of Antwerp. I would like to dedicate this website to my never ending quest for mastering data science. Hopefully, the projects and blog posts you will find here will provide you with plenty of useful tips and inspirations for your own projects.
 <br/>
