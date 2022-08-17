@@ -84,7 +84,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![](2022_08_17_Using_SciKeras_for_k_fold_cross_validation_files/figure-gfm/cell-4-output-1.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/SciKeras_1.jpg" alt="SciKeras_1" />
 
 ## Standard scaling
 
@@ -112,7 +112,7 @@ sns.histplot(data= X_train_transformed, ax= axes[1], kde= True).set_title('Histo
 
     Text(0.5, 1.0, 'Histogram of training data after standard scaling')
 
-![](2022_08_17_Using_SciKeras_for_k_fold_cross_validation_files/figure-gfm/cell-5-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/SciKeras_2.jpg" alt="SciKeras_2" />
 
 ## Building a base sequential NN model
 
@@ -170,7 +170,7 @@ print(f"Minimum training loss: {np.min(np.array(history.history['loss']))}")
     Epoch where training loss reaches minimum: 199
     Minimum training loss: 0.02440175600349903
 
-![](2022_08_17_Using_SciKeras_for_k_fold_cross_validation_files/figure-gfm/cell-7-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/SciKeras_3.jpg" alt="SciKeras_3" />
 
 ## Performing k-fold cross validation with SciKeras
 
@@ -303,7 +303,7 @@ axes[1].axvline(x=np.argmin(np.array(val_mean_absolute_errors).mean(axis= 0)),
 
     <matplotlib.lines.Line2D at 0x25bb06f0820>
 
-![](2022_08_17_Using_SciKeras_for_k_fold_cross_validation_files/figure-gfm/cell-10-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/SciKeras_4.jpg" alt="SciKeras_4" />
 
 As you can see from the figure above, while the training losses and mean
 absolute errors are dicreasing throught our training, the validation set
