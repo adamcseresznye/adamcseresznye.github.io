@@ -35,7 +35,7 @@ mass spectrometry data.
 
 Our example data can be downloaded from
 [here](https://massive.ucsd.edu/ProteoSAFe/dataset_files.jsp?task=8e6bbf633a7e4bc99ddcde7510bffa78#%7B%22table_sort_history%22%3A%22main.collection_asc%22%7D)
-with the file name f.MSV000090214/ccms_peak/Raw/QC_mix_2.mzML.
+with the file name: f.MSV000090214/ccms_peak/Raw/QC_mix_2.mzML.
 
 The file itself is fairly large: approximately 43 MB in size.
 
