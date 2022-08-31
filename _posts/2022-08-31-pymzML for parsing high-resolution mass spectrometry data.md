@@ -131,7 +131,7 @@ axes.set_title(f'Spectrum at {msrun[scan].scan_time_in_minutes():.3f} min, Scan 
 
     Text(0.5, 1.0, 'Spectrum at 5.229 min, Scan number: 2563')
 
-![](2022_08_31_pymzML_files/figure-gfm/cell-9-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2022_08_31_pymzML_1.jpg" alt="example" />
 
 ## Plotting the Total Ion Chromatogram (TIC)
 
@@ -146,7 +146,7 @@ axes.set_ylabel("Intensity")
 
     Text(0, 0.5, 'Intensity')
 
-![](2022_08_31_pymzML_files/figure-gfm/cell-10-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2022_08_31_pymzML_2.jpg" alt="example" />
 
 Alternatively, we could also use pymzML’s built in plotting function
 called Factory. More information on this can be found on the project’s
@@ -226,7 +226,7 @@ axes.set_ylabel("Intensity")
 
     Text(0, 0.5, 'Intensity')
 
-![](2022_08_31_pymzML_files/figure-gfm/cell-15-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2022_08_31_pymzML_3.jpg" alt="example" />
 
 ## Displaying the chromatogram as a heatmap
 
@@ -324,7 +324,7 @@ axes.set_ylabel('m/z', size = 16)
 
     Text(0, 0.5, 'm/z')
 
-![](2022_08_31_pymzML_files/figure-gfm/cell-17-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2022_08_31_pymzML_4.jpg" alt="example" />
 
 ``` python
 print(f"Mininum peak intensity observed: {np.min(test_agg):.0f}")
@@ -372,7 +372,7 @@ axes.set_ylabel('m/z', size = 16)
 
     Text(0, 0.5, 'm/z')
 
-![](2022_08_31_pymzML_files/figure-gfm/cell-20-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2022_08_31_pymzML_5.jpg" alt="example" />
 
 **To sum up:**
 
