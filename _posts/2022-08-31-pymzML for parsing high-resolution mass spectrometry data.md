@@ -54,7 +54,7 @@ import pymzml
 ```
 
 ``` python
-path = r"C:\Users\s0212777\OneDrive - Universiteit Antwerpen\Jupyter_projects\Articles\220828_pymzML"
+path = r"your path here"
 file = 'QC_mix_2.mzML'
 msrun = pymzml.run.Reader(os.path.join(path, file))
 msrun
