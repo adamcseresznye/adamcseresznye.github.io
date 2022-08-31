@@ -16,8 +16,7 @@ pymzML was first introduced in 2012 in the journal of
 spectrometry data*”. pymzML is a module that allows an easy access to
 mass spectrometry data, especially in mzML format.
 
-pymzML v2.0 [came
-out](https://academic.oup.com/bioinformatics/article/34/14/2513/4831092?login=false)
+pymzML v2.0 [was released](https://academic.oup.com/bioinformatics/article/34/14/2513/4831092?login=false)
 in 2018. In the new version faster libraries were integrated for
 numerical calculations, data retrieving algorithms were improved and the
 source code was optimized. The result is a library that is on par with
@@ -34,7 +33,7 @@ Computational Mass Spectrometry to promote the global, free exchange of
 mass spectrometry data.
 
 Our example data can be downloaded from
-[here](https://massive.ucsd.edu/ProteoSAFe/dataset_files.jsp?task=8e6bbf633a7e4bc99ddcde7510bffa78#%7B%22table_sort_history%22%3A%22main.collection_asc%22%7D) with the file name: f.MSV000090214/ccms_peak/Raw/QC_mix_2.mzML.
+[here](https://massive.ucsd.edu/ProteoSAFe/dataset_files.jsp?task=8e6bbf633a7e4bc99ddcde7510bffa78#%7B%22table_sort_history%22%3A%22main.collection_asc%22%7D) with the file name: QC_mix_2.mzML.
 
 The file itself is fairly large: approximately 43 MB in size.
 
