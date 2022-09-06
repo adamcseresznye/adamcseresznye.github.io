@@ -626,7 +626,7 @@ using a simple Google Search:
 ``` python
 #getting the geojson file contaning Belgium province 
 
-BelgiumProvinces = r"C:\Users\s0212777\OneDrive - Universiteit Antwerpen\Jupyter_projects\Articles\220831_apartment_search\Belgium_shapefile\BelgiumProvinces.geojson"
+BelgiumProvinces = r"location-of-your-geojson-file"
 BelgiumProvinces = geopandas.read_file(BelgiumProvinces)
 BelgiumProvinces.head()
 ```
@@ -1646,8 +1646,8 @@ fig.tight_layout()
 -   Demonstrated how one can utilize GeoPy/Nominatim when looking for
     geographical data
 -   Highlighted how Plotly’s choropleth_mapbox can be a useful tool when
-    one would like to inestigate how a variable, in our case rental
-    price, can vary across a given geographic area
+    we would like to investigate how a variable, in our case rental
+    price, can vary across a given geographical area
 -   We also constructed a graph that shows us the most popular Belgian
     provinces/cities, median rental costs and most affordable places
     around the country
