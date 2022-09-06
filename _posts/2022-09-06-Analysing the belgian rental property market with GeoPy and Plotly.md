@@ -1676,7 +1676,7 @@ fig.tight_layout()
 
     <Figure size 1920x1440 with 0 Axes>
 
-![](220831_apartment_search_scrapy_files/figure-gfm/cell-24-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2022_08_31_apartment_search.jpeg" alt="example" />
 
 **To sum up:**
 
