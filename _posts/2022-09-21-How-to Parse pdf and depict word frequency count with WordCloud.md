@@ -99,7 +99,7 @@ ax.set_title(f"Top {plot} words according to occurrence")
 
     Text(0.5, 1.0, 'Top 50 words according to occurrence')
 
-![](2022-09-21-pdf-wordcloud_files/figure-gfm/cell-6-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2022_09_21_wordcloud_1.jpg" alt="example" />
 
 This is not too bad. As expected words such as ‘and’, ‘the’, ‘in’, ‘to’,
 etc are heavily used in the text. Apart from that, we have some symbols
@@ -123,7 +123,7 @@ plt.tight_layout(pad=0)
 plt.axis("off")
 ```
 
-![](2022-09-21-pdf-wordcloud_files/figure-gfm/cell-7-output-1.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2022_09_21_wordcloud_2.jpg" alt="example" />
 
 As you can see, with a few lines of code, WordCloud makes it incredibly
 easy to picture a visually appealing summary of our document. Not only
@@ -158,7 +158,7 @@ ax[1].set_title("Wordcloud image")
 plt.tight_layout(pad=0)
 ```
 
-![](2022-09-21-pdf-wordcloud_files/figure-gfm/cell-8-output-1.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2022_09_21_wordcloud_3.jpg" alt="example" />
 
 I think enough’s said. If you like these libraries, please go ahead and
 explore them. They are great fun :)
