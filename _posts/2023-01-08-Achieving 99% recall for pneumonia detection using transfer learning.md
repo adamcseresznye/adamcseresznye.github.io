@@ -1243,8 +1243,6 @@ plt.tight_layout()
 img.savefig('transformed_grid.png', dpi = 300)
 ```
 
-    WARNING:matplotlib.image:Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-
 <img src="{{site.baseurl | prepend: site.url}}assets/images/2023_01_08_Xray_4.jpg" alt="2023_01_08_Xray_4.jpg" />
 
 ``` python
@@ -1313,8 +1311,6 @@ finish = time.time()
 print(f'Time taken to compute: {(finish - start)/60:.3f} min')
 ```
 
-      0%|          | 0/20 [00:00<?, ?it/s]
-
     Time taken to compute: 6.027 min
 
 ``` python
@@ -1323,10 +1319,6 @@ img.savefig('train1.png', dpi = 300)
 
 files.download('train1.png')
 ```
-
-    <IPython.core.display.Javascript object>
-
-    <IPython.core.display.Javascript object>
 
 <img src="{{site.baseurl | prepend: site.url}}assets/images/2023_01_08_Xray_5.jpg" alt="2023_01_08_Xray_5.jpg" />
 
@@ -1541,9 +1533,6 @@ model3, results = fit(model = model2,
 finish = time.time()
 print(f'Time taken to compute: {(finish - start)/60:.3f} min')
 ```
-
-      0%|          | 0/20 [00:00<?, ?it/s]
-
     Time taken to compute: 7.377 min
 
 ``` python
@@ -1552,10 +1541,6 @@ img.savefig('train2.png', dpi = 300)
 
 files.download('train2.png')
 ```
-
-    <IPython.core.display.Javascript object>
-
-    <IPython.core.display.Javascript object>
 
 <img src="{{site.baseurl | prepend: site.url}}assets/images/2023_01_08_Xray_6.jpg" alt="2023_01_08_Xray_6.jpg" />
 
@@ -1584,8 +1569,6 @@ for image_path in test_image_path_sample:
                 transform=preprocess_val, 
                 ).savefig('prediction.png', dpi = 300)
 ```
-
-    WARNING:matplotlib.image:Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
 
 <img src="{{site.baseurl | prepend: site.url}}assets/images/2023_01_08_Xray_7.jpg" alt="2023_01_08_Xray_7.jpg" />
 
