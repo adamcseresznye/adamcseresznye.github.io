@@ -26,6 +26,7 @@ external:                  # shows a footer with social links - for available ic
   - {title: Mail, icon: envelope, url: "mailto:acseresznye@outlook.com"}
   - {title: Github, icon: github, url: "https://github.com/adamcseresznye"}
   - {title: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/adam-cseresznye-a43410111/"}
+  - {title: Twitter, icon: twitter, url: "https://twitter.com/csenye22"}
 
 comments:
 #  disqus_shortname: ""    # see https://disqus.com/
