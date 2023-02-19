@@ -1622,7 +1622,7 @@ ax2.set_title('Trials in which the objective was achieved at or above the 95th p
 plt.savefig('2023_02_19_hypertuning_2.jpg', dpi=600)
 ```
 
-<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_02_19_hypertuning_2.jpeg" alt="2023_02_19_hypertuning_2.jpeg" />
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_02_19_hypertuning_2.jpg" alt="2023_02_19_hypertuning_2.jpg" />
 
 # Hyperparameter tuning with RandomizedSearchCV
 
@@ -2159,7 +2159,7 @@ fig,ax = plt.subplots(1,1, figsize= (6,6))
 plt.savefig('2023_02_19_hypertuning_3.jpg', dpi=600)
 ```
 
-<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_02_19_hypertuning_3.jpeg" alt="2023_02_19_hypertuning_3.jpeg" />
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_02_19_hypertuning_3.jpg" alt="2023_02_19_hypertuning_3.jpg" />
 
 When comparing the ROC AUC values for the test-set, we can see that the
 values are once again quite similar. However, it is worth noting that
