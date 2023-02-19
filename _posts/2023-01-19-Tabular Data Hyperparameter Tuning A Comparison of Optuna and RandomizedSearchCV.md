@@ -1,7 +1,3 @@
-Tabular Data Hyperparameter Tuning: A Comparison of Optuna and
-RandomizedSearchCV
-================
-
 Hyperparameter tuning is a crucial step in achieving high-performance
 machine learning models, particularly when working with tabular data.
 Tabular data often includes structured information in the form of tables
