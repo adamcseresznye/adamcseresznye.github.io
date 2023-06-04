@@ -13,7 +13,7 @@ approach to the competition, I invite you to check out my detailed
 solution on the [Kaggle discussion
 page](https://www.kaggle.com/competitions/playground-series-s3e13/discussion/406409).
 
-<img src="../230604_Kaggle_celebration/img1.jpeg" alt="fig1" class="center" width="600px">
+<img src="{{site.baseurl | prepend: site.url}}assets/images/230604-Kaggle-img1.jpeg" alt="example" />
 
 In this exciting competition, the aim was to predict the three most
 probable diseases out of a total of 11 vector-borne diseases, including
@@ -25,7 +25,7 @@ My journey in the world of Kaggle has been a relatively short one, with
 this competition marking my third participation. To give you some
 context, let me share a bit about my previous placements:
 
-<img src="../230604_Kaggle_celebration/img2.png" alt="fig2" class="center" width="800px">
+<img src="{{site.baseurl | prepend: site.url}}assets/images/230604-Kaggle-img2.jpeg" alt="example" />
 
 Reaching this point has been a long and rewarding endeavor. Over the
 past two years, I have been studying this topic in my free time while
