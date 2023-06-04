@@ -1,12 +1,6 @@
-3rd place at Kaggle’s Classification with a Tabular Vector Borne Disease
-Dataset
-================
-
-# 🏆🥉 3rd place at Kaggle’s Classification with a Tabular Vector Borne Disease Dataset
-
 Greetings everyone! I am thrilled to announce that I have achieved a
 significant milestone in my data science journey. I am delighted to
-share that I secured the 3rd position in Kaggle’s “Classification with a
+share that I secured the 🏆🥉 3rd position 🏆🥉 in Kaggle’s “Classification with a
 Tabular Vector Borne Disease Dataset” competition, surpassing 931
 talented contenders! If you’re interested in learning more about my
 approach to the competition, I invite you to check out my detailed
