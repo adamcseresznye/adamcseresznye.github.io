@@ -42,4 +42,4 @@ overlooked topic.
 Stay tuned for more :)
 
 \#DataScience \#KaggleCompetition \#VectorBorneDiseases
-\#MachineLearning \#ReproducibleData
+\#MachineLearning
