@@ -442,7 +442,7 @@ axs[0].set(ylabel='Price in local currency')
 
     [Text(0, 0.5, 'Price in local currency')]
 
-![](2023_08_02-Top_10_things_I_learned_from_Effective_Pandas_files/figure-gfm/cell-12-output-2.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_04_EP_1.jpg" alt="example" />
 
 # Tip \#6: Find corrupted entries with <code>str.extract</code>
 
@@ -1054,7 +1054,7 @@ with sns.axes_style("darkgrid"):
          )
 ```
 
-![](2023_08_02-Top_10_things_I_learned_from_Effective_Pandas_files/figure-gfm/cell-18-output-1.png)
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_04_EP_2.jpg" alt="example" />
 
 # Tip \#10 + 1: Use the “margin” parameter of <code>pd.crosstab</code> to easily calculate row/column subtotals
 
