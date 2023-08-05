@@ -37,8 +37,6 @@ by Abhijit Dahatonde from Kaggle. Let’s get to it.
 - [Use <code>pd.pipe</code> to include any functions in our chain](#id-section10)
 - [Use the “margin” parameter of <code>pd.crosstab</code> to easily calculate row/column subtotals](#id-section11)
 
-
-
 ``` python
 import pandas as pd
 import numpy as np
