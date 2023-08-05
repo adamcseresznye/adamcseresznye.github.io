@@ -75,7 +75,7 @@ df.info()
     memory usage: 168.6+ KB
     
 <div id='id-section1'/>
-# Tip \#1: Use <code>pd.assign</code> more extensively
+# Tip #1: Use <code>pd.assign</code> more extensively
 
 The <code>pd.assign</code> method in Pandas is a very powerful tool that
 can be used to create new columns, modify existing columns, or both. It
