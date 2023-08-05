@@ -24,7 +24,7 @@ We will use the [Real World Smartphone’s
 Dataset](https://www.kaggle.com/datasets/abhijitdahatonde/real-world-smartphones-dataset?select=smartphones.csv)
 by Abhijit Dahatonde from Kaggle. Let’s get to it.
 
-# My Table of content
+# Table of content
 - [Use <code>pd.assign</code> more extensively](#id-section1)
 - 
 
@@ -73,8 +73,9 @@ df.info()
      21  resolution_width           980 non-null    int64  
     dtypes: float64(8), int64(10), object(4)
     memory usage: 168.6+ KB
-
-# <div id='id-section1'/> Tip \#1: Use <code>pd.assign</code> more extensively
+    
+<div id='id-section1'/>
+# Tip \#1: Use <code>pd.assign</code> more extensively
 
 The <code>pd.assign</code> method in Pandas is a very powerful tool that
 can be used to create new columns, modify existing columns, or both. It
