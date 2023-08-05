@@ -26,7 +26,18 @@ by Abhijit Dahatonde from Kaggle. Let’s get to it.
 
 # Table of content
 - [Use <code>pd.assign</code> more extensively](#id-section1)
-- 
+- [Simplify the management of multiple if-else conditions using <code>np.select</code>](#id-section2)
+- [Filter rows or columns with the combination of <code>pd.loc</code> and <code>lambda</code>](#id-section3)
+- [Rename multiple columns effortlessly with <code>rename</code> and <code>replace</code>](#id-section4)
+- [Use <code>pd.clip</code> to easily remove outliers](#id-section5)
+- [Find corrupted entries with <code>str.extract</code>](#id-section6)
+- [Sort values based on the <code>key</code> parameter](#id-section7)
+- [Reference an existing variable inside <code>pd.query</code> with @](#id-section8)
+- [Gain more insights by using <code>style.background_gradient</code>](#id-section9)
+- [Use <code>pd.pipe</code> to include any functions in our chain](#id-section10)
+- [Use the “margin” parameter of <code>pd.crosstab</code> to easily calculate row/column subtotals](#id-section11)
+
+
 
 ``` python
 import pandas as pd
@@ -169,6 +180,8 @@ density](https://en.wikipedia.org/wiki/Pixel_density) page on Wikipedia.
 </table>
 </div>
 
+<div id='id-section2'/>
+    
 # Tip \#2: Simplify the management of multiple if-else conditions using <code>np.select</code>
 
 If our goal is to incorporate if-else logic seamlessly into our code, we
@@ -248,6 +261,8 @@ making the code cumbersome and hard to manage.
     Other          94
     Name: frequency, dtype: int64
 
+<div id='id-section3'/>
+    
 # Tip \#3 Filter rows or columns with the combination of <code>pd.loc</code> and <code>lambda</code>
 
 Some experienced Pandas users might consider the following concept
@@ -349,6 +364,8 @@ battery capacity greater than 5000mAh.
 <p>113 rows × 2 columns</p>
 </div>
 
+<div id='id-section4'/>
+    
 # Tip \#4 Rename multiple columns effortlessly with <code>rename</code> and <code>replace</code>
 
 OK. This is a big one for me. I used this one multiple times already.
@@ -387,6 +404,8 @@ df.columns # original column names for reference
            'resolutionheight', 'resolutionwidth'],
           dtype='object')
 
+<div id='id-section5'/>
+    
 # Tip \#5: Use <code>pd.clip</code> to easily remove outliers
 
 ``` python
@@ -450,6 +469,8 @@ axs[0].set(ylabel='Price in local currency')
 
 <img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_04_EP_1.jpg" alt="example" />
 
+<div id='id-section6'/>
+    
 # Tip \#6: Find corrupted entries with <code>str.extract</code>
 
 How often have you encountered the situation where, for some reason, a
@@ -517,6 +538,8 @@ df_bad_values.info() # the modified dataframe's price column now returns object 
     .    10
     dtype: int64
 
+<div id='id-section7'/>
+    
 # Tip \#7: Sort values based on the <code>key</code> parameter
 
 The <code>pd.sort_values</code> function surprised me with its
@@ -617,6 +640,8 @@ phone model names in ascending order based on their second letter.
 </table>
 </div>
 
+<div id='id-section8'/>
+    
 # Tip \#8: Reference an existing variable inside <code>pd.query</code> with @
 
 This resembles Tip \#4, as it’s a technique I frequently use. Since
@@ -704,6 +729,8 @@ average_battery=df.battery_capacity.mean()
 </table>
 </div>
 
+<div id='id-section9'/>
+    
 # Tip \#9: Gain more insights by using <code>style.background_gradient</code>
 
 Being a visual creature, I often struggle to comprehend data quickly
@@ -1012,6 +1039,8 @@ aiming to determine which brand offers the most value for our money.
   </tbody>
 </table>
 
+<div id='id-section10'/>
+    
 # Tip \#10: Use <code>pd.pipe</code> to include any functions in our chain
 
 One of the most valuable lessons I learned from Effective Pandas is the
@@ -1062,6 +1091,8 @@ with sns.axes_style("darkgrid"):
 
 <img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_04_EP_2.jpg" alt="example" />
 
+<div id='id-section11'/>
+    
 # Tip \#10 + 1: Use the “margin” parameter of <code>pd.crosstab</code> to easily calculate row/column subtotals
 
 Despite primarily using the pandas <code>groupby</code> function for
