@@ -232,10 +232,9 @@ Let’s continue exploring more of what Lets-Plot has in store for us!
  + geom_point() # Draw points defined by an x and y coordinate, as for a scatter plot.
  + geom_smooth(method='lm') # Add a smoothed conditional mean. ‘lm’ stands for 'linear model' as Smoothing method
 ) 
-1
 ```
 
-    1
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_05_1.jpg" alt="example" />
 
 In the previous example, we highlighted the importance of placing the
 <code>color</code> parameter at the *global level*, which grouped the
@@ -267,10 +266,10 @@ with little to no modification.
   ) 
  + scale_color_viridis() # lets-plots equivalent of the scale_color_colorblind()
 ) 
-1
 ```
 
-    1
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_05_2.jpg" alt="example" />
+
 
 <div id='id-section2'/>
 
@@ -300,10 +299,9 @@ penguin_rel_frequency = (ggplot(df,aes(x = 'island', fill = 'species'))
                          + geom_bar(position='fill')
                         )
 gggrid([penguin_bar, penguin_box, penguin_density, penguin_rel_frequency], ncol=2)
-1
 ```
 
-    1
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_05_3.jpg" alt="example" />
 
 <div id='id-section3'/>
 
@@ -332,10 +330,9 @@ categorical variable we want to visualize. It’s as simple as that!
  + theme(plot_title=element_text(size=20,face='bold'))
  + ggsize(1000,500)
 )
-1
 ```
 
-    1
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_05_4.jpg" alt="example" />
 
 <div id='id-section4'/>
 
@@ -355,10 +352,9 @@ insights into the relationships among the categories.
                y = 'body_mass_g'))
  + geom_boxplot()
 )
-1
 ```
 
-    1
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_05_5.jpg" alt="example" />
 
 By incorporating the <code>as_discrete</code> function, specifying the
 column, the ordering direction (1 for ascending, -1 for descending), and
@@ -409,10 +405,9 @@ experience.
                   )
  )
 )
-1
 ```
 
-    1
+<img src="{{site.baseurl | prepend: site.url}}assets/images/2023_08_05_6.jpg" alt="example" />
 
 That’s a wrap on the Lets-Plot library! There’s so much more to explore
 and learn about this powerful tool. I hope you found this introduction
