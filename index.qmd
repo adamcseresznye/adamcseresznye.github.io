@@ -16,16 +16,23 @@ about:
 
 <style>
 body {
-  font-size: 18px;
+  font-size: 18px; 
   line-height: 1.6;
-  
-  }
+}
 
 .content-block {
   padding: 40px 20px;
   margin-left: auto;
   margin-right: auto;
   max-width: 800px;
+  text-align: center;
+}
+
+.section:first-child {
+  background: linear-gradient(to right, #007bff, #0056b3); 
+  color: #fff;
+  padding: 4em 0;
+  border-radius: 10px;
   text-align: center;
 }
 
@@ -46,32 +53,24 @@ h1, h2 {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3em;
-}
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr; 
-    gap: 0.5em; 
-  }
-  .grid-item {
-    margin-bottom: 2em !important; /* Increased from 0.5em to 2em */
-  }
-  .section {
-    padding: 2em 0; /* Slightly reduced from 3em to 2em */
-  }
-  .collab-section {
-    margin-top: 3em; /* Added margin to the top of the collaboration section */
-  }
-}
-
-.collab-text {
-  margin-bottom: 1em; /* Default spacing */
+  gap: 1.5em;
 }
 
 .grid-item {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1em;
   text-align: center;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto;
+  width: 100%; 
+}
+
+.grid-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .grid-item h3 {
@@ -85,7 +84,7 @@ h1, h2 {
 
 .btn-primary {
   display: inline-block;
-  margin-top: 0.5em;
+  margin-top: 1em;
   padding: 0.75em 1.5em;
   background-color: #007bff;
   color: #fff;
@@ -95,18 +94,27 @@ h1, h2 {
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Subtle darkening on hover */
 }
-
-.collab-text {
-  margin-bottom: 1em; /* Default spacing */
+  
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; 
+    gap: 1em;
+  }
+  .grid-item {
+    margin-bottom: 2em;
+  }
+  .section {
+    padding: 2em 0;
+  }
 }
 </style>
 
 ::: {.content-block}
 
 ::: {.section}
-<h1>Hi there! Welcome to my website! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/></h1> 
+<h1>Hi there! Welcome to my website! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" alt="Waving hand animation" width="30px"/></h1> 
 
 <p>I am Adam, a PhD candidate at the University of Antwerp working in the field of <em>environmental toxicology</em>. This platform is dedicated to my pursuit of mastering <em>data science (DS)</em>, and I invite you to join me on this journey.</p>
 :::
@@ -123,7 +131,7 @@ Discover my scientific contributions.
 
 ::: {.grid-item}
 ### [DS Projects](https://adamcseresznye.github.io/blog/projects.html)
-Explore my projects.
+Explore my data science projects.
 :::
 
 ::: {.grid-item}
@@ -137,7 +145,7 @@ Read interesting tidbits on DS.
 ::: {.section}
 <p class="collab-text">Interested in collaboration or have questions? Get in touch!</p>
 
-<a href="mailto:csenye.chem@gmail.com" class="btn-primary">Contact Me</a>
+<a href="mailto:csenye.chem@gmail.com" class="btn-primary">Contact me</a>
 :::
 
 :::
