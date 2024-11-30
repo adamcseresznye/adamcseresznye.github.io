@@ -1,0 +1,37 @@
+[
+  {
+    "listing": "/scientific_output.html",
+    "items": []
+  },
+  {
+    "listing": "/articles.html",
+    "items": [
+      "/posts/speed_up_py/speed_up_py.html",
+      "/posts/human_day/human_day.html",
+      "/posts/labour_day/labour_day.html",
+      "/posts/pandas_styler/pandas_style.html",
+      "/posts/refugee/refugee.html",
+      "/posts/spam/spam.html",
+      "/posts/polars speed/polars_speed.html",
+      "/posts/polars/Polars_revised.html",
+      "/posts/folium/2023-07-09-Folium.html",
+      "/posts/2023-08-08-HotOnes/2023_08_08_HotOnes.html",
+      "/posts/Lets-Plot/2023_08_05_How_to_use_the_Lets_Plot_library_by_JetBrains.html",
+      "/posts/Top 10 things I learned from Effective Pandas/2023_08_02-Top_10_things_I_learned_from_Effective_Pandas.html",
+      "/posts/Kaggle/Kaggle.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/peek_my_home_price/part-5_fine_tuning.html",
+      "/projects/peek_my_home_price/part-4_feature_engineering.html",
+      "/projects/peek_my_home_price/part-3_feature_selection.html",
+      "/projects/peek_my_home_price/part-2_building_a_baseline_model.html",
+      "/projects/peek_my_home_price/part-1_characterizing_the_data.html",
+      "/projects/Chromascope/article.html",
+      "/projects/DeepLCMS/DeepLCMS.html",
+      "/projects/CP_Seeker_Post_Processing_App/CP_Seeker_Post_Processing_App.html"
+    ]
+  }
+]
