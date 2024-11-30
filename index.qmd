@@ -125,17 +125,17 @@ h1, h2 {
 ::: {.grid}
 
 ::: {.grid-item}
-### [Scientific Output](https://adamcseresznye.github.io/blog/scientific_output.html)
+### [Scientific Output](https://adamcseresznye.github.io/scientific_output.html)
 Discover my scientific contributions.
 :::
 
 ::: {.grid-item}
-### [DS Projects](https://adamcseresznye.github.io/blog/projects.html)
+### [DS Projects](https://adamcseresznye.github.io/projects.html)
 Explore my data science projects.
 :::
 
 ::: {.grid-item}
-### [Blog](https://adamcseresznye.github.io/blog/articles.html)
+### [Blog](https://adamcseresznye.github.io/articles.html)
 Read interesting tidbits on DS.
 :::
 
