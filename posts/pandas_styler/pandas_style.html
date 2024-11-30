@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adam Cseresznye">
 <meta name="dcterms.date" content="2023-08-27">
 
-<title>Mastering Pandas DataFrame Styling for a Stunning Presentation – Adam Cseresznye</title>
+<title>Adam Cseresznye - Mastering Pandas DataFrame Styling for a Stunning Presentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,25 +72,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b697eb10549dbab267b4169cc0aac045.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6f6a3df318ae731e7885b4e8bdb9d5b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -99,7 +93,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -125,62 +118,63 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Mastering Pandas DataFrame Styling for a Stunning Presentation – Adam Cseresznye">
+<meta property="og:title" content="Adam Cseresznye - Mastering Pandas DataFrame Styling for a Stunning Presentation">
 <meta property="og:description" content="">
-<meta property="og:site_name" content="Adam Cseresznye">
-<meta name="twitter:title" content="Mastering Pandas DataFrame Styling for a Stunning Presentation – Adam Cseresznye">
+<meta property="og:image" content="https://images.unsplash.com/photo-1529078155058-5d716f45d604?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2069&amp;q=80">
+<meta property="og:site-name" content="Adam Cseresznye">
+<meta name="twitter:title" content="Adam Cseresznye - Mastering Pandas DataFrame Styling for a Stunning Presentation">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1529078155058-5d716f45d604?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2069&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Adam Cseresznye</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../scientific_output.html"> 
-<span class="menu-text">Scientific Output</span></a>
+    <a class="nav-link" href="../../scientific_output.html" rel="" target="">
+ <span class="menu-text">Scientific Output</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/adamcseresznye"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/adamcseresznye" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/csenye22"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/csenye22" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -189,6 +183,7 @@ ga('send', {
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -258,11 +253,10 @@ ga('send', {
 
 
 
-
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.unsplash.com/photo-1529078155058-5d716f45d604?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2069&amp;q=80" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Image by Mika Baumeister</figcaption>
+<figcaption class="figure-caption">Image by Mika Baumeister</figcaption>
 </figure>
 </div>
 <p>As you wrap up your data analysis journey, you face a fun decision: how to share your discoveries effectively. Tables and graphs both have their moments to shine. Tables work great when you want your audience to spot exact values and compare them. But, here’s the twist: tables can look overwhelming at first, especially if they’re crammed with data.</p>
@@ -271,31 +265,39 @@ ga('send', {
 <section id="setup" class="level1">
 <h1>Setup</h1>
 <div class="cell" data-tags="[]" data-execution_count="1">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="2">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Original table
-</figcaption>
-<div aria-describedby="tbl-table1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<div id="tbl-table1" class="anchored">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<caption>Table&nbsp;1: Original table</caption>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -361,11 +363,9 @@ Table&nbsp;1: Original table
 </tr>
 </tbody>
 </table>
+</div>
 
 </div>
-</div>
-</div>
-</figure>
 </div>
 </div>
 </section>
@@ -374,22 +374,30 @@ Table&nbsp;1: Original table
 <p>In this article, we won’t cover every single feature of the <a href="https://pandas.pydata.org/docs/user_guide/style.html#Table-Visualization">Styler class</a> because that might make it too long. Instead, we’ll concentrate on the practical aspects that can simplify your data analysis, improve data comprehension, and make your message clearer to your audience. So, instead of taking a deep dive, we’ll start with the low-hanging fruits and explore the built-in options that Pandas offers.</p>
 <p>Before we dive in, let’s prepare an aggregated dataframe for our demonstrations. Here it is:</p>
 <div class="cell" data-tags="[]" data-execution_count="3">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> df.groupby([<span class="st">"day"</span>, <span class="st">"smoker"</span>, <span class="st">"time"</span>]).median(numeric_only<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>grouped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: How the Data Appears After Grouping and Calculating Medians (Before Pandas Styling)
-</figcaption>
-<div aria-describedby="tbl-table2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="31">
 <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<div id="tbl-table2" class="anchored">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<caption>Table&nbsp;2: How the Data Appears After Grouping and Calculating Medians (Before Pandas Styling)</caption>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -399,7 +407,7 @@ Table&nbsp;2: How the Data Appears After Grouping and Calculating Medians (Befor
 <th data-quarto-table-cell-role="th">tip</th>
 <th data-quarto-table-cell-role="th">size</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th data-quarto-table-cell-role="th">day</th>
 <th data-quarto-table-cell-role="th">smoker</th>
 <th data-quarto-table-cell-role="th">time</th>
@@ -489,11 +497,9 @@ Table&nbsp;2: How the Data Appears After Grouping and Calculating Medians (Befor
 </tr>
 </tbody>
 </table>
+</div>
 
 </div>
-</div>
-</div>
-</figure>
 </div>
 </div>
 <section id="highlighting-minimum-and-maximum-values" class="level2">
@@ -501,7 +507,7 @@ Table&nbsp;2: How the Data Appears After Grouping and Calculating Medians (Befor
 <p>Check out these handy helpers: <code>highlight_min</code> and <code>highlight_max</code>. They’re your go-to for spotting the lowest and highest values in each column. It’s a speedy way to emphasize the most important data points in each category.</p>
 <p>Also, please note the <code>format(precision=1, thousands=",", decimal=".")</code> snippet, this is not exactly a built-in style feature but has everything to do with keeping those float numbers tidy. Pandas tends to display more decimal places than we often require, which can be a bit distracting. To tone it down a notch, we can lean on the <code>format()</code> and <code>format_index()</code> methods to fine-tune the precision. Trust me, it’s super useful!</p>
 <div class="cell" data-tags="[]" data-execution_count="4">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    grouped.style.<span class="bu">format</span>(precision<span class="op">=</span><span class="dv">1</span>, thousands<span class="op">=</span><span class="st">","</span>, decimal<span class="op">=</span><span class="st">"."</span>)</span>
@@ -511,12 +517,6 @@ Table&nbsp;2: How the Data Appears After Grouping and Calculating Medians (Befor
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    .highlight_min(axis<span class="op">=</span><span class="dv">0</span>, props<span class="op">=</span><span class="st">"color:white; font-weight:bold; background-color:red;"</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table3" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="4" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Highlighting Maximum and Minimum Values with Pandas Styler
-</figcaption>
-<div aria-describedby="tbl-table3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="32">
 <style type="text/css">
 #T_d8571_row0_col2, #T_d8571_row2_col2, #T_d8571_row3_col0, #T_d8571_row3_col1, #T_d8571_row3_col2, #T_d8571_row4_col2, #T_d8571_row5_col2, #T_d8571_row7_col2, #T_d8571_row8_col2, #T_d8571_row9_col2, #T_d8571_row10_col2 {
@@ -531,7 +531,9 @@ Table&nbsp;3: Highlighting Maximum and Minimum Values with Pandas Styler
 }
 </style>
 
-<table id="T_d8571" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table3" class="anchored">
+<table id="T_d8571" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;3: Highlighting Maximum and Minimum Values with Pandas Styler</caption>
 <thead>
 <tr class="header">
 <th class="blank" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -541,7 +543,7 @@ Table&nbsp;3: Highlighting Maximum and Minimum Values with Pandas Styler
 <th id="T_d8571_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">tip</th>
 <th id="T_d8571_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">size</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th class="index_name level0" data-quarto-table-cell-role="th">day</th>
 <th class="index_name level1" data-quarto-table-cell-role="th">smoker</th>
 <th class="index_name level2" data-quarto-table-cell-role="th">time</th>
@@ -633,15 +635,13 @@ Table&nbsp;3: Highlighting Maximum and Minimum Values with Pandas Styler
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 </section>
 <section id="emphasizing-values-within-a-range" class="level2">
 <h2 class="anchored" data-anchor-id="emphasizing-values-within-a-range">Emphasizing Values Within a Range</h2>
 <p>Imagine you’re want to find the days when tips fell between 3 and 5 dollars. In this scenario, the <code>highlight_between</code> method comes to the rescue. Don’t forget to use the <code>subset</code> argument; it’s your trusty sidekick when you only want to work with selected columns.</p>
 <div class="cell" data-tags="[]" data-execution_count="5">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    grouped.reset_index()</span>
@@ -655,12 +655,6 @@ Table&nbsp;3: Highlighting Maximum and Minimum Values with Pandas Styler
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table4" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="5" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: Highlighting Data within a Specified Range Using Pandas Styler
-</figcaption>
-<div aria-describedby="tbl-table4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="33">
 <style type="text/css">
 #T_771ad_row0_col4, #T_771ad_row1_col4, #T_771ad_row2_col4, #T_771ad_row6_col4, #T_771ad_row7_col4, #T_771ad_row8_col4 {
@@ -670,7 +664,9 @@ Table&nbsp;4: Highlighting Data within a Specified Range Using Pandas Styler
 }
 </style>
 
-<table id="T_771ad" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table4" class="anchored">
+<table id="T_771ad" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;4: Highlighting Data within a Specified Range Using Pandas Styler</caption>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -786,15 +782,13 @@ Table&nbsp;4: Highlighting Data within a Specified Range Using Pandas Styler
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 </section>
 <section id="highlight-column-wise-outliers" class="level2">
 <h2 class="anchored" data-anchor-id="highlight-column-wise-outliers">Highlight Column-Wise Outliers</h2>
 <p>Utilizing parameters such as <code>q_left=0.05</code>, <code>q_right=0.95</code>, <code>axis=0</code>, and defining <code>props='opacity: 10%;'</code>, we can highlight values residing outside the 5-95 percentile range.</p>
 <div class="cell" data-tags="[]" data-execution_count="6">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    grouped.style.<span class="bu">format</span>(precision<span class="op">=</span><span class="dv">1</span>, thousands<span class="op">=</span><span class="st">","</span>, decimal<span class="op">=</span><span class="st">"."</span>).highlight_quantile(</span>
@@ -802,12 +796,6 @@ Table&nbsp;4: Highlighting Data within a Specified Range Using Pandas Styler
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table5" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="6" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5: Highlighting Outliers
-</figcaption>
-<div aria-describedby="tbl-table5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="34">
 <style type="text/css">
 #T_d7f9e_row0_col0, #T_d7f9e_row0_col1, #T_d7f9e_row0_col2, #T_d7f9e_row1_col0, #T_d7f9e_row1_col1, #T_d7f9e_row1_col2, #T_d7f9e_row2_col0, #T_d7f9e_row2_col1, #T_d7f9e_row2_col2, #T_d7f9e_row3_col2, #T_d7f9e_row4_col0, #T_d7f9e_row4_col1, #T_d7f9e_row4_col2, #T_d7f9e_row5_col0, #T_d7f9e_row5_col1, #T_d7f9e_row5_col2, #T_d7f9e_row6_col0, #T_d7f9e_row6_col1, #T_d7f9e_row6_col2, #T_d7f9e_row7_col2, #T_d7f9e_row8_col0, #T_d7f9e_row8_col1, #T_d7f9e_row8_col2, #T_d7f9e_row9_col0, #T_d7f9e_row9_col1, #T_d7f9e_row9_col2, #T_d7f9e_row10_col0, #T_d7f9e_row10_col1, #T_d7f9e_row10_col2 {
@@ -815,7 +803,9 @@ Table&nbsp;5: Highlighting Outliers
 }
 </style>
 
-<table id="T_d7f9e" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table5" class="anchored">
+<table id="T_d7f9e" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;5: Highlighting Outliers</caption>
 <thead>
 <tr class="header">
 <th class="blank" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -825,7 +815,7 @@ Table&nbsp;5: Highlighting Outliers
 <th id="T_d7f9e_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">tip</th>
 <th id="T_d7f9e_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">size</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th class="index_name level0" data-quarto-table-cell-role="th">day</th>
 <th class="index_name level1" data-quarto-table-cell-role="th">smoker</th>
 <th class="index_name level2" data-quarto-table-cell-role="th">time</th>
@@ -917,15 +907,13 @@ Table&nbsp;5: Highlighting Outliers
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 </section>
 <section id="spot-trends-using-color-gradients" class="level2">
 <h2 class="anchored" data-anchor-id="spot-trends-using-color-gradients">Spot trends Using Color Gradients</h2>
 <p>We can show data trends using both the <code>background_gradient</code> and <code>text_gradient</code> methods. These methods introduce gradient-style background colors and text shading to our visualizations. To optimize their impact, it’s advisable to first arrange your data with the <code>sort_values</code> method before applying the <code>background_gradient</code>.</p>
 <div class="cell" data-tags="[]" data-execution_count="7">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    grouped.reset_index()</span>
@@ -934,12 +922,6 @@ Table&nbsp;5: Highlighting Outliers
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    .background_gradient(cmap<span class="op">=</span><span class="st">"viridis"</span>, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table6" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="7" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6: Unveiling Data Trends with Pandas Styler’s <code>background_gradient</code>
-</figcaption>
-<div aria-describedby="tbl-table6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="35">
 <style type="text/css">
 #T_92abb_row0_col3, #T_92abb_row0_col4, #T_92abb_row0_col5, #T_92abb_row1_col4, #T_92abb_row1_col5, #T_92abb_row3_col5, #T_92abb_row4_col5, #T_92abb_row5_col5, #T_92abb_row7_col5, #T_92abb_row8_col5, #T_92abb_row9_col5, #T_92abb_row10_col5 {
@@ -1012,7 +994,9 @@ Table&nbsp;6: Unveiling Data Trends with Pandas Styler’s <code>background_grad
 }
 </style>
 
-<table id="T_92abb" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table6" class="anchored">
+<table id="T_92abb" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;6: Unveiling Data Trends with Pandas Styler’s <code>background_gradient</code></caption>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -1128,11 +1112,9 @@ Table&nbsp;6: Unveiling Data Trends with Pandas Styler’s <code>background_grad
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="8">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    grouped.reset_index()</span>
@@ -1141,12 +1123,6 @@ Table&nbsp;6: Unveiling Data Trends with Pandas Styler’s <code>background_grad
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    .text_gradient(cmap<span class="op">=</span><span class="st">"bwr"</span>, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table7" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7: Unveiling Data Trends with Pandas Styler’s <code>text_gradient</code>
-</figcaption>
-<div aria-describedby="tbl-table7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="36">
 <style type="text/css">
 #T_d5e8e_row0_col3, #T_d5e8e_row0_col4, #T_d5e8e_row0_col5, #T_d5e8e_row1_col4, #T_d5e8e_row1_col5, #T_d5e8e_row3_col5, #T_d5e8e_row4_col5, #T_d5e8e_row5_col5, #T_d5e8e_row7_col5, #T_d5e8e_row8_col5, #T_d5e8e_row9_col5, #T_d5e8e_row10_col5 {
@@ -1202,7 +1178,9 @@ Table&nbsp;7: Unveiling Data Trends with Pandas Styler’s <code>text_gradient</
 }
 </style>
 
-<table id="T_d5e8e" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table7" class="anchored">
+<table id="T_d5e8e" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;7: Unveiling Data Trends with Pandas Styler’s <code>text_gradient</code></caption>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -1318,15 +1296,13 @@ Table&nbsp;7: Unveiling Data Trends with Pandas Styler’s <code>text_gradient</
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 </section>
 <section id="display-bar-charts-within-your-table" class="level2">
 <h2 class="anchored" data-anchor-id="display-bar-charts-within-your-table">Display Bar Charts within Your Table</h2>
 <p>Let’s explore a technique for highlighting the significance of values by embedding bar charts right within the cells. The blend of bar heights and color gradients can pack a powerful punch in your data storytelling arsenal. Don’t forget to experiment with the ‘align’ option, a handy tool that helps you position these bars within the cells just right, giving your visuals a polished look. Feel free to play around with the settings and find what clicks best with your data tales.</p>
 <div class="cell" data-tags="[]" data-execution_count="9">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    grouped.reset_index()</span>
@@ -1341,12 +1317,6 @@ Table&nbsp;7: Unveiling Data Trends with Pandas Styler’s <code>text_gradient</
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table8" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="9" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8: Bar Charts in Your Table with Alignment Set to ‘Mean’
-</figcaption>
-<div aria-describedby="tbl-table8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="37">
 <style type="text/css">
 #T_63ab8_row0_col3, #T_63ab8_row0_col4 {
@@ -1477,7 +1447,9 @@ Table&nbsp;8: Bar Charts in Your Table with Alignment Set to ‘Mean’
 }
 </style>
 
-<table id="T_63ab8" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table8" class="anchored">
+<table id="T_63ab8" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;8: Bar Charts in Your Table with Alignment Set to ‘Mean’</caption>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -1593,11 +1565,9 @@ Table&nbsp;8: Bar Charts in Your Table with Alignment Set to ‘Mean’
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="10">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    grouped.reset_index()</span>
@@ -1612,12 +1582,6 @@ Table&nbsp;8: Bar Charts in Your Table with Alignment Set to ‘Mean’
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table9" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="10" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;9: Bar Charts in Your Table with Alignment Set using a float number
-</figcaption>
-<div aria-describedby="tbl-table9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="38">
 <style type="text/css">
 #T_1e17c_row0_col3 {
@@ -1736,7 +1700,9 @@ Table&nbsp;9: Bar Charts in Your Table with Alignment Set using a float number
 }
 </style>
 
-<table id="T_1e17c" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table9" class="anchored">
+<table id="T_1e17c" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;9: Bar Charts in Your Table with Alignment Set using a float number</caption>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -1852,8 +1818,6 @@ Table&nbsp;9: Bar Charts in Your Table with Alignment Set using a float number
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 </section>
 <section id="formatting" class="level2">
@@ -1870,7 +1834,7 @@ Table&nbsp;9: Bar Charts in Your Table with Alignment Set using a float number
 </ol>
 <p>This demonstration underscores the virtually endless possibilities for customizing the appearance of your DataFrame. However, it’s important to note that the physical attributes set by the <code>set_table_styles</code> method won’t be exported to Excel, should you choose to do so. Just a handy tidbit to keep in mind.</p>
 <div class="cell" data-tags="[]" data-execution_count="11">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start by resetting the index and renaming columns with underscores</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace underscores with spaces for better readability</span></span>
@@ -1915,12 +1879,6 @@ Table&nbsp;9: Bar Charts in Your Table with Alignment Set using a float number
 <span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table10" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="11" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;10: Formatting tables
-</figcaption>
-<div aria-describedby="tbl-table10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="39">
 <style type="text/css">
 #T_42daa th.col_heading {
@@ -2006,13 +1964,9 @@ Table&nbsp;10: Formatting tables
 }
 </style>
 
-<div id="T_42daa" class="do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
-<figure class="quarto-float quarto-subfloat-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="T_42daa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Exploring Dining Trends: Bill Amounts, Tips, and Party Sizes
-</figcaption>
-<div aria-describedby="T_42daa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_42daa" class="do-not-create-environment caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table10" class="anchored">
+<table id="T_42daa" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;10: Formatting tables</caption>
 <thead>
 <tr class="header">
 <th id="T_42daa_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">DAY</th>
@@ -2103,11 +2057,6 @@ Table&nbsp;10: Formatting tables
 </tbody>
 </table>
 </div>
-</figure>
-</div>
-</div>
-</div>
-</figure>
 </div>
 </div>
 </section>
@@ -2116,7 +2065,7 @@ Table&nbsp;10: Formatting tables
 <h1>Defining Custom Styling</h1>
 <p>If the predefined styling methods don’t meet your needs, you have the flexibility to create your custom styling function and use it with your DataFrame. You can apply styling element by element using the <code>.applymap()</code> method, or you can work on columns or rows using the <code>.apply()</code> method. If you need to work specifically on column header rows or indexes, both <code>.apply_index()</code> and <code>.applymap_index()</code> are at your disposal.</p>
 <div class="cell" data-tags="[]" data-execution_count="12">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a custom styling function that highlights 'Sun' in yellow</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> highlight_sunday(value, color):</span>
@@ -2143,12 +2092,6 @@ Table&nbsp;10: Formatting tables
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table11" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="12" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;11: Applying Custom Styling
-</figcaption>
-<div aria-describedby="tbl-table11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="40">
 <style type="text/css">
 #T_01ce9_row0_col4, #T_01ce9_row1_col4, #T_01ce9_row4_col4, #T_01ce9_row5_col4, #T_01ce9_row6_col4, #T_01ce9_row7_col4, #T_01ce9_row8_col4 {
@@ -2168,7 +2111,9 @@ Table&nbsp;11: Applying Custom Styling
 }
 </style>
 
-<table id="T_01ce9" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table11" class="anchored">
+<table id="T_01ce9" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;11: Applying Custom Styling</caption>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -2286,8 +2231,6 @@ Table&nbsp;11: Applying Custom Styling
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 </section>
 <section id="other-useful-features" class="level1">
@@ -2297,16 +2240,10 @@ Table&nbsp;11: Applying Custom Styling
 <p>What if you find yourself facing a DataFrame with more columns than can comfortably fit on your screen, yet you still wish to inspect each column individually? In the past, you might have resorted to using <code>pd.set_option('display.max_columns', xyz)</code> to expand the display. However, there’s a much more elegant solution: <code>set_sticky</code>.</p>
 <p><code>set_sticky</code> introduces a clever CSS trick that permanently pins the index or column headers within a scrolling frame. In our case, although the ‘tips’ DataFrame doesn’t have an excessive number of columns, we’ve concatenated 10 DataFrames together to showcase the remarkable utility of <code>set_sticky</code>. As you scroll horizontally, you’ll notice that you can now conveniently inspect all the columns while the index remains firmly in place, thanks to the magic of <code>set_sticky</code>. Let’s explore this feature below.</p>
 <div class="cell" data-tags="[]" data-execution_count="13">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(pd.concat([df <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)], axis<span class="op">=</span><span class="dv">1</span>).head().style.set_sticky(axis<span class="op">=</span><span class="st">"index"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table12" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="13" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;12: Demonstrating <code>set_sticky</code>
-</figcaption>
-<div aria-describedby="tbl-table12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="41">
 <style type="text/css">
 #T_de0a2 thead tr th:nth-child(1) {
@@ -2323,7 +2260,9 @@ Table&nbsp;12: Demonstrating <code>set_sticky</code>
 }
 </style>
 
-<table id="T_de0a2" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table12" class="anchored">
+<table id="T_de0a2" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;12: Demonstrating <code>set_sticky</code></caption>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -2769,15 +2708,13 @@ Table&nbsp;12: Demonstrating <code>set_sticky</code>
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 </section>
 <section id="concatenating-dataframe-outputs" class="level2">
 <h2 class="anchored" data-anchor-id="concatenating-dataframe-outputs">Concatenating DataFrame Outputs</h2>
 <p>You can combine two or more Stylers if they have the same columns. This is particularly handy when presenting summary statistics for a DataFrame</p>
 <div class="cell" data-tags="[]" data-execution_count="14">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    df.groupby(<span class="st">"day"</span>)[[<span class="st">"total_bill"</span>, <span class="st">"tip"</span>, <span class="st">"size"</span>]]</span>
@@ -2791,17 +2728,13 @@ Table&nbsp;12: Demonstrating <code>set_sticky</code>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-table13" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="14" data-tags="[]">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;13: Demonstrating Easily Concatenating Different DataFrame Outputs
-</figcaption>
-<div aria-describedby="tbl-table13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="42">
 <style type="text/css">
 </style>
 
-<table id="T_35ac7" class="do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-table13" class="anchored">
+<table id="T_35ac7" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Table&nbsp;13: Demonstrating Easily Concatenating Different DataFrame Outputs</caption>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -2809,7 +2742,7 @@ Table&nbsp;13: Demonstrating Easily Concatenating Different DataFrame Outputs
 <th id="T_35ac7_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">tip</th>
 <th id="T_35ac7_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">size</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th class="index_name level0" data-quarto-table-cell-role="th">day</th>
 <th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
 <th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -2862,8 +2795,6 @@ Table&nbsp;13: Demonstrating Easily Concatenating Different DataFrame Outputs
 </tbody>
 </table>
 </div>
-</div>
-</figure>
 </div>
 </div>
 </section>
@@ -2920,33 +2851,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -3015,15 +2919,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -3058,7 +2960,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -3090,27 +3003,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -3162,27 +3055,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/adamcseresznye\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3192,17 +3068,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3214,129 +3081,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -3380,7 +3125,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3406,32 +3150,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -3819,7 +3537,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-354"><a href="#cb15-354" aria-hidden="true" tabindex="-1"></a>To save your styled DataFrame in Excel format, you can export it to an .xlsx file, preserving the styling. To do this, ensure you have the 'openpyxl' package installed.</span>
 <span id="cb15-355"><a href="#cb15-355" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-356"><a href="#cb15-356" aria-hidden="true" tabindex="-1"></a>And there you have it, folks! This concludes our brief exploration of the formatting options available right within Pandas. I hope you found this article insightful and enjoyable. Until next time, happy coding!</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -3827,15 +3545,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2024, Adam Cseresznye</p>
-</div>
+    <div class="nav-footer-center">Copyright 2024, Adam Cseresznye</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

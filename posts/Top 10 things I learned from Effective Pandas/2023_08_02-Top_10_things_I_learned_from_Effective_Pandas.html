@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adam Cseresznye">
 <meta name="dcterms.date" content="2023-08-02">
 
-<title>Top 10 things I learned from the book Effective Pandas by Matt Harrison – Adam Cseresznye</title>
+<title>Adam Cseresznye - Top 10 things I learned from the book Effective Pandas by Matt Harrison</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,25 +72,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b697eb10549dbab267b4169cc0aac045.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6f6a3df318ae731e7885b4e8bdb9d5b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -99,7 +93,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -125,13 +118,13 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Top 10 things I learned from the book Effective Pandas by Matt Harrison – Adam Cseresznye">
+<meta property="og:title" content="Adam Cseresznye - Top 10 things I learned from the book Effective Pandas by Matt Harrison">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://adamcseresznye.github.io/posts/Top 10 things I learned from Effective Pandas/2023_08_02-Top_10_things_I_learned_from_Effective_Pandas_files/figure-html/cell-12-output-1.png">
-<meta property="og:site_name" content="Adam Cseresznye">
+<meta property="og:site-name" content="Adam Cseresznye">
 <meta property="og:image:height" content="941">
 <meta property="og:image:width" content="1967">
-<meta name="twitter:title" content="Top 10 things I learned from the book Effective Pandas by Matt Harrison – Adam Cseresznye">
+<meta name="twitter:title" content="Adam Cseresznye - Top 10 things I learned from the book Effective Pandas by Matt Harrison">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://adamcseresznye.github.io/posts/Top 10 things I learned from Effective Pandas/2023_08_02-Top_10_things_I_learned_from_Effective_Pandas_files/figure-html/cell-12-output-1.png">
 <meta name="twitter:image-height" content="941">
@@ -142,51 +135,50 @@ ga('send', {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Adam Cseresznye</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../scientific_output.html"> 
-<span class="menu-text">Scientific Output</span></a>
+    <a class="nav-link" href="../../scientific_output.html" rel="" target="">
+ <span class="menu-text">Scientific Output</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/adamcseresznye"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/adamcseresznye" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/csenye22"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/csenye22" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -195,6 +187,7 @@ ga('send', {
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -259,13 +252,12 @@ ga('send', {
 
 
 
-
 <p><a href="https://store.metasnake.com/effective-pandas-book">Effective Pandas by Matt Harrison</a> is a guide to the Pandas library, a powerful Python tool for data manipulation and analysis. The book covers a wide range of topics, from basic data structures to advanced techniques for data cleaning, transformation, and visualization.</p>
 <p>I have found Effective Pandas to be a captivating and thought-provoking read. The book offers a genuinely unique take on data wrangling, putting a great emphasis on the utility of <em>chaining methods</em> and utilizing the <em>lambda function</em>. I have found these ideas to be so useful and practical that I have revisited the book multiple times just to make sure I keep them fresh in my memory. I must have read the book from back to back at least 3-4 times.</p>
 <p>In this article, I will share the top 10 (+1) things I learned from Effective Pandas. These are the concepts and techniques that I found to be the most useful and practical.</p>
 <p>We will use the <a href="https://www.kaggle.com/datasets/abhijitdahatonde/real-world-smartphones-dataset?select=smartphones.csv">Real World Smartphone’s Dataset</a> by Abhijit Dahatonde from Kaggle. Let’s get to it.</p>
 <div class="cell" data-execution_count="1">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -277,7 +269,7 @@ ga('send', {
 <section id="load-the-dataset" class="level1">
 <h1>Load the dataset</h1>
 <div class="cell" data-execution_count="2">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'smartphones.csv'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># some info about the dataframe, such as dimensions and dtypes of columns</span></span>
@@ -322,7 +314,7 @@ memory usage: 168.6+ KB</code></pre>
 <p>One of the most important benefits of using the assign method is that it can be incorporated into method chaining. This means that you can chain multiple assign methods together to create a more concise and readable code. Another benefit of using the assign method is that it completely sidesteps the infamous <code>SettingWithCopyWarning</code>. This warning is often triggered when you try to modify an existing column in a DataFrame. However, the assign method creates a new DataFrame, so there is no need to worry about this warning.</p>
 <p><strong>Problem statement:</strong> Let’s say we would like to capitalize the brand names located in the <code>brand_name column</code> as well as calculate the Pixels Per Inch (PPI). PPI can be calculated following the equation described by the <a href="https://en.wikipedia.org/wiki/Pixel_density">Pixel density</a> page on Wikipedia.</p>
 <div class="cell" data-execution_count="3">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(df</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> .assign(brand_name<span class="op">=</span><span class="kw">lambda</span> df: df.brand_name.<span class="bu">str</span>.capitalize(), <span class="co"># capitalizes the brand names </span></span>
@@ -340,7 +332,7 @@ memory usage: 168.6+ KB</code></pre>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -392,7 +384,7 @@ memory usage: 168.6+ KB</code></pre>
 <p>If our goal is to incorporate if-else logic seamlessly into our code, we can effortlessly achieve this using either <code>pd.mask</code> or <code>pd.where</code>. Yet, what approach should we adopt when we need to evaluate multiple conditions instead of just two? In such situations, we have two options: we can either employ successive <code>pd.mask</code> or <code>pd.where</code> calls, or we can take advantage of the <code>np.select</code> function as an alternative solution.</p>
 <p><strong>Problem statement:</strong> We want to identify the top 3 and top 5 most popular processor brands in smartphones. To do this, we will first create two lists, one for the top 3 brands and one for the top 5 brands. Any processor brand that is not in either of these lists will be categorized as “Other”.</p>
 <div class="cell" data-execution_count="4">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's create the two lists that contain the top3 and top5 brand names</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>top3<span class="op">=</span>df.processor_brand.value_counts().head(<span class="dv">3</span>).index</span>
@@ -406,7 +398,7 @@ Top 5 most popular processors: ['snapdragon', 'helio', 'dimensity', 'exynos', 'b
 </div>
 </div>
 <div class="cell" data-execution_count="5">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">Here's an example that employs two successive pd.where calls:</span></span>
@@ -434,7 +426,7 @@ Name: frequency, dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="6">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"> Now Let's see np.select!</span></span>
@@ -468,7 +460,7 @@ Name: frequency, dtype: int64</code></pre>
 <p>Some experienced Pandas users might consider the following concept trivial, but it was an eye-opener for me after reading the book. It turns out that combining <code>pd.loc</code> and <code>lambda</code> (or any custom functions) allows us to filter both rows and columns, depending on our specific needs.</p>
 <p><strong>Problem statement:</strong> We are interested in identifying phones with a battery capacity greater than 5000mAh.</p>
 <div class="cell" data-execution_count="7">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(df</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> .loc[<span class="kw">lambda</span> df: df.battery_capacity.gt(<span class="dv">5000</span>),[<span class="st">'model'</span>, <span class="st">'battery_capacity'</span>]] <span class="co"># here we use pd.gt() to select values greater than 5000</span></span>
@@ -479,7 +471,7 @@ Name: frequency, dtype: int64</code></pre>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -556,7 +548,7 @@ Name: frequency, dtype: int64</code></pre>
 <p>OK. This is a big one for me. I used this one multiple times already. The title pretty much says it all. Let’s say our column names contain spaces, which makes column selection by attribute access pretty much impossible. Now, what do we do? Well…Let’s see.</p>
 <p><strong>Problem statement:</strong> We would like to remove all the underscores from our column names.</p>
 <div class="cell" data-execution_count="8">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.columns <span class="co"># original column names for reference</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -571,7 +563,7 @@ Name: frequency, dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="9">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># column names after replacing underscores</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>(df</span>
@@ -593,7 +585,7 @@ Name: frequency, dtype: int64</code></pre>
 <section id="tip-5-use-pd.clip-to-easily-remove-outliers" class="level1 page-columns page-full">
 <h1>Tip #5: Use <code>pd.clip</code> to easily remove outliers</h1>
 <div class="cell" data-execution_count="10">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we'll identify the phone brands with the most number of handsets present in our dataset."</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>top10_brand_names <span class="op">=</span> (df</span>
@@ -622,7 +614,7 @@ Name: frequency, dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="11">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -654,12 +646,8 @@ Name: frequency, dtype: int64</code></pre>
 <span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">'Price in local currency'</span>)</span>
 <span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display page-columns page-full">
-<div class="page-columns page-full">
-<figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="2023_08_02-Top_10_things_I_learned_from_Effective_Pandas_files/figure-html/cell-12-output-1.png" width="984" height="471" class="figure-img column-page"></p>
-</figure>
-</div>
+<div class="cell-output cell-output-display column-page">
+<p><img src="2023_08_02-Top_10_things_I_learned_from_Effective_Pandas_files/figure-html/cell-12-output-1.png" width="984" height="471"></p>
 </div>
 </div>
 </section>
@@ -668,7 +656,7 @@ Name: frequency, dtype: int64</code></pre>
 <p>How often have you encountered the situation where, for some reason, a column that is expected to only contain numerical values displays <code>object</code> as its <code>dtype</code>? This often indicates the presence of some string values mixed within the column. It would be beneficial to promptly identify all the erroneous values, correct them, and proceed with our analysis smoothly. Let’s explore what we can do in such scenarios.</p>
 <p><strong>Problem statement:</strong> We would like to identify any cells in a specific column that contain non-numerical values.</p>
 <div class="cell" data-execution_count="12">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_bad_values <span class="op">=</span> df.copy(deep<span class="op">=</span><span class="va">True</span>) <span class="co"># let's prepare a copy of the original dataframe </span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -711,7 +699,7 @@ memory usage: 168.6+ KB</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="13">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's find the corrupted values easily:</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>(df_bad_values</span>
@@ -733,7 +721,7 @@ dtype: int64</code></pre>
 <p>The <code>pd.sort_values</code> function surprised me with its versatility. Previously, I had only used its <code>by</code>, <code>axis</code>, and <code>ascending</code> parameters for sorting. However, Matt’s book introduced me to its <code>key</code> parameter, which allows us to apply any function to sort the values. The only constraint is that the function must return a <code>Series</code>.</p>
 <p><strong>Problem statement:</strong> For whatever reason, we would like to sort the phone model names in ascending order based on their second letter.</p>
 <div class="cell" data-execution_count="14">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(df</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a> .iloc[:, <span class="dv">1</span>:<span class="dv">3</span>]</span>
@@ -748,7 +736,7 @@ dtype: int64</code></pre>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -819,7 +807,7 @@ dtype: int64</code></pre>
 <p>This resembles Tip #4, as it’s a technique I frequently use. Since reading Matt’s book, I have started using <code>pd.query</code> extensively to filter rows based on values, instead of relying on <code>.loc</code> or <code>.iloc</code>. In case you choose to adopt <code>pd.query</code> as well, it’s essential to be aware of its capability to use “@” to reference variables in the environment. This feature enhances its flexibility and makes it even more convenient to apply in various data filtering scenarios.</p>
 <p><strong>Problem statement:</strong> Our objective is to identify phones that meet three specific criteria: being priced below the average market price, having more processor cores than the average, and possessing a battery capacity greater than the average.</p>
 <div class="cell" data-execution_count="15">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>average_price<span class="op">=</span>df.price.mean()</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>average_cores<span class="op">=</span>df.num_cores.mean()</span>
@@ -836,7 +824,7 @@ dtype: int64</code></pre>
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -888,7 +876,7 @@ dtype: int64</code></pre>
 <p>Being a visual creature, I often struggle to comprehend data quickly just by examining the raw table alone. Fortunately, with the help of <code>style.background_gradient</code>, similar to the <code>heatmap</code> function in the <code>seaborn</code> library, we can represent cells, in terms of color gradient, based on their values. This enables us to identify trends and patterns in our data swiftly, making data analysis more intuitive and insightful.</p>
 <p><strong>Problem statement:</strong> Our goal is to identify the overall trends related to key descriptors found among the Top 10 smartphone brands, aiming to determine which brand offers the most value for our money.</p>
 <div class="cell page-columns page-full" data-execution_count="16">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>(df</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a> .query(<span class="st">"brand_name.isin(@top10_brand_names_ordered)"</span>) <span class="co"># filter rows based on top10 brands</span></span>
@@ -1085,13 +1073,8 @@ dtype: int64</code></pre>
 }
 </style>
 
-<div id="T_39fb7" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_39fb7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Key descriptors of the Top 10 smartphone brands
-</figcaption>
-<div aria-describedby="T_39fb7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_39fb7" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table id="T_39fb7" data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Key descriptors of the Top 10 smartphone brands</caption>
 <thead>
 <tr class="header">
 <th class="index_name level0" data-quarto-table-cell-role="th">brand_name</th>
@@ -1189,9 +1172,6 @@ Table&nbsp;1: Key descriptors of the Top 10 smartphone brands
 </tbody>
 </table>
 </div>
-</figure>
-</div>
-</div>
 </div>
 </section>
 <section id="tip-10-use-pd.pipe-to-include-any-functions-in-our-chain" class="level1">
@@ -1200,7 +1180,7 @@ Table&nbsp;1: Key descriptors of the Top 10 smartphone brands
 <p>In the chaining world, you often find yourself wanting to use various functions that are not explicitly designed for chaining. However, there’s good news! You can still achieve this. The <code>pd.pipe</code> function comes to the rescue, allowing you to use any function as long as it returns a Series or DataFrame. It’s a flexible solution that empowers you to seamlessly integrate different functions into your chaining workflow, making your data manipulation more efficient and enjoyable.</p>
 <p><strong>Problem statement:</strong> We aim to visualize the impact of RAM capacity on user satisfaction. To achieve this, we will utilize the <code>sns.lmplot</code> function, which plots the data and corresponding regression models for the Top 5 phone brands.</p>
 <div class="cell" data-execution_count="17">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>top5_brand_names_ordered <span class="op">=</span> df.brand_name.value_counts().head().index</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1227,11 +1207,7 @@ Table&nbsp;1: Key descriptors of the Top 10 smartphone brands
 <span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2023_08_02-Top_10_things_I_learned_from_Effective_Pandas_files/figure-html/cell-18-output-1.png" width="584" height="470" class="figure-img"></p>
-</figure>
-</div>
+<p><img src="2023_08_02-Top_10_things_I_learned_from_Effective_Pandas_files/figure-html/cell-18-output-1.png" width="584" height="470"></p>
 </div>
 </div>
 </section>
@@ -1240,7 +1216,7 @@ Table&nbsp;1: Key descriptors of the Top 10 smartphone brands
 <p>Despite primarily using the pandas <code>groupby</code> function for data aggregation, the <code>pd.crosstab</code> function has an enticing feature: the <code>margin</code> parameter. This option enables us to effortlessly calculate subtotals across rows and columns. Moreover, by normalizing our data, we can gain even more intuition about the questions we want to answer.</p>
 <p><strong>Problem statement:</strong> Our objective is to evaluate how RAM capacity impacts user satisfaction across the Top 5 brands. Additionally, we will normalize our data to compare values comprehensively across the entire dataset.</p>
 <div class="cell" data-execution_count="18">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>(df</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a> .query(<span class="st">"brand_name.isin(@top5_brand_names_ordered)"</span>) <span class="co"># filter rows based on top10 brands</span></span>
@@ -1261,7 +1237,7 @@ Table&nbsp;1: Key descriptors of the Top 10 smartphone brands
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">brand_name</th>
@@ -1272,7 +1248,7 @@ Table&nbsp;1: Key descriptors of the Top 10 smartphone brands
 <th data-quarto-table-cell-role="th">Xiaomi</th>
 <th data-quarto-table-cell-role="th">All</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th data-quarto-table-cell-role="th">ram_capacity</th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
@@ -1413,33 +1389,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -1506,15 +1455,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1549,7 +1496,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1581,27 +1539,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -1653,27 +1591,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/adamcseresznye\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1683,17 +1604,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1705,129 +1617,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1871,7 +1661,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1897,32 +1686,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2022,11 +1785,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tip #1: Use &lt;code&gt;pd.assign&lt;/code&gt; more extensively</span></span>
 <span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>The &lt;code&gt;pd.assign&lt;/code&gt; method in Pandas is a very powerful tool that can be used to create new columns, modify existing columns, or both. It is a very versatile method that can be used in a variety of ways.</span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>The <span class="kw">&lt;code&gt;</span>pd.assign<span class="kw">&lt;/code&gt;</span> method in Pandas is a very powerful tool that can be used to create new columns, modify existing columns, or both. It is a very versatile method that can be used in a variety of ways.</span>
 <span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>One of the most important benefits of using the assign method is that it can be incorporated into method chaining. This means that you can chain multiple assign methods together to create a more concise and readable code. Another benefit of using the assign method is that it completely sidesteps the infamous &lt;code&gt;SettingWithCopyWarning&lt;/code&gt;. This warning is often triggered when you try to modify an existing column in a DataFrame. However, the assign method creates a new DataFrame, so there is no need to worry about this warning.</span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>One of the most important benefits of using the assign method is that it can be incorporated into method chaining. This means that you can chain multiple assign methods together to create a more concise and readable code. Another benefit of using the assign method is that it completely sidesteps the infamous <span class="kw">&lt;code&gt;</span>SettingWithCopyWarning<span class="kw">&lt;/code&gt;</span>. This warning is often triggered when you try to modify an existing column in a DataFrame. However, the assign method creates a new DataFrame, so there is no need to worry about this warning.</span>
 <span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a>**Problem statement:** Let's say we would like to capitalize the brand names located in the &lt;code&gt;brand_name column&lt;/code&gt; as well as calculate the Pixels Per Inch (PPI). PPI can be calculated following the equation described by the <span class="co">[</span><span class="ot">Pixel density</span><span class="co">](https://en.wikipedia.org/wiki/Pixel_density)</span> page on Wikipedia.</span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a>**Problem statement:** Let's say we would like to capitalize the brand names located in the <span class="kw">&lt;code&gt;</span>brand_name column<span class="kw">&lt;/code&gt;</span> as well as calculate the Pixels Per Inch (PPI). PPI can be calculated following the equation described by the <span class="co">[</span><span class="ot">Pixel density</span><span class="co">](https://en.wikipedia.org/wiki/Pixel_density)</span> page on Wikipedia.</span>
 <span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a>(df</span>
@@ -2044,7 +1807,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tip #2: Simplify the management of multiple if-else conditions using &lt;code&gt;np.select&lt;/code&gt;</span></span>
 <span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a>If our goal is to incorporate if-else logic seamlessly into our code, we can effortlessly achieve this using either &lt;code&gt;pd.mask&lt;/code&gt; or &lt;code&gt;pd.where&lt;/code&gt;. Yet, what approach should we adopt when we need to evaluate multiple conditions instead of just two? In such situations, we have two options: we can either employ successive &lt;code&gt;pd.mask&lt;/code&gt; or &lt;code&gt;pd.where&lt;/code&gt; calls, or we can take advantage of the &lt;code&gt;np.select&lt;/code&gt; function as an alternative solution.</span>
+<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a>If our goal is to incorporate if-else logic seamlessly into our code, we can effortlessly achieve this using either <span class="kw">&lt;code&gt;</span>pd.mask<span class="kw">&lt;/code&gt;</span> or <span class="kw">&lt;code&gt;</span>pd.where<span class="kw">&lt;/code&gt;</span>. Yet, what approach should we adopt when we need to evaluate multiple conditions instead of just two? In such situations, we have two options: we can either employ successive <span class="kw">&lt;code&gt;</span>pd.mask<span class="kw">&lt;/code&gt;</span> or <span class="kw">&lt;code&gt;</span>pd.where<span class="kw">&lt;/code&gt;</span> calls, or we can take advantage of the <span class="kw">&lt;code&gt;</span>np.select<span class="kw">&lt;/code&gt;</span> function as an alternative solution.</span>
 <span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-71"><a href="#cb28-71" aria-hidden="true" tabindex="-1"></a>**Problem statement:** We want to identify the top 3 and top 5 most popular processor brands in smartphones. To do this, we will first create two lists, one for the top 3 brands and one for the top 5 brands. Any processor brand that is not in either of these lists will be categorized as "Other".</span>
 <span id="cb28-72"><a href="#cb28-72" aria-hidden="true" tabindex="-1"></a></span>
@@ -2095,7 +1858,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-123"><a href="#cb28-123" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-124"><a href="#cb28-124" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tip #3 Filter rows or columns with the combination of &lt;code&gt;pd.loc&lt;/code&gt; and &lt;code&gt;lambda&lt;/code&gt;</span></span>
 <span id="cb28-125"><a href="#cb28-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a>Some experienced Pandas users might consider the following concept trivial, but it was an eye-opener for me after reading the book. It turns out that combining &lt;code&gt;pd.loc&lt;/code&gt; and &lt;code&gt;lambda&lt;/code&gt; (or any custom functions) allows us to filter both rows and columns, depending on our specific needs.</span>
+<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a>Some experienced Pandas users might consider the following concept trivial, but it was an eye-opener for me after reading the book. It turns out that combining <span class="kw">&lt;code&gt;</span>pd.loc<span class="kw">&lt;/code&gt;</span> and <span class="kw">&lt;code&gt;</span>lambda<span class="kw">&lt;/code&gt;</span> (or any custom functions) allows us to filter both rows and columns, depending on our specific needs.</span>
 <span id="cb28-127"><a href="#cb28-127" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-128"><a href="#cb28-128" aria-hidden="true" tabindex="-1"></a>**Problem statement:** We are interested in identifying phones with a battery capacity greater than 5000mAh.</span>
 <span id="cb28-129"><a href="#cb28-129" aria-hidden="true" tabindex="-1"></a></span>
@@ -2186,7 +1949,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-224"><a href="#cb28-224" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-225"><a href="#cb28-225" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tip #6: Find corrupted entries with &lt;code&gt;str.extract&lt;/code&gt;</span></span>
 <span id="cb28-226"><a href="#cb28-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-227"><a href="#cb28-227" aria-hidden="true" tabindex="-1"></a>How often have you encountered the situation where, for some reason, a column that is expected to only contain numerical values displays &lt;code&gt;object&lt;/code&gt; as its &lt;code&gt;dtype&lt;/code&gt;? This often indicates the presence of some string values mixed within the column. It would be beneficial to promptly identify all the erroneous values, correct them, and proceed with our analysis smoothly. Let's explore what we can do in such scenarios.</span>
+<span id="cb28-227"><a href="#cb28-227" aria-hidden="true" tabindex="-1"></a>How often have you encountered the situation where, for some reason, a column that is expected to only contain numerical values displays <span class="kw">&lt;code&gt;</span>object<span class="kw">&lt;/code&gt;</span> as its <span class="kw">&lt;code&gt;</span>dtype<span class="kw">&lt;/code&gt;</span>? This often indicates the presence of some string values mixed within the column. It would be beneficial to promptly identify all the erroneous values, correct them, and proceed with our analysis smoothly. Let's explore what we can do in such scenarios.</span>
 <span id="cb28-228"><a href="#cb28-228" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-229"><a href="#cb28-229" aria-hidden="true" tabindex="-1"></a>**Problem statement:** We would like to identify any cells in a specific column that contain non-numerical values.</span>
 <span id="cb28-230"><a href="#cb28-230" aria-hidden="true" tabindex="-1"></a></span>
@@ -2211,7 +1974,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-253"><a href="#cb28-253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-254"><a href="#cb28-254" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tip #7: Sort values based on the &lt;code&gt;key&lt;/code&gt; parameter</span></span>
 <span id="cb28-255"><a href="#cb28-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-256"><a href="#cb28-256" aria-hidden="true" tabindex="-1"></a>The &lt;code&gt;pd.sort_values&lt;/code&gt; function surprised me with its versatility. Previously, I had only used its &lt;code&gt;by&lt;/code&gt;, &lt;code&gt;axis&lt;/code&gt;, and &lt;code&gt;ascending&lt;/code&gt; parameters for sorting. However, Matt's book introduced me to its &lt;code&gt;key&lt;/code&gt; parameter, which allows us to apply any function to sort the values. The only constraint is that the function must return a &lt;code&gt;Series&lt;/code&gt;. </span>
+<span id="cb28-256"><a href="#cb28-256" aria-hidden="true" tabindex="-1"></a>The <span class="kw">&lt;code&gt;</span>pd.sort_values<span class="kw">&lt;/code&gt;</span> function surprised me with its versatility. Previously, I had only used its <span class="kw">&lt;code&gt;</span>by<span class="kw">&lt;/code&gt;</span>, <span class="kw">&lt;code&gt;</span>axis<span class="kw">&lt;/code&gt;</span>, and <span class="kw">&lt;code&gt;</span>ascending<span class="kw">&lt;/code&gt;</span> parameters for sorting. However, Matt's book introduced me to its <span class="kw">&lt;code&gt;</span>key<span class="kw">&lt;/code&gt;</span> parameter, which allows us to apply any function to sort the values. The only constraint is that the function must return a <span class="kw">&lt;code&gt;</span>Series<span class="kw">&lt;/code&gt;</span>. </span>
 <span id="cb28-257"><a href="#cb28-257" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-258"><a href="#cb28-258" aria-hidden="true" tabindex="-1"></a>**Problem statement:** For whatever reason, we would like to sort the phone model names in ascending order based on their second letter.</span>
 <span id="cb28-259"><a href="#cb28-259" aria-hidden="true" tabindex="-1"></a></span>
@@ -2228,7 +1991,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-272"><a href="#cb28-272" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-273"><a href="#cb28-273" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tip #8: Reference an existing variable inside &lt;code&gt;pd.query&lt;/code&gt; with @</span></span>
 <span id="cb28-274"><a href="#cb28-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-275"><a href="#cb28-275" aria-hidden="true" tabindex="-1"></a>This resembles Tip #4, as it's a technique I frequently use. Since reading Matt's book, I have started using &lt;code&gt;pd.query&lt;/code&gt; extensively to filter rows based on values, instead of relying on &lt;code&gt;.loc&lt;/code&gt; or &lt;code&gt;.iloc&lt;/code&gt;. In case you choose to adopt &lt;code&gt;pd.query&lt;/code&gt; as well, it's essential to be aware of its capability to use "@" to reference variables in the environment. This feature enhances its flexibility and makes it even more convenient to apply in various data filtering scenarios.</span>
+<span id="cb28-275"><a href="#cb28-275" aria-hidden="true" tabindex="-1"></a>This resembles Tip #4, as it's a technique I frequently use. Since reading Matt's book, I have started using <span class="kw">&lt;code&gt;</span>pd.query<span class="kw">&lt;/code&gt;</span> extensively to filter rows based on values, instead of relying on <span class="kw">&lt;code&gt;</span>.loc<span class="kw">&lt;/code&gt;</span> or <span class="kw">&lt;code&gt;</span>.iloc<span class="kw">&lt;/code&gt;</span>. In case you choose to adopt <span class="kw">&lt;code&gt;</span>pd.query<span class="kw">&lt;/code&gt;</span> as well, it's essential to be aware of its capability to use "@" to reference variables in the environment. This feature enhances its flexibility and makes it even more convenient to apply in various data filtering scenarios.</span>
 <span id="cb28-276"><a href="#cb28-276" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-277"><a href="#cb28-277" aria-hidden="true" tabindex="-1"></a>**Problem statement:** Our objective is to identify phones that meet three specific criteria: being priced below the average market price, having more processor cores than the average, and possessing a battery capacity greater than the average.</span>
 <span id="cb28-278"><a href="#cb28-278" aria-hidden="true" tabindex="-1"></a></span>
@@ -2247,7 +2010,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-293"><a href="#cb28-293" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-294"><a href="#cb28-294" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tip #9: Gain more insights by using &lt;code&gt;style.background_gradient&lt;/code&gt;</span></span>
 <span id="cb28-295"><a href="#cb28-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-296"><a href="#cb28-296" aria-hidden="true" tabindex="-1"></a>Being a visual creature, I often struggle to comprehend data quickly just by examining the raw table alone. Fortunately, with the help of &lt;code&gt;style.background_gradient&lt;/code&gt;, similar to the &lt;code&gt;heatmap&lt;/code&gt; function in the &lt;code&gt;seaborn&lt;/code&gt; library, we can represent cells, in terms of color gradient, based on their values. This enables us to identify trends and patterns in our data swiftly, making data analysis more intuitive and insightful.</span>
+<span id="cb28-296"><a href="#cb28-296" aria-hidden="true" tabindex="-1"></a>Being a visual creature, I often struggle to comprehend data quickly just by examining the raw table alone. Fortunately, with the help of <span class="kw">&lt;code&gt;</span>style.background_gradient<span class="kw">&lt;/code&gt;</span>, similar to the <span class="kw">&lt;code&gt;</span>heatmap<span class="kw">&lt;/code&gt;</span> function in the <span class="kw">&lt;code&gt;</span>seaborn<span class="kw">&lt;/code&gt;</span> library, we can represent cells, in terms of color gradient, based on their values. This enables us to identify trends and patterns in our data swiftly, making data analysis more intuitive and insightful.</span>
 <span id="cb28-297"><a href="#cb28-297" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-298"><a href="#cb28-298" aria-hidden="true" tabindex="-1"></a>**Problem statement:** Our goal is to identify the overall trends related to key descriptors found among the Top 10 smartphone brands, aiming to determine which brand offers the most value for our money. </span>
 <span id="cb28-299"><a href="#cb28-299" aria-hidden="true" tabindex="-1"></a></span>
@@ -2278,9 +2041,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-326"><a href="#cb28-326" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-327"><a href="#cb28-327" aria-hidden="true" tabindex="-1"></a>One of the most valuable lessons I learned from Effective Pandas is the importance of arranging my code in a chain. Although it may feel somewhat restrictive at first, once you overcome the initial hurdles, you'll realize that your code becomes more readable and easier to understand. The need to invent unique names for temporary variables is completely eliminated, making coding a much happier experience.  </span>
 <span id="cb28-328"><a href="#cb28-328" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-329"><a href="#cb28-329" aria-hidden="true" tabindex="-1"></a>In the chaining world, you often find yourself wanting to use various functions that are not explicitly designed for chaining. However, there's good news! You can still achieve this. The  &lt;code&gt;pd.pipe&lt;/code&gt; function comes to the rescue, allowing you to use any function as long as it returns a Series or DataFrame. It's a flexible solution that empowers you to seamlessly integrate different functions into your chaining workflow, making your data manipulation more efficient and enjoyable.</span>
+<span id="cb28-329"><a href="#cb28-329" aria-hidden="true" tabindex="-1"></a>In the chaining world, you often find yourself wanting to use various functions that are not explicitly designed for chaining. However, there's good news! You can still achieve this. The  <span class="kw">&lt;code&gt;</span>pd.pipe<span class="kw">&lt;/code&gt;</span> function comes to the rescue, allowing you to use any function as long as it returns a Series or DataFrame. It's a flexible solution that empowers you to seamlessly integrate different functions into your chaining workflow, making your data manipulation more efficient and enjoyable.</span>
 <span id="cb28-330"><a href="#cb28-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-331"><a href="#cb28-331" aria-hidden="true" tabindex="-1"></a>**Problem statement:** We aim to visualize the impact of RAM capacity on user satisfaction. To achieve this, we will utilize the &lt;code&gt;sns.lmplot&lt;/code&gt; function, which plots the data and corresponding regression models for the Top 5 phone brands. </span>
+<span id="cb28-331"><a href="#cb28-331" aria-hidden="true" tabindex="-1"></a>**Problem statement:** We aim to visualize the impact of RAM capacity on user satisfaction. To achieve this, we will utilize the <span class="kw">&lt;code&gt;</span>sns.lmplot<span class="kw">&lt;/code&gt;</span> function, which plots the data and corresponding regression models for the Top 5 phone brands. </span>
 <span id="cb28-332"><a href="#cb28-332" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-335"><a href="#cb28-335" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb28-336"><a href="#cb28-336" aria-hidden="true" tabindex="-1"></a>top5_brand_names_ordered <span class="op">=</span> df.brand_name.value_counts().head().index</span>
@@ -2310,7 +2073,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-360"><a href="#cb28-360" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-361"><a href="#cb28-361" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tip #10 + 1: Use the "margin" parameter of &lt;code&gt;pd.crosstab&lt;/code&gt; to easily calculate row/column subtotals</span></span>
 <span id="cb28-362"><a href="#cb28-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-363"><a href="#cb28-363" aria-hidden="true" tabindex="-1"></a>Despite primarily using the pandas &lt;code&gt;groupby&lt;/code&gt; function for data aggregation, the &lt;code&gt;pd.crosstab&lt;/code&gt; function has an enticing feature: the &lt;code&gt;margin&lt;/code&gt; parameter. This option enables us to effortlessly calculate subtotals across rows and columns. Moreover, by normalizing our data, we can gain even more intuition about the questions we want to answer.</span>
+<span id="cb28-363"><a href="#cb28-363" aria-hidden="true" tabindex="-1"></a>Despite primarily using the pandas <span class="kw">&lt;code&gt;</span>groupby<span class="kw">&lt;/code&gt;</span> function for data aggregation, the <span class="kw">&lt;code&gt;</span>pd.crosstab<span class="kw">&lt;/code&gt;</span> function has an enticing feature: the <span class="kw">&lt;code&gt;</span>margin<span class="kw">&lt;/code&gt;</span> parameter. This option enables us to effortlessly calculate subtotals across rows and columns. Moreover, by normalizing our data, we can gain even more intuition about the questions we want to answer.</span>
 <span id="cb28-364"><a href="#cb28-364" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-365"><a href="#cb28-365" aria-hidden="true" tabindex="-1"></a>**Problem statement:** Our objective is to evaluate how RAM capacity impacts user satisfaction across the Top 5 brands. Additionally, we will normalize our data to compare values comprehensively across the entire dataset.</span>
 <span id="cb28-366"><a href="#cb28-366" aria-hidden="true" tabindex="-1"></a></span>
@@ -2334,7 +2097,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-386"><a href="#cb28-386" aria-hidden="true" tabindex="-1"></a>I hope this article has convinced you to pick up Matt Harrison's <span class="co">[</span><span class="ot">Effective Pandas</span><span class="co">](https://store.metasnake.com/effective-pandas-book)</span>! There are plenty more exciting ideas in the book beyond the Top 10 I've shared here (I didn't even get into the fascinating time series part!). I hope you found these insights helpful and inspiring.</span>
 <span id="cb28-387"><a href="#cb28-387" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-388"><a href="#cb28-388" aria-hidden="true" tabindex="-1"></a>Happy coding 🐼💻🚀</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -2342,15 +2105,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2024, Adam Cseresznye</p>
-</div>
+    <div class="nav-footer-center">Copyright 2024, Adam Cseresznye</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

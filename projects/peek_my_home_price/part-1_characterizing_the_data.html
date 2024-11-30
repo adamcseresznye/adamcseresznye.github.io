@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adam Cseresznye">
 <meta name="dcterms.date" content="2024-11-20">
 
-<title>Peek My Home Price Part-1: Characterizing the data – Adam Cseresznye</title>
+<title>Adam Cseresznye - Peek My Home Price Part-1: Characterizing the data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -72,25 +72,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b697eb10549dbab267b4169cc0aac045.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6f6a3df318ae731e7885b4e8bdb9d5b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -99,7 +93,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -120,67 +113,68 @@ ga('send', {
 });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Peek My Home Price Part-1: Characterizing the data – Adam Cseresznye">
+<meta property="og:title" content="Adam Cseresznye - Peek My Home Price Part-1: Characterizing the data">
 <meta property="og:description" content="">
-<meta property="og:site_name" content="Adam Cseresznye">
-<meta name="twitter:title" content="Peek My Home Price Part-1: Characterizing the data – Adam Cseresznye">
+<meta property="og:image" content="https://raw.githubusercontent.com/adamcseresznye/peek_my_home_price/refs/heads/main/screenshot.png">
+<meta property="og:site-name" content="Adam Cseresznye">
+<meta name="twitter:title" content="Adam Cseresznye - Peek My Home Price Part-1: Characterizing the data">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/adamcseresznye/peek_my_home_price/refs/heads/main/screenshot.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Adam Cseresznye</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../scientific_output.html"> 
-<span class="menu-text">Scientific Output</span></a>
+    <a class="nav-link" href="../../scientific_output.html" rel="" target="">
+ <span class="menu-text">Scientific Output</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/adamcseresznye"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/adamcseresznye" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/csenye22"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/csenye22" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -189,6 +183,7 @@ ga('send', {
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -249,11 +244,10 @@ ga('send', {
 
 
 
-
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://images.unsplash.com/photo-1549407408-4b016f497e4d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Photo by Christian Allard UnSplash</figcaption>
+<p><img src="https://raw.githubusercontent.com/adamcseresznye/peek_my_home_price/refs/heads/main/screenshot.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Peek My Home Price Home Page</figcaption>
 </figure>
 </div>
 <p>Welcome to <code>Peek My Home Price</code>, a project, that dives into the key factors that influence real estate property prices in Belgium. Our ultimate goal with this project is to leverage up-to-date data from leading real estate platforms in the country to accurately predict house prices. We aim to create a platform that allows users to gain insights into the dynamic Belgian real estate market, province by province.</p>
@@ -268,7 +262,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>You can explore the project’s app on its <a href="https://peek-my-home-price.fly.dev/">website</a>. For more details, visit the <a href="https://github.com/adamcseresznye/peek_my_home_price">GitHub repository</a>.</p>
-<p>Check out the series for a deeper dive: - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-1_characterizing_the_data.html">Part 1: Characterizing the Data</a> - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-2_building_a_baseline_model.html">Part 2: Building a Baseline Model</a> - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-3_feature_selection.html">Part 3: Feature Selection</a> - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-4_feature_engineering.html">Part 4: Feature Engineering</a> - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-5_fine_tuning.html">Part 5: Fine-Tuning</a></p>
+<p>Check out the series for a deeper dive: - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-1_characterizing_the_data.html">Part 1: Characterizing the Data</a> - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-2_building_a_baseline_model.html">Part 2: Building a Baseline Model</a> - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-3_feature_selection.html">Part 3: Feature Selection</a> - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-4_feature_engineering.html">Part 4: Feature Engineering</a> - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-5_fine_tuning.html">Part 5: Fine-Tuning</a></p>
 </div>
 </div>
 <p>The app is divided into three main sections:</p>
@@ -278,8 +272,8 @@ Note
 <li><strong>Prediction</strong>: Input specific variables and generate your own price predictions based on our latest trained model.</li>
 </ol>
 <p>In this blog series, we’ll take you behind the scenes of <code>Peek My Home Price</code> and guide you through the thought process that led to the creation of the application. Feel free to explore the topics that pique your interest or that you’d like to learn more about. We hope you’ll find this information valuable for your own projects. Let’s get started!</p>
-<div id="20dc5709-2469-4248-94b7-17d180d1b962" class="cell" data-execution_count="1">
-<details class="code-fold">
+<div class="cell" data-execution_count="1">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
@@ -287,8 +281,8 @@ Note
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="bu">str</span>(Path.cwd()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="3bdf78a4-9f6c-4136-8d79-2c5dea88e997" class="cell" data-execution_count="2">
-<details class="code-fold">
+<div class="cell" data-execution_count="2">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
@@ -343,18 +337,18 @@ Note
 <section id="describing-the-data" class="level1">
 <h1>Describing the data</h1>
 <p>Before diving into analysis, it’s crucial to take a closer look at our dataset’s preliminary version. This step is essential because, often, we collect more data than we actually need. By examining the initial dataset, we can gain a deeper understanding of the relationships between variables and our target variable of interest – in this case, price. For this, we will use a sample dataset that contains more features than we ended up using. It’s often not so much about deciding what data to collect but rather what data to retain. First, we dive into the initial data collected to examine the features that are commonly shared among most ads. After identifying these common attributes, we can optimize our data collection process by keeping these key characteristics and removing the less common ones.</p>
-<div id="4060aa9a-8c8c-4251-b75c-a02b9f7e552e" class="cell" data-execution_count="3">
-<details class="code-fold">
+<div class="cell" data-execution_count="3">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    Path.cwd().joinpath(<span class="st">"data"</span>).joinpath(<span class="st">"2023-10-01_Processed_dataset_for_NB_use.gzip"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>As depicted in <a href="#fig-fig1" class="quarto-xref">Figure&nbsp;1</a>, the features <code>energy_class</code>, <code>lat</code>, <code>lng</code> demonstrate the highest completeness, with more than 90% of instances being present. In contrast, <code>subdivision_permit</code>, <code>yearly_theoretical_energy_consumption</code> and <code>width_of_the_total_lot</code> are among the least populated features, with roughly 10-15% of non-missing instances.</p>
+<p>As depicted in <a href="#fig-fig1">Figure&nbsp;1</a>, the features <code>energy_class</code>, <code>lat</code>, <code>lng</code> demonstrate the highest completeness, with more than 90% of instances being present. In contrast, <code>subdivision_permit</code>, <code>yearly_theoretical_energy_consumption</code> and <code>width_of_the_total_lot</code> are among the least populated features, with roughly 10-15% of non-missing instances.</p>
 <p>This information allows us to devise a strategy where we, for example, could retain features with a completeness of over 50%.</p>
-<div id="cell-fig-fig1" class="cell" data-execution_count="4">
-<details class="code-fold">
+<div class="cell" data-execution_count="4">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting the column names with lowest missing values</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lowest_missing_value_columns <span class="op">=</span> (</span>
@@ -403,9 +397,8 @@ Note
 <span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="4">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="PcnUbx"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
@@ -521,18 +514,15 @@ Note
    })();
    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Top 50 Features with Non-Missing Values Above 50%
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;1: Top 50 Features with Non-Missing Values Above 50%</figcaption>
 </figure>
 </div>
 </div>
 <section id="assessing-feature-cardinality" class="level2">
 <h2 class="anchored" data-anchor-id="assessing-feature-cardinality">Assessing Feature Cardinality</h2>
 <p>Now, let’s assess the feature cardinality of our dataset to differentiate between categorical and numerical variables. To do this, we will analyze the percentage of unique values per feature.</p>
-<div id="cell-fig-fig2" class="cell" data-execution_count="5">
-<details class="code-fold">
+<div class="cell" data-execution_count="5">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming df is your DataFrame</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>number_unique_entries <span class="op">=</span> {</span>
@@ -570,9 +560,8 @@ Figure&nbsp;1: Top 50 Features with Non-Missing Values Above 50%
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="5">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="2Qqu2L"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
@@ -685,10 +674,7 @@ Figure&nbsp;1: Top 50 Features with Non-Missing Values Above 50%
    })();
    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Assessing Feature Cardinality: Percentage of Unique Values per Feature
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2: Assessing Feature Cardinality: Percentage of Unique Values per Feature</figcaption>
 </figure>
 </div>
 </div>
@@ -702,8 +688,8 @@ Figure&nbsp;2: Assessing Feature Cardinality: Percentage of Unique Values per Fe
 <li><p><strong>Mitigating Outliers</strong>: It is effective at diminishing the impact of extreme outliers, bolstering the model’s robustness against data anomalies.</p></li>
 <li><p><strong>Interpretability</strong>: Notably, when interpreting model predictions, this transformation allows for straightforward back-transformation to the original scale. This can be achieved using a base 10 exponentiation, ensuring that predictions are easily interpretable in their origination task.</p></li>
 </ol>
-<div id="cell-fig-fig3" class="cell" data-execution_count="6">
-<details class="code-fold">
+<div class="cell" data-execution_count="6">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>before_transformation <span class="op">=</span> df.pipe(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> df: ggplot(df, aes(<span class="st">"price"</span>)) <span class="op">+</span> geom_histogram()</span>
@@ -719,9 +705,8 @@ Figure&nbsp;2: Assessing Feature Cardinality: Percentage of Unique Values per Fe
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>gggrid([before_transformation, after_transformation], ncol<span class="op">=</span><span class="dv">2</span>) <span class="op">+</span> ggsize(<span class="dv">800</span>, <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig3" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="6">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="UXS8bG"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
@@ -1136,10 +1121,7 @@ Figure&nbsp;2: Assessing Feature Cardinality: Percentage of Unique Values per Fe
    })();
    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Target distribution before and after log10 transformation
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;3: Target distribution before and after log10 transformation</figcaption>
 </figure>
 </div>
 </div>
@@ -1147,8 +1129,8 @@ Figure&nbsp;3: Target distribution before and after log10 transformation
 <section id="relationship-between-independent-and-dependent-variables" class="level2">
 <h2 class="anchored" data-anchor-id="relationship-between-independent-and-dependent-variables">Relationship between independent and dependent variables</h2>
 <p>Next, we will investigate how house prices vary when grouped according to our independent variables. Please take into account that the price values have undergone log transformation to address skewness.</p>
-<div id="f30b4d94-f938-438c-8869-1af15690ced7" class="cell" data-execution_count="7">
-<details class="code-fold">
+<div class="cell" data-execution_count="7">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>low_cardinality_features <span class="op">=</span> (</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(number_unique_entries)</span>
@@ -1164,8 +1146,8 @@ Figure&nbsp;3: Target distribution before and after log10 transformation
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-fig-fig4" class="cell" data-execution_count="8">
-<details class="code-fold">
+<div class="cell" data-execution_count="8">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plots <span class="op">=</span> []</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1188,9 +1170,8 @@ Figure&nbsp;3: Target distribution before and after log10 transformation
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    plots.append(plot)</span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>gggrid(plots, ncol<span class="op">=</span><span class="dv">4</span>) <span class="op">+</span> ggsize(<span class="dv">900</span>, <span class="dv">1600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig4" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="arNyvL"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
@@ -2515,10 +2496,7 @@ Figure&nbsp;3: Target distribution before and after log10 transformation
    })();
    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Exploring Price Variations Across Different Variables
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;4: Exploring Price Variations Across Different Variables</figcaption>
 </figure>
 </div>
 </div>
@@ -2526,8 +2504,8 @@ Figure&nbsp;4: Exploring Price Variations Across Different Variables
 <section id="correlations" class="level2">
 <h2 class="anchored" data-anchor-id="correlations">Correlations</h2>
 <p>Finally, we will look into the correlations among variables with high cardinality through Spearman correlation analysis. As evident from the heatmap, the price exhibits a strong correlation with cadastral income (correlation coefficient = 0.77), living area (correlation coefficient = 0.74), and bathrooms (correlation coefficient = 0.59). For your reference, <em>cadastral income</em> is an annual Flemish property tax based on the assessed rental income of immovable properties in the Flemish Region. This income is a notional rental income assigned to each property, whether it is rented out or not.</p>
-<div id="cell-fig-fig5" class="cell" data-execution_count="9">
-<details class="code-fold">
+<div class="cell" data-execution_count="9">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    df.loc[:, <span class="kw">lambda</span> df: df.columns.isin(high_cardinality_features)]</span>
@@ -2558,9 +2536,8 @@ Figure&nbsp;4: Exploring Price Variations Across Different Variables
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig5" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="9">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="duhlCe"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
@@ -2758,10 +2735,7 @@ Figure&nbsp;4: Exploring Price Variations Across Different Variables
    })();
    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Spearman Correlations Among High Cardinality Features
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;5: Spearman Correlations Among High Cardinality Features</figcaption>
 </figure>
 </div>
 </div>
@@ -2813,33 +2787,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -2908,15 +2855,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2951,7 +2896,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2983,27 +2939,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -3055,27 +2991,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/adamcseresznye\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3085,17 +3004,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3107,129 +3017,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -3273,7 +3061,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3299,32 +3086,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -3390,15 +3151,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2024, Adam Cseresznye</p>
-</div>
+    <div class="nav-footer-center">Copyright 2024, Adam Cseresznye</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

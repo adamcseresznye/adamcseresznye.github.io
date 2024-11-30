@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adam Cseresznye">
 <meta name="dcterms.date" content="2023-12-23">
 
-<title>DeepLCMS: A framework that leverages transfer learning for the classification of pseudo images in mass spectrometry-based analysis – Adam Cseresznye</title>
+<title>Adam Cseresznye - DeepLCMS: A framework that leverages transfer learning for the classification of pseudo images in mass spectrometry-based analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -60,7 +60,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -92,25 +91,19 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b697eb10549dbab267b4169cc0aac045.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6f6a3df318ae731e7885b4e8bdb9d5b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -119,7 +112,6 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -145,13 +137,13 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="DeepLCMS: A framework that leverages transfer learning for the classification of pseudo images in mass spectrometry-based analysis – Adam Cseresznye">
+<meta property="og:title" content="Adam Cseresznye - DeepLCMS: A framework that leverages transfer learning for the classification of pseudo images in mass spectrometry-based analysis">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://adamcseresznye.github.io/projects/DeepLCMS/exp-5-prediction_matrix.png">
-<meta property="og:site_name" content="Adam Cseresznye">
+<meta property="og:site-name" content="Adam Cseresznye">
 <meta property="og:image:height" content="2883">
 <meta property="og:image:width" content="2849">
-<meta name="twitter:title" content="DeepLCMS: A framework that leverages transfer learning for the classification of pseudo images in mass spectrometry-based analysis – Adam Cseresznye">
+<meta name="twitter:title" content="Adam Cseresznye - DeepLCMS: A framework that leverages transfer learning for the classification of pseudo images in mass spectrometry-based analysis">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://adamcseresznye.github.io/projects/DeepLCMS/exp-5-prediction_matrix.png">
 <meta name="twitter:image-height" content="2883">
@@ -162,51 +154,50 @@ ga('send', {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Adam Cseresznye</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../scientific_output.html"> 
-<span class="menu-text">Scientific Output</span></a>
+    <a class="nav-link" href="../../scientific_output.html" rel="" target="">
+ <span class="menu-text">Scientific Output</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/adamcseresznye"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/adamcseresznye" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/csenye22"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/csenye22" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -215,6 +206,7 @@ ga('send', {
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -295,11 +287,10 @@ ga('send', {
 
 
 
-
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="exp-5-prediction_matrix.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Representative examples of DeepLCMS predictions accompanied by their corresponding probability estimates.</figcaption>
+<figcaption class="figure-caption">Representative examples of DeepLCMS predictions accompanied by their corresponding probability estimates.</figcaption>
 </figure>
 </div>
 <p>Welcome to DeepLCMS, a project that combines mass spectrometry analysis with the power of deep learning models!</p>
@@ -320,7 +311,7 @@ ga('send', {
 <section id="importing-libraries" class="level1">
 <h1>Importing libraries</h1>
 <div class="cell" data-execution_count="1">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> io</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
@@ -389,9 +380,9 @@ Project Structure
 <h1>Results and Discussion</h1>
 <section id="selecting-a-model-architecture-family" class="level2">
 <h2 class="anchored" data-anchor-id="selecting-a-model-architecture-family">Selecting a model architecture family</h2>
-<p>From the readily available model architecture families provided by <a href="https://github.com/huggingface/pytorch-image-models#models">Pytorch Image Models</a>, 68 unique ones were selected as representative examples of a given class and filtered based on their parameter count, selecting those with parameters counts between 10 and 20 million to allow for an unbiased comparison. Out of the 68 selected 32 were subsequently underwent training with validation metrics recorded. According to <a href="#tbl-exp-1-result" class="quarto-xref">Table&nbsp;1</a> (arranged based on validation loss), the MobileOne S3 emerged as the top performer with an F1 score of 0.95. It was followed by DenseNet (F1 = 0.92), MobileViTV2 (F1 = 0.90), and ConvNeXt Nano (F1 = 0.84). RepVit M3 rounded out the top five with an F1 score of 0.86. To delve deeper into the performance of each architecture family, we also evaluated all individual architectures within each family (<a href="#tbl-exp-1-best_models" class="quarto-xref">Table&nbsp;2</a>).</p>
+<p>From the readily available model architecture families provided by <a href="https://github.com/huggingface/pytorch-image-models#models">Pytorch Image Models</a>, 68 unique ones were selected as representative examples of a given class and filtered based on their parameter count, selecting those with parameters counts between 10 and 20 million to allow for an unbiased comparison. Out of the 68 selected 32 were subsequently underwent training with validation metrics recorded. According to <a href="#tbl-exp-1-result">Table&nbsp;1</a> (arranged based on validation loss), the MobileOne S3 emerged as the top performer with an F1 score of 0.95. It was followed by DenseNet (F1 = 0.92), MobileViTV2 (F1 = 0.90), and ConvNeXt Nano (F1 = 0.84). RepVit M3 rounded out the top five with an F1 score of 0.86. To delve deeper into the performance of each architecture family, we also evaluated all individual architectures within each family (<a href="#tbl-exp-1-best_models">Table&nbsp;2</a>).</p>
 <div class="cell" data-execution_count="2">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    pd.read_csv(<span class="st">"exp-1-result.csv"</span>)</span>
@@ -402,17 +393,25 @@ Project Structure
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">round</span>(<span class="dv">2</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-exp-1-result" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-exp-1-result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Validation metrics of model architectural families from the PyTorch Image Models library using models with parameter counts ranging from 10 to 20 million.
-</figcaption>
-<div aria-describedby="tbl-exp-1-result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<div id="tbl-exp-1-result" class="anchored">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<caption>Table&nbsp;1: Validation metrics of model architectural families from the PyTorch Image Models library using models with parameter counts ranging from 10 to 20 million.</caption>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -748,16 +747,14 @@ Table&nbsp;1: Validation metrics of model architectural families from the PyTorc
 </tr>
 </tbody>
 </table>
+</div>
 
 </div>
 </div>
 </div>
-</figure>
-</div>
-</div>
-<p>As shown in <a href="#tbl-exp-1-best_models" class="quarto-xref">Table&nbsp;2</a>, the top four positions based on the validation metrics were occupied by models belonging to the ConvNeXt family. These models, particularly the first two (convnext_large_mlp.clip_laion2b_augreg_ft_in1k_384 with validation loss 0.19, convnext_large_mlp.clip_laion2b_augreg_ft_in1k with validation loss 0.22), were pre-trained on the extensive LAION-2B dataset and fine-tuned on ImageNet-1k, enabling them to learn complex patterns that generalize well to unseen data. It is plausible that this extensive dataset and sophisticated model architecture played a pivotal role in their exceptional performance in this task. The dominance of the ConvNeXt family is noteworthy, suggesting their effectiveness in handling complex data such as mass spectrometry pseudoimages. Apple’s MobileOne also demonstrated remarkable results (validation loss = 0.27), ranking fourth in terms of validation loss. Finally, MobileViT (validation loss = 0.27), a lightweight network, secured the seventh position. While the ConvNeXt models consistently outperformed other models in terms of validation metrics, it is essential to recognize that their larger size and higher parameter count translate into increased computational demands for training and heightened susceptibility to overfitting. Their complexity demands careful hyperparameter tuning and regularization techniques to mitigate overfitting and achieve optimal performance.</p>
+<p>As shown in <a href="#tbl-exp-1-best_models">Table&nbsp;2</a>, the top four positions based on the validation metrics were occupied by models belonging to the ConvNeXt family. These models, particularly the first two (convnext_large_mlp.clip_laion2b_augreg_ft_in1k_384 with validation loss 0.19, convnext_large_mlp.clip_laion2b_augreg_ft_in1k with validation loss 0.22), were pre-trained on the extensive LAION-2B dataset and fine-tuned on ImageNet-1k, enabling them to learn complex patterns that generalize well to unseen data. It is plausible that this extensive dataset and sophisticated model architecture played a pivotal role in their exceptional performance in this task. The dominance of the ConvNeXt family is noteworthy, suggesting their effectiveness in handling complex data such as mass spectrometry pseudoimages. Apple’s MobileOne also demonstrated remarkable results (validation loss = 0.27), ranking fourth in terms of validation loss. Finally, MobileViT (validation loss = 0.27), a lightweight network, secured the seventh position. While the ConvNeXt models consistently outperformed other models in terms of validation metrics, it is essential to recognize that their larger size and higher parameter count translate into increased computational demands for training and heightened susceptibility to overfitting. Their complexity demands careful hyperparameter tuning and regularization techniques to mitigate overfitting and achieve optimal performance.</p>
 <div class="cell" data-execution_count="3">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    pd.read_csv(<span class="st">"exp-1-best_models.csv"</span>)</span>
@@ -768,17 +765,25 @@ Table&nbsp;1: Validation metrics of model architectural families from the PyTorc
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    .head(<span class="dv">10</span>)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-exp-1-best_models" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-exp-1-best_models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Top 10 models based on evaluation metrics of all model architectures in families from the PyTorch Image Models library, regardless of their parameter counts.
-</figcaption>
-<div aria-describedby="tbl-exp-1-best_models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<div id="tbl-exp-1-best_models" class="anchored">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<caption>Table&nbsp;2: Top 10 models based on evaluation metrics of all model architectures in families from the PyTorch Image Models library, regardless of their parameter counts.</caption>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -960,28 +965,22 @@ Table&nbsp;2: Top 10 models based on evaluation metrics of all model architectur
 </tr>
 </tbody>
 </table>
+</div>
 
 </div>
 </div>
 </div>
-</figure>
-</div>
-</div>
-<p>To further assess the suitability of these models and the consistency of their performance, we trained the top three performing models from each family five consecutive times and calculated the median and standard deviation of their validation metrics (<a href="#fig-exp-2-replicates_result" class="quarto-xref">Figure&nbsp;1</a>). This approach allowed us to identify the models that exhibited the most consistent validation performance across multiple training runs. Statistical significance across replicates was evaluated using Dunn’s test with Benjamini-Hochberg correction. The results revealed that the MobileViT2 family performed similarly to the ConvNeXt across all five training runs, except for the validation losses where ConvNeXt exhibited the lowest values with 0.21. According to the replication study, the ConvNeXt emerged as the most effective model, surpassing both MobileOne and MobileViT2. Despite exhibiting similar patterns, ConvNeXt exhibited a statistically significant advantage over MobileViT2 in validation loss (p = 0.01) and achieved significantly better validation recall (p &lt; 0.05). Among the three models tested, MobileOne consistently underperformed its counterparts in all performance metrics, except for validation recall, where it narrowly outperformed MobileViT2 (p &lt; 0.05). In light of these findings, we opted to use the ConvNeXt large model in further experiments.</p>
+<p>To further assess the suitability of these models and the consistency of their performance, we trained the top three performing models from each family five consecutive times and calculated the median and standard deviation of their validation metrics (<a href="#fig-exp-2-replicates_result">Figure&nbsp;1</a>). This approach allowed us to identify the models that exhibited the most consistent validation performance across multiple training runs. Statistical significance across replicates was evaluated using Dunn’s test with Benjamini-Hochberg correction. The results revealed that the MobileViT2 family performed similarly to the ConvNeXt across all five training runs, except for the validation losses where ConvNeXt exhibited the lowest values with 0.21. According to the replication study, the ConvNeXt emerged as the most effective model, surpassing both MobileOne and MobileViT2. Despite exhibiting similar patterns, ConvNeXt exhibited a statistically significant advantage over MobileViT2 in validation loss (p = 0.01) and achieved significantly better validation recall (p &lt; 0.05). Among the three models tested, MobileOne consistently underperformed its counterparts in all performance metrics, except for validation recall, where it narrowly outperformed MobileViT2 (p &lt; 0.05). In light of these findings, we opted to use the ConvNeXt large model in further experiments.</p>
 <div class="cell" data-execution_count="4">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PIL.Image.<span class="bu">open</span>(<span class="st">"exp-2-replicates_result.png"</span>).convert(<span class="st">"RGB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<div id="fig-exp-2-replicates_result" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-exp-2-replicates_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="DeepLCMS_files/figure-html/fig-exp-2-replicates_result-output-1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exp-2-replicates_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Median and standard deviation of best validation metrics achieved during consecutive trainings
-</figcaption>
+<div id="fig-exp-2-replicates_result" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DeepLCMS_files/figure-html/fig-exp-2-replicates_result-output-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Median and standard deviation of best validation metrics achieved during consecutive trainings</figcaption>
 </figure>
 </div>
 </div>
@@ -989,10 +988,10 @@ Figure&nbsp;1: Median and standard deviation of best validation metrics achieved
 </section>
 <section id="selecting-image-properties-as-hyperparameters" class="level2">
 <h2 class="anchored" data-anchor-id="selecting-image-properties-as-hyperparameters">Selecting image properties as hyperparameters</h2>
-<p>Next, we explored the impact of image sharpness and offsets along the x and y axis as a method for image augmentation to replicate the effects of Rt shifts and incidental mass calibration drifts. <a href="#fig-exp-3-image_example" class="quarto-xref">Figure&nbsp;2</a> illustrates how the number of bins employed in the <code>np.histogram2d</code> function within the <code>plot_2D_spectra_overview</code> function—which serves to transform LC/MS files into pseudo images—influences the image sharpness. Here, the bins parameter signifies the number of bins in both the x and y dimensions, which are represented by nx and ny, respectively. This results in the formation of an nx by ny bin grid across the data for the histogram. By increasing the number of bins (from 500, 500 to 1000, 1000), one could obtain a sharper image, but it could also lead to increased noise and computational complexity.</p>
+<p>Next, we explored the impact of image sharpness and offsets along the x and y axis as a method for image augmentation to replicate the effects of Rt shifts and incidental mass calibration drifts. <a href="#fig-exp-3-image_example">Figure&nbsp;2</a> illustrates how the number of bins employed in the <code>np.histogram2d</code> function within the <code>plot_2D_spectra_overview</code> function—which serves to transform LC/MS files into pseudo images—influences the image sharpness. Here, the bins parameter signifies the number of bins in both the x and y dimensions, which are represented by nx and ny, respectively. This results in the formation of an nx by ny bin grid across the data for the histogram. By increasing the number of bins (from 500, 500 to 1000, 1000), one could obtain a sharper image, but it could also lead to increased noise and computational complexity.</p>
 <p>Furthermore, we sought to evaluate the impact of image augmentation, specifically the generation of multiple, modified images prior to image training, on the validation metrics. The <code>augment_images</code> function applies random offsets to the specified image, producing a designated number— 9 in our case—of augmented images with a maximum horizontal offset of five and a maximum vertical offset of five pixels.</p>
 <div class="cell" data-execution_count="5">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>img_paths <span class="op">=</span> <span class="bu">list</span>(Path.cwd().glob(<span class="st">"exp_3_U_2*"</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1007,33 +1006,25 @@ Figure&nbsp;1: Median and standard deviation of best validation metrics achieved
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-exp-3-image_example" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-exp-3-image_example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="DeepLCMS_files/figure-html/fig-exp-3-image_example-output-1.png" width="687" height="704" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exp-3-image_example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Examples of images obtained after applying different bin sizes and offsets as imitation of Rt shift. The amount of offset along the x and y axes is given in the image name. Image quality as a function of the number of bins is set to either 500, indicating a lower-quality image, or 1000, indicating a higher-quality image.
-</figcaption>
+<div id="fig-exp-3-image_example" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DeepLCMS_files/figure-html/fig-exp-3-image_example-output-1.png" width="687" height="704" class="figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Examples of images obtained after applying different bin sizes and offsets as imitation of Rt shift. The amount of offset along the x and y axes is given in the image name. Image quality as a function of the number of bins is set to either 500, indicating a lower-quality image, or 1000, indicating a higher-quality image.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-exp_3_experiment_result_1" class="quarto-xref">Figure&nbsp;3</a> illustrates, image sharpness in combination with image augmentation had a significant impact on the validation loss. Setting the bin size to 500 and subsequent augmentation resulted in the lowest validation loss (0.129) and the highest validation F1 (0.982). Based on these findings, less image sharpness and more training images, obtained through data augmentation prior to training, had a beneficial effect on the validation metrics. Taken together, the final training and fine-tuning is conducted on images with bin size set to 500 and subsequent augmentation applied resulting in the generation of nine extra samples per training image.</p>
+<p><a href="#fig-exp_3_experiment_result_1">Figure&nbsp;3</a> illustrates, image sharpness in combination with image augmentation had a significant impact on the validation loss. Setting the bin size to 500 and subsequent augmentation resulted in the lowest validation loss (0.129) and the highest validation F1 (0.982). Based on these findings, less image sharpness and more training images, obtained through data augmentation prior to training, had a beneficial effect on the validation metrics. Taken together, the final training and fine-tuning is conducted on images with bin size set to 500 and subsequent augmentation applied resulting in the generation of nine extra samples per training image.</p>
 <div class="cell" data-execution_count="6">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PIL.Image.<span class="bu">open</span>(<span class="st">"exp_3_experiment_result_1.png"</span>).convert(<span class="st">"RGB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<div id="fig-exp_3_experiment_result_1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-exp_3_experiment_result_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="DeepLCMS_files/figure-html/fig-exp_3_experiment_result_1-output-1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exp_3_experiment_result_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Training and validation metrics of experiments involving the selection of image properties as hyperparameters
-</figcaption>
+<div id="fig-exp_3_experiment_result_1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DeepLCMS_files/figure-html/fig-exp_3_experiment_result_1-output-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Training and validation metrics of experiments involving the selection of image properties as hyperparameters</figcaption>
 </figure>
 </div>
 </div>
@@ -1045,22 +1036,18 @@ Figure&nbsp;3: Training and validation metrics of experiments involving the sele
 </section>
 <section id="evaluating-the-final-model-on-the-test-set" class="level2">
 <h2 class="anchored" data-anchor-id="evaluating-the-final-model-on-the-test-set">Evaluating the final model on the test set</h2>
-<p>The final model training was conducted using the optimal settings determined during the optimization experiments, employing transfer learning of a pre-trained ConvNeXt large model, with all of its layers frozen except for the last classification head. The learning rate was automatically determined to be 0.006 based on the learning rate finder tool implemented by PyTorch Lightning. For the training, we utilized the augmented dataset (<a href="#fig-exp-5-transformed_grid" class="quarto-xref">Figure&nbsp;4</a>) that featured bin size set to 500 for both dimensions. To prevent overfitting and promote better generalization capabilities, random erasing (probability=1.00) and color jitter (probability=0.25) were used. This technique effectively augments the training data, prompting the model to minimize its dependence on specific regions of the image thus preveting the model from memorizing limited patterns and encourages it to generalize better to unseen data. The underlying concept resembles a dropout layer, a common component of neural network architectures. The optimized model achieved validation metrics with <strong>loss</strong> of 0.138, <strong>validation precision</strong> of 0.963, <strong>F1</strong> 0.946, <strong>validation accuracy</strong> exceeding 0.944, and <strong>validation recall</strong> reaching 0.93.</p>
+<p>The final model training was conducted using the optimal settings determined during the optimization experiments, employing transfer learning of a pre-trained ConvNeXt large model, with all of its layers frozen except for the last classification head. The learning rate was automatically determined to be 0.006 based on the learning rate finder tool implemented by PyTorch Lightning. For the training, we utilized the augmented dataset (<a href="#fig-exp-5-transformed_grid">Figure&nbsp;4</a>) that featured bin size set to 500 for both dimensions. To prevent overfitting and promote better generalization capabilities, random erasing (probability=1.00) and color jitter (probability=0.25) were used. This technique effectively augments the training data, prompting the model to minimize its dependence on specific regions of the image thus preveting the model from memorizing limited patterns and encourages it to generalize better to unseen data. The underlying concept resembles a dropout layer, a common component of neural network architectures. The optimized model achieved validation metrics with <strong>loss</strong> of 0.138, <strong>validation precision</strong> of 0.963, <strong>F1</strong> 0.946, <strong>validation accuracy</strong> exceeding 0.944, and <strong>validation recall</strong> reaching 0.93.</p>
 <p>During training, we employed early stopping to prevent overfitting, terminating training if the validation loss fails to improve for 10 consecutive epochs. Additionally, we utilized PyTorch Lightning’s built-in <code>ModelCheckpoint</code> to save the best-performing model, ensuring that the model that achieved the highest validation metrics was preserved and evaluated later on.</p>
 <div class="cell" data-execution_count="7">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>PIL.Image.<span class="bu">open</span>(<span class="st">"exp-5-transformed_grid.png"</span>).convert(<span class="st">"RGB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<div id="fig-exp-5-transformed_grid" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-exp-5-transformed_grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="DeepLCMS_files/figure-html/fig-exp-5-transformed_grid-output-1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exp-5-transformed_grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Example of augmented dataloader images used during training time, demonstrating the application of random erasing and color jitter to reduce overfitting
-</figcaption>
+<div id="fig-exp-5-transformed_grid" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DeepLCMS_files/figure-html/fig-exp-5-transformed_grid-output-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Example of augmented dataloader images used during training time, demonstrating the application of random erasing and color jitter to reduce overfitting</figcaption>
 </figure>
 </div>
 </div>
@@ -1073,21 +1060,17 @@ These results translate to: <strong>Precision</strong> = 0.952, <strong>Recall</
 <h2 class="anchored" data-anchor-id="model-interpretability">Model interpretability</h2>
 <section id="estimating-probability" class="level3">
 <h3 class="anchored" data-anchor-id="estimating-probability">Estimating probability</h3>
-<p>To assess the model’s confidence in its predictions, we can transform the model’s raw output, which is the binary cross-entropy loss derived from a set of logits obtained using PyTorch’s <code>BCEWithLogitsLoss</code> function, into prediction probabilities using a sigmoid function. These converted values reflect the probability that the model assigns to a given prediction belonging to Class 1 (Opioid User). <a href="#fig-exp-5-prediction_matrix" class="quarto-xref">Figure&nbsp;5</a> illustrates this concept, showing that in the first instance, the model estimates a 43% probability of the instance belonging to Class 1, suggesting a higher likelihood of it being a Non-Opioid User (and this prediction proved correct).</p>
+<p>To assess the model’s confidence in its predictions, we can transform the model’s raw output, which is the binary cross-entropy loss derived from a set of logits obtained using PyTorch’s <code>BCEWithLogitsLoss</code> function, into prediction probabilities using a sigmoid function. These converted values reflect the probability that the model assigns to a given prediction belonging to Class 1 (Opioid User). <a href="#fig-exp-5-prediction_matrix">Figure&nbsp;5</a> illustrates this concept, showing that in the first instance, the model estimates a 43% probability of the instance belonging to Class 1, suggesting a higher likelihood of it being a Non-Opioid User (and this prediction proved correct).</p>
 <div class="cell" data-execution_count="8">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>PIL.Image.<span class="bu">open</span>(<span class="st">"exp-5-prediction_matrix.png"</span>).convert(<span class="st">"RGB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<div id="fig-exp-5-prediction_matrix" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-exp-5-prediction_matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="DeepLCMS_files/figure-html/fig-exp-5-prediction_matrix-output-1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exp-5-prediction_matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Set of images from the test set, along with their corresponding prediction probabilities for the Class 1 (Opidid User). The true labels are displayed beside the predictions. Green labels indicate successful predictions, whereas red labels denote unsuccessful ones
-</figcaption>
+<div id="fig-exp-5-prediction_matrix" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DeepLCMS_files/figure-html/fig-exp-5-prediction_matrix-output-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: Set of images from the test set, along with their corresponding prediction probabilities for the Class 1 (Opidid User). The true labels are displayed beside the predictions. Green labels indicate successful predictions, whereas red labels denote unsuccessful ones</figcaption>
 </figure>
 </div>
 </div>
@@ -1097,19 +1080,15 @@ Figure&nbsp;5: Set of images from the test set, along with their corresponding p
 <h3 class="anchored" data-anchor-id="looking-at-layer-class-activation-maps">Looking at Layer Class Activation Maps</h3>
 <p>To gain insights into the regions of an image our model focuses on when making a prediction, we employed LayerCAM, a tool from the TorchCam package. LayerCAM <span class="citation" data-cites="jiang_layercam_2021">(<a href="#ref-jiang_layercam_2021" role="doc-biblioref">Jiang et al. 2021</a>)</span>, short for Layer Class Activation Maps, is a technique for generating class activation maps from distinct layers of a CNN. These regions of interests highlight key features the model utilizes to differentiate between opioid users and non-opioid users. Class activation maps are typically derived from the final convolutional layer of a CNN, highlighting discriminative object regions for the class of interest. Such a tool could be particularly valuable for validating the insights derived from our deep learning model, particularly when compared to more targeted or untargeted metabolomics data.</p>
 <div class="cell" data-execution_count="9">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>PIL.Image.<span class="bu">open</span>(<span class="st">"exp-5-plot_activation.png"</span>).convert(<span class="st">"RGB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<div id="fig-exp-5-plot_activation" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-exp-5-plot_activation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="DeepLCMS_files/figure-html/fig-exp-5-plot_activation-output-1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exp-5-plot_activation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Regions of interest identified by LayerCAM, demonstrating the specific areas of the image that our model deems most relevant for making predictions.
-</figcaption>
+<div id="fig-exp-5-plot_activation" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DeepLCMS_files/figure-html/fig-exp-5-plot_activation-output-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;6: Regions of interest identified by LayerCAM, demonstrating the specific areas of the image that our model deems most relevant for making predictions.</figcaption>
 </figure>
 </div>
 </div>
@@ -1120,7 +1099,7 @@ Figure&nbsp;6: Regions of interest identified by LayerCAM, demonstrating the spe
 <p>To gain a better understanding of the specific metabolic features that influence the model’s decision-making process in classifying individuals into either group, we analyzed two examples of the pooled samples using MS-DIAL <span class="citation" data-cites="tsugawa_ms-dial_2015">(<a href="#ref-tsugawa_ms-dial_2015" role="doc-biblioref">Tsugawa et al. 2015</a>)</span>, an open-source software pipeline designed for data-independent MS/MS deconvolution and identification of small molecules. Subsequently, metabolite annotation was performed using the MSP database, which houses ESI-MS/MS fragmentation data for 16,481 unique authentic standards. The MSP database served as the basis for assigning compound identification levels: 999 denoted instances where MS-DIAL could not identify the feature due to missing MS/MS fragmentation spectrum or non-matching library entries. A tentative identification was assigned with 530, indicating a match based on accurate mass comparison. A more confident tentative identification was marked with 430, indicating spectral correspondence between the feature and the library entry’s MS/MS spectrum.</p>
 <p>To leverage the untargeted metabolomics data, we can, for example, construct a function similar to <code>overlay_untargeted_data</code>, which facilitates the extraction of specific regions from the feature map derived from MS-DIAL based on retention time and accurate mass. These extracted features can be overlaid as a scatter plot alongside our activation map. This approach, in theory, should provide a deeper understanding of the features that play a crucial role in differentiating between the various classes.</p>
 <div class="cell" data-execution_count="10">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> overlay_untargeted_data(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    query_str: <span class="bu">str</span>,</span>
@@ -1202,9 +1181,9 @@ Figure&nbsp;6: Regions of interest identified by LayerCAM, demonstrating the spe
 <span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> composite_img, df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>As illustrated in <a href="#fig-overlay_example1" class="quarto-xref">Figure&nbsp;7</a>, and <a href="#fig-overlay_example2" class="quarto-xref">Figure&nbsp;8</a>, the most notable features identified by MS-DIAL with levels 430 and 530 are overlaid with two examples of the activation map generated by TorchCam. Importantly, morphine-3-glucuronide (Level 530), a major metabolite of morphine, stands out as a key feature influencing the model’s decision-making process. Additionally, EDDP (Level 430), a major metabolite of methadone, a synthetic opioid agonist used for chronic pain and opioid use disorder, is also considered by the model. While we observed tentative evidence suggesting that the metabolic pathways involving Kreb’s cycle, purine metabolism, central carbon metabolism, histone modification, and acetylation are also considered by the model, as it was pointed out by <span class="citation" data-cites="li_untargeted_2020">Li et al. (<a href="#ref-li_untargeted_2020" role="doc-biblioref">2020</a>)</span>, the level of identification (530) indicates that these identifications are based solely on accurate mass measurement alone thus further investigation is warranted to confirm the identities of these potential biomarkers (<a href="#tbl-overlaid-identifications" class="quarto-xref">Table&nbsp;3</a>).</p>
+<p>As illustrated in <a href="#fig-overlay_example1">Figure&nbsp;7</a>, and <a href="#fig-overlay_example2">Figure&nbsp;8</a>, the most notable features identified by MS-DIAL with levels 430 and 530 are overlaid with two examples of the activation map generated by TorchCam. Importantly, morphine-3-glucuronide (Level 530), a major metabolite of morphine, stands out as a key feature influencing the model’s decision-making process. Additionally, EDDP (Level 430), a major metabolite of methadone, a synthetic opioid agonist used for chronic pain and opioid use disorder, is also considered by the model. While we observed tentative evidence suggesting that the metabolic pathways involving Kreb’s cycle, purine metabolism, central carbon metabolism, histone modification, and acetylation are also considered by the model, as it was pointed out by <span class="citation" data-cites="li_untargeted_2020">Li et al. (<a href="#ref-li_untargeted_2020" role="doc-biblioref">2020</a>)</span>, the level of identification (530) indicates that these identifications are based solely on accurate mass measurement alone thus further investigation is warranted to confirm the identities of these potential biomarkers (<a href="#tbl-overlaid-identifications">Table&nbsp;3</a>).</p>
 <div class="cell" data-execution_count="11">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>composite_img_pattern_1, pattern_df_1 <span class="op">=</span> overlay_untargeted_data(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    query_str<span class="op">=</span><span class="st">"3.5&lt;average_rt_min_&lt;5 and 460&lt;average_mz&lt;500 or 5&lt;average_rt_min_&lt;6.5 and 575&lt;average_mz&lt;650 or 9.5&lt;average_rt_min_&lt;10 and 280&lt;average_mz&lt;320"</span>,</span>
@@ -1224,20 +1203,16 @@ Figure&nbsp;6: Regions of interest identified by LayerCAM, demonstrating the spe
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>composite_img_pattern_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="11">
-<div id="fig-overlay_example1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-overlay_example1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="DeepLCMS_files/figure-html/fig-overlay_example1-output-1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overlay_example1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7: Example-1 of interest overlayed with proposed feature names tentativelyi identified by MS-DIAL.
-</figcaption>
+<div id="fig-overlay_example1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DeepLCMS_files/figure-html/fig-overlay_example1-output-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;7: Example-1 of interest overlayed with proposed feature names tentativelyi identified by MS-DIAL.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-execution_count="12">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>composite_img_pattern_2, pattern_df_2 <span class="op">=</span> overlay_untargeted_data(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    query_str<span class="op">=</span><span class="st">"(16.5&lt;average_rt_min_&lt;18 and 180&lt;average_mz&lt;250) or (4&lt;average_rt_min_&lt;5.5 and 50&lt;average_mz&lt;100) or (8&lt;average_rt_min_&lt;12 and 50&lt;average_mz&lt;100) or (8.5&lt;average_rt_min_&lt;9 and 250&lt;average_mz&lt;300) or (12&lt;average_rt_min_&lt;14 and 200&lt;average_mz&lt;220) or (18&lt;average_rt_min_&lt;20 and 280&lt;average_mz&lt;350)"</span>,</span>
@@ -1252,36 +1227,40 @@ Figure&nbsp;7: Example-1 of interest overlayed with proposed feature names tenta
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>composite_img_pattern_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<div id="fig-overlay_example2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-overlay_example2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="DeepLCMS_files/figure-html/fig-overlay_example2-output-1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overlay_example2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: Example-2 of interest overlayed with proposed feature names tentativelyi identified by MS-DIAL.
-</figcaption>
+<div id="fig-overlay_example2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DeepLCMS_files/figure-html/fig-overlay_example2-output-1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;8: Example-2 of interest overlayed with proposed feature names tentativelyi identified by MS-DIAL.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-execution_count="13">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pd.concat([pattern_df_1, pattern_df_2], axis<span class="op">=</span><span class="dv">0</span>).drop(columns<span class="op">=</span>[<span class="st">"sp_10"</span>, <span class="st">"sp_20"</span>]).head(</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">50</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="tbl-overlaid-identifications" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="13">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-overlaid-identifications-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: List of 50 metabolites residing at regions of interests that were tentatively identified by MS-DIAL following the overlay of the activation map and the feature map
-</figcaption>
-<div aria-describedby="tbl-overlaid-identifications-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<div id="tbl-overlaid-identifications" class="anchored">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<caption>Table&nbsp;3: List of 50 metabolites residing at regions of interests that were tentatively identified by MS-DIAL following the overlay of the activation map and the feature map</caption>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1746,11 +1725,9 @@ Table&nbsp;3: List of 50 metabolites residing at regions of interests that were 
 </tr>
 </tbody>
 </table>
+</div>
 
 </div>
-</div>
-</div>
-</figure>
 </div>
 </div>
 <p>Although this is not the only approach to understanding the principles upon which the model bases its decisions, we believe that combining CNNs with MS/MS fragmentation-based untargeted metabolomics can be used as an example to gain a better understanding of the underlying mechanisms. Conversely, the model can also guide researchers in directing resources and efforts towards identifying specific regions of interest more effectively by performing more targeted measurements, such as MS/MS experiments, since we already know which features play significant roles in distinguishing between the classes. In particular, we recognize the potential benefits of such a model in high-throughput settings where rapid decisions are required, although thorough validation remains essential. This approach could be highly valuable in conjunction with techniques such as untargeted metabolomics and lipidomics, where an unbiased assessment of the phenotype is desirable, especially, when combined with simple sample preparation techniques such as protein precipitation.</p>
@@ -1772,7 +1749,7 @@ Table&nbsp;3: List of 50 metabolites residing at regions of interests that were 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-behrmann_deep_2018" class="csl-entry" role="listitem">
 Behrmann, Jens, Christian Etmann, Tobias Boskamp, Rita Casadonte, Jörg Kriegsmann, and Peter Maaβ. 2018. <span>“Deep Learning for Tumor Classification in Imaging Mass Spectrometry.”</span> <em>Bioinformatics</em> 34 (7): 1215–23. <a href="https://doi.org/10.1093/bioinformatics/btx724">https://doi.org/10.1093/bioinformatics/btx724</a>.
 </div>
@@ -1847,33 +1824,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -1940,15 +1890,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1983,7 +1931,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2015,27 +1974,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -2087,27 +2026,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/adamcseresznye\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2117,17 +2039,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2139,129 +2052,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -2305,7 +2096,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2331,32 +2121,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2777,7 +2541,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb14-385"><a href="#cb14-385" aria-hidden="true" tabindex="-1"></a><span class="fu"># Get in touch</span></span>
 <span id="cb14-386"><a href="#cb14-386" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-387"><a href="#cb14-387" aria-hidden="true" tabindex="-1"></a>Did this project help with your research? Do you have any ideas for making it better? Get in touch! We would love to hear from you.</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -2785,15 +2549,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2024, Adam Cseresznye</p>
-</div>
+    <div class="nav-footer-center">Copyright 2024, Adam Cseresznye</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

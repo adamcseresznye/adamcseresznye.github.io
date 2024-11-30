@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adam Cseresznye">
 <meta name="dcterms.date" content="2023-08-11">
 
-<title>Getting Started with Polars – Adam Cseresznye</title>
+<title>Adam Cseresznye - Getting Started with Polars</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,25 +72,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b697eb10549dbab267b4169cc0aac045.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6f6a3df318ae731e7885b4e8bdb9d5b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -99,7 +93,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -125,68 +118,63 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Getting Started with Polars – Adam Cseresznye">
+<meta property="og:title" content="Adam Cseresznye - Getting Started with Polars">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://adamcseresznye.github.io/posts/polars/Polars_revised_files/figure-html/cell-39-output-2.png">
-<meta property="og:site_name" content="Adam Cseresznye">
-<meta property="og:image:height" content="858">
-<meta property="og:image:width" content="1132">
-<meta name="twitter:title" content="Getting Started with Polars – Adam Cseresznye">
+<meta property="og:image" content="https://raw.githubusercontent.com/pola-rs/polars-static/master/web/splash.png">
+<meta property="og:site-name" content="Adam Cseresznye">
+<meta name="twitter:title" content="Adam Cseresznye - Getting Started with Polars">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://adamcseresznye.github.io/posts/polars/Polars_revised_files/figure-html/cell-39-output-2.png">
-<meta name="twitter:image-height" content="858">
-<meta name="twitter:image-width" content="1132">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pola-rs/polars-static/master/web/splash.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Adam Cseresznye</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../scientific_output.html"> 
-<span class="menu-text">Scientific Output</span></a>
+    <a class="nav-link" href="../../scientific_output.html" rel="" target="">
+ <span class="menu-text">Scientific Output</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/adamcseresznye"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/adamcseresznye" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/csenye22"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/csenye22" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -195,6 +183,7 @@ ga('send', {
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -316,10 +305,9 @@ ga('send', {
 
 
 
-
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/web/splash.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+<p><img src="https://raw.githubusercontent.com/pola-rs/polars-static/master/web/splash.png" class="img-fluid figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 <p>In the ever-evolving field of data science, effective data manipulation tools are essential. Enter Polars, a Rust-based library garnering attention within the data community. Boasting impressive speed and versatile capabilities, Polars is redefining our data management practices. In this blog, we delve into Polars’ core functions and practical applications, shedding light on how it empowers data professionals to efficiently tackle complex tasks.</p>
@@ -328,7 +316,7 @@ ga('send', {
 <section id="setup" class="level1">
 <h1>Setup</h1>
 <div class="cell" data-tags="[]" data-execution_count="1">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -348,7 +336,7 @@ ga('send', {
 <h1>Polars Version</h1>
 <p>We are using Polars 0.18.8 for this demonstration.</p>
 <div class="cell" data-tags="[]" data-execution_count="2">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pl.__version__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -358,7 +346,7 @@ ga('send', {
 </div>
 <p>Given the large size of the dataset and the fact that some columns aren’t really useful for us, we’ll start by picking out the information we actually need. Feel free to use the code below to work with your dataframe.</p>
 <div class="cell" data-tags="[]" data-execution_count="3">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"vehicles.csv"</span>, null_values<span class="op">=</span><span class="st">"NA"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -403,7 +391,7 @@ ga('send', {
 <p>Taking a closer look at the Polars namespace can be really helpful as you start to get to know the library. By exploring the functions, methods, and attributes available within the namespace, you’ll get a better sense of what the library can do. This exploration sets the groundwork for you to use the library more effectively and make the most of its features.</p>
 <p>By issuing <code>print(dir(pl))</code>, we can explore the accessible functions within the namespace.</p>
 <div class="cell" data-tags="[]" data-execution_count="4">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># available functions</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -415,7 +403,7 @@ ga('send', {
 </div>
 <p>The same applies to the methods available for DataFrames.</p>
 <div class="cell" data-tags="[]" data-execution_count="5">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># methods defined on dataframes</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -427,7 +415,7 @@ ga('send', {
 </div>
 <p>…and expressions for the Series</p>
 <div class="cell" data-tags="[]" data-execution_count="6">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># available expressions</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -442,7 +430,7 @@ ga('send', {
 <h1>Access documentation</h1>
 <p>If you’re familiar with Python, you might recognize that you can access documentation by either using <code>__doc__</code> or by calling the <code>help()</code> function.</p>
 <div class="cell" data-tags="[]" data-execution_count="7">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"year"</span>].dt.convert_time_zone.__doc__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -482,7 +470,7 @@ ga('send', {
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="8">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(pl.head)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -534,7 +522,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="use-take-for-series-or-expressions">Use <code>take</code> for Series or Expressions</h2>
 <p>An interesting approach is through Polars’ <code>take</code> method. This method can be used with <code>Expr</code>, <code>Series</code>, or <code>np.ndarray</code>. However, it’s worth noting that if you intend to utilize it with DataFrames, a preliminary conversion to Series is necessary.</p>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="9">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.col(<span class="st">"make"</span>)).to_series().take(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -547,12 +535,12 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (5,)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 </tr>
 </thead>
@@ -577,7 +565,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="evaluate-a-single-condition" class="level3">
 <h3 class="anchored" data-anchor-id="evaluate-a-single-condition">Evaluate a single condition</h3>
 <div class="cell" data-tags="[]" data-execution_count="10">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">filter</span>(pl.col(<span class="st">"model"</span>) <span class="op">==</span> <span class="st">"Testarossa"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -589,7 +577,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (14, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -604,7 +592,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -667,7 +655,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="combine-multiple-conditions" class="level3">
 <h3 class="anchored" data-anchor-id="combine-multiple-conditions">Combine multiple conditions</h3>
 <div class="cell" data-tags="[]" data-execution_count="11">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">filter</span>((pl.col(<span class="st">"model"</span>) <span class="op">==</span> <span class="st">"Testarossa"</span>) <span class="op">&amp;</span> (pl.col(<span class="st">"make"</span>) <span class="op">==</span> <span class="st">"Ferrari"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -679,7 +667,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (9, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -694,7 +682,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -759,7 +747,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="imitate-pandas-index-using-with_row_count">Imitate pandas’ <code>index</code> using <code>with_row_count</code></h2>
 <p>Even in the absence of a traditional index, you can make use of the <code>with_row_count</code> method in Polars. This clever method comes to the rescue for tasks like indexing and filtering, providing an alternative approach.</p>
 <div class="cell" data-tags="[]" data-execution_count="12">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>(df.with_row_count().<span class="bu">filter</span>(pl.col(<span class="st">"row_nr"</span>) <span class="op">==</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -771,7 +759,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (1, 12)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">row_nr</th>
@@ -787,7 +775,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>u32</th>
 <th>cat</th>
 <th>cat</th>
@@ -826,7 +814,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h3 class="anchored" data-anchor-id="use-is_in">Use <code>is_in</code></h3>
 <p>The <code>is_in</code> function can be employed to verify whether elements of a given expression are present within another Series. We can use this to filter our rows.</p>
 <div class="cell" data-tags="[]" data-execution_count="13">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">filter</span>(pl.col(<span class="st">"cylinders"</span>).is_in([i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>, <span class="dv">8</span>)]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -838,7 +826,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (14_284, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -853,7 +841,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -922,7 +910,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="difference-between-select-and-with_columns">Difference between <code>select</code> and with_columns`</h2>
 <p>As evident from the examples below, both <code>select</code> and <code>with_column</code> can be utilized for both column selection and column assignment. However, there’s a crucial distinction between the two. After performing column operations, the <code>select</code> method drops the unselected columns and retains only the columns that underwent operations. Conversely, the <code>with_column</code> method appends the new columns to the dataframe, preserving the original ones.</p>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="14">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># everything else is dropped</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -942,13 +930,13 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 2)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">added</th>
 <th data-quarto-table-cell-role="th">substracted</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>i8</th>
 <th>i8</th>
 </tr>
@@ -971,7 +959,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 </div></div></div>
 <div class="cell" data-tags="[]" data-execution_count="15">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># columns are kept</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -990,7 +978,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 13)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -1007,7 +995,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">added</th>
 <th data-quarto-table-cell-role="th">substracted</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -1080,7 +1068,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="select-all-columns">Select all columns</h2>
 <p>A particularly handy tool is <code>pl.all()</code>, which provides the current state of the dataframe—similar to <code>pd.assign(foo=lambda df)</code> in Pandas. This can prove useful, particularly when dealing with operations like groupby and aggregation.</p>
 <div class="cell" data-tags="[]" data-execution_count="16">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is analogous to df.select(pl.col("*")), where * represents the wildcard component</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df.select(pl.<span class="bu">all</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1093,7 +1081,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -1108,7 +1096,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -1171,7 +1159,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="select-all-columns-except-for" class="level2">
 <h2 class="anchored" data-anchor-id="select-all-columns-except-for">Select all columns except for…</h2>
 <div class="cell" data-tags="[]" data-execution_count="17">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.col(<span class="st">"*"</span>).exclude(<span class="st">"year"</span>, <span class="st">"comb08"</span>, <span class="st">"highway08"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1183,7 +1171,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 8)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -1195,7 +1183,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">mpgData</th>
 <th data-quarto-table-cell-role="th">city08</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -1246,7 +1234,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="select-a-subset-of-columns" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="select-a-subset-of-columns">Select a subset of columns</h2>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="18">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.col(<span class="st">"year"</span>, <span class="st">"comb08"</span>, <span class="st">"highway08"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1259,14 +1247,14 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 3)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">year</th>
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">highway08</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>date</th>
 <th>i8</th>
 <th>i8</th>
@@ -1296,7 +1284,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="select-columns-based-on-regular-expression" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="select-columns-based-on-regular-expression">Select columns based on regular expression</h2>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="19">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.col(<span class="st">"^.*(mo|ma).*$"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1309,13 +1297,13 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 2)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">model</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 </tr>
@@ -1342,7 +1330,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="select-columns-based-on-dtypes">Select columns based on dtypes</h2>
 <p>This may remind you of pandas’ <code>select_dtypes</code> method.</p>
 <div class="cell" data-tags="[]" data-execution_count="20">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.col(pl.Int8, pl.Boolean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1354,7 +1342,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 5)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">cylinders</th>
@@ -1363,7 +1351,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">highway08</th>
 <th data-quarto-table-cell-role="th">comb08</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>i8</th>
 <th>bool</th>
 <th>i8</th>
@@ -1405,7 +1393,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="by-dtypes" class="level3">
 <h3 class="anchored" data-anchor-id="by-dtypes">By dtypes</h3>
 <div class="cell" data-tags="[]" data-execution_count="21">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df.select(cs.integer(), cs.<span class="bu">float</span>(), cs.temporal())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1417,7 +1405,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 6)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">cylinders</th>
@@ -1427,7 +1415,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">displ</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>i8</th>
 <th>i8</th>
 <th>i8</th>
@@ -1467,7 +1455,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="22">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all columns except for the ones containing float</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df.select(cs.<span class="bu">all</span>() <span class="op">-</span> cs.numeric())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1480,7 +1468,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 6)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -1490,7 +1478,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">mpgData</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -1530,7 +1518,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="23">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same as the one above but it uses the tilde</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df.select(<span class="op">~</span>cs.numeric())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1543,7 +1531,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 6)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -1553,7 +1541,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">mpgData</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -1596,7 +1584,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="by-column-names" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="by-column-names">By column names</h3>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="24">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df.select(cs.contains(<span class="st">"08"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1609,14 +1597,14 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 3)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">city08</th>
 <th data-quarto-table-cell-role="th">highway08</th>
 <th data-quarto-table-cell-role="th">comb08</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>i8</th>
 <th>i8</th>
 <th>i8</th>
@@ -1643,7 +1631,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 </div></div></div>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="25">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df.select(cs.starts_with(<span class="st">"d"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1656,13 +1644,13 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 2)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">drive</th>
 <th data-quarto-table-cell-role="th">displ</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>f32</th>
 </tr>
@@ -1693,7 +1681,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <p>Understanding and managing data types, as well as converting them, are very important—particularly when dealing with larger datasets. Luckily, with Polars, this process is wonderfully straightforward. Here’s a useful tip: in many cases, the <code>cast</code> method will be your trusty companion for data type conversions. It’s quite versatile and often does the job seamlessly. When it comes to converting dates, things can get a bit more intricate, but rest assured, it’s a hurdle you can easily overcome!</p>
 <p>More info on the available dtypes can be found <a href="https://pola-rs.github.io/polars-book/user-guide/concepts/data-types/">here</a>.</p>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="26">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    df.select(</span>
@@ -1712,14 +1700,14 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 3)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">cylinders</th>
 <th data-quarto-table-cell-role="th">displ</th>
 <th data-quarto-table-cell-role="th">mpgData</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>i32</th>
 <th>i64</th>
 <th>i64</th>
@@ -1750,7 +1738,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h1>Working with <code>str</code></h1>
 <p>We can examine the available attributes when working with strings. You might notice that it boasts some familiar attributes, like <code>extract</code>, <code>replace</code>, <code>split</code>, and <code>strip</code>, among others.</p>
 <div class="cell" data-tags="[]" data-execution_count="27">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attributes of str</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">dir</span>(pl.col(<span class="st">"*"</span>).<span class="bu">str</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1762,7 +1750,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="basic-operations" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="basic-operations">Basic operations</h2>
 <div class="cell" data-tags="[]" data-execution_count="28">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    df.select(</span>
@@ -1780,14 +1768,14 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 3)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">contains</th>
 <th data-quarto-table-cell-role="th">starts_with</th>
 <th data-quarto-table-cell-role="th">ends_with</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>bool</th>
 <th>bool</th>
 <th>bool</th>
@@ -1816,7 +1804,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 <p>We can extract the numbers from the different car models:</p>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="29">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    df.select(</span>
@@ -1837,12 +1825,12 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 1)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">extracted_number</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>i32</th>
 </tr>
 </thead>
@@ -1862,7 +1850,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div></div></div>
 <p>As per usual, we can replace values in a given column:</p>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="30">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    df.select(</span>
@@ -1879,12 +1867,12 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 1)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">replaced</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>str</th>
 </tr>
 </thead>
@@ -1907,7 +1895,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="changing-column-names">Changing column names</h2>
 <p>Altering column names is quite reminiscent of the process in Pandas:</p>
 <div class="cell" data-tags="[]" data-execution_count="31">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df.rename({<span class="st">"make"</span>: <span class="st">"car maker"</span>, <span class="st">"model"</span>: <span class="st">"car model"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1919,7 +1907,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">car maker</th>
@@ -1934,7 +1922,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -1995,7 +1983,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 <p>In case you would like to alter multiple column names all at once:</p>
 <div class="cell" data-tags="[]" data-execution_count="32">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.<span class="bu">all</span>().map_alias(<span class="kw">lambda</span> name: name.upper().replace(<span class="st">"I"</span>, <span class="st">"0000"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2007,7 +1995,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">MAKE</th>
@@ -2022,7 +2010,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">COMB08</th>
 <th data-quarto-table-cell-role="th">YEAR</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -2085,7 +2073,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h3 class="anchored" data-anchor-id="str.split-with-expandall"><code>str.split</code> with <code>expand='all'</code></h3>
 <p>I often find myself using the <code>str.split</code> method, and it caught me off guard that there isn’t a direct equivalent in Polars. Fingers crossed, we might come across an implementation like <code>expand=True</code> from Pandas, which would be a real game-changer here too!</p>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="33">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    df.select(</span>
@@ -2106,13 +2094,13 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 2)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">first_part</th>
 <th data-quarto-table-cell-role="th">second_part</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>str</th>
 <th>str</th>
 </tr>
@@ -2143,7 +2131,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="a-simple-split-apply-combine-operation" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="a-simple-split-apply-combine-operation">A simple split-apply-combine operation</h2>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="34">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>(df.groupby(<span class="st">"make"</span>).count().sort(by<span class="op">=</span><span class="st">"count"</span>, descending<span class="op">=</span><span class="va">True</span>).limit(<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2156,13 +2144,13 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (5, 2)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">count</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>u32</th>
 </tr>
@@ -2189,7 +2177,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="using-agg">Using <code>agg</code></h2>
 <p>You can use <code>agg</code> to calculate statistics over either a single or multiple columns all at once.</p>
 <div class="cell" data-tags="[]" data-execution_count="35">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>(df.groupby(<span class="st">"make"</span>).agg(pl.count(), pl.col(<span class="st">"model"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2201,14 +2189,14 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (136, 3)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">count</th>
 <th data-quarto-table-cell-role="th">model</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>u32</th>
 <th>list[cat]</th>
@@ -2237,7 +2225,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 <p>Here’s an illustration of how to utilize the <code>is_not_nan</code> method. In Polars, unknown values are represented with floating-point precision, similar to how pandas handles them. It’s important not to mix this up with missing values, which are indicated by <code>Null</code> in Polars. Additionally, take note of the use of <code>limit</code> instead of <code>head</code>, a concept quite akin to SQL.</p>
 <div class="cell" data-tags="[]" data-execution_count="36">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    df.groupby(<span class="st">"make"</span>)</span>
@@ -2258,14 +2246,14 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (5, 3)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">mean_cyl</th>
 <th data-quarto-table-cell-role="th">mean_disp</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>f64</th>
 <th>f64</th>
@@ -2294,7 +2282,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 <p>Aggregated columns can be renamed immediately with the <code>alias</code> method.</p>
 <div class="cell" data-tags="[]" data-execution_count="37">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    df.groupby(<span class="st">"make"</span>, <span class="st">"fuelType"</span>)</span>
@@ -2310,14 +2298,14 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (38, 3)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">fuelType</th>
 <th data-quarto-table-cell-role="th">filtered</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>f64</th>
@@ -2346,7 +2334,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 <p>Here’s a scenario for performing aggregation based on the year. In this case, the “year” column holds the year-related data, which can be extracted using the <code>dt.year</code> attribute. Keep in mind that Polars doesn’t have native plotting capabilities like pandas. To visualize the data, as a final step, you can convert the dataframe to pandas and make use of its <code>.plot</code> method.</p>
 <div class="cell" data-tags="[]" data-execution_count="38">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    df.groupby(</span>
@@ -2369,16 +2357,12 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <pre><code>&lt;Axes: xlabel='year'&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Polars_revised_files/figure-html/cell-39-output-2.png" width="566" height="429" class="figure-img"></p>
-</figure>
-</div>
+<p><img src="Polars_revised_files/figure-html/cell-39-output-2.png" width="566" height="429"></p>
 </div>
 </div>
 <p>Here’s another fantastic option for you: the <code>groupby_dynamic</code> feature. It’s really impressive, by the way. You can employ this when grouping based on years or any other time-related information. Additionally, you can make use of the <code>every</code> parameter for resampling, which closely resembles what you can do with pandas.</p>
 <div class="cell" data-tags="[]" data-execution_count="39">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    df.sort(by<span class="op">=</span><span class="st">"year"</span>)</span>
@@ -2398,11 +2382,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <pre><code>&lt;Axes: xlabel='year'&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Polars_revised_files/figure-html/cell-40-output-2.png" width="583" height="429" class="figure-img"></p>
-</figure>
-</div>
+<p><img src="Polars_revised_files/figure-html/cell-40-output-2.png" width="583" height="429"></p>
 </div>
 </div>
 </section>
@@ -2410,7 +2390,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="pivot">Pivot</h2>
 <p>You can also accomplish split-apply-combine tasks seamlessly using the pivot function. It’s remarkably straightforward.</p>
 <div class="cell" data-tags="[]" data-execution_count="40">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    df.with_columns(</span>
@@ -2428,14 +2408,14 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (126, 3)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">Regular</th>
 <th data-quarto-table-cell-role="th">Premium</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>f64</th>
 <th>f64</th>
@@ -2470,7 +2450,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="getting-missing-value-count-per-column">Getting missing value count per column</h2>
 <p>The <code>null_count</code> function showcases the count of missing values in the dataframe. Remember, these are not the same as np.nans; it’s important to be aware of this distinction. This functionality is akin to the pandas <code>df.isna().sum()</code> operation if you’re familiar with pandas.</p>
 <div class="cell" data-tags="[]" data-execution_count="41">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df.null_count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2482,7 +2462,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (1, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -2497,7 +2477,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>u32</th>
 <th>u32</th>
 <th>u32</th>
@@ -2535,7 +2515,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="getting-boolean-array-of-missing-values">Getting boolean array of missing values</h2>
 <p>If you ever need to manipulate a series based on its null values, you can also obtain a boolean mask using the <code>is_null</code> function. This can be really handy for targeted data manipulation.</p>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="42">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.col(<span class="st">"city08"</span>).is_null())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2548,12 +2528,12 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 1)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">city08</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>bool</th>
 </tr>
 </thead>
@@ -2578,7 +2558,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="with-literals" class="level3">
 <h3 class="anchored" data-anchor-id="with-literals">With literals</h3>
 <div class="cell" data-tags="[]" data-execution_count="43">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>(df.with_columns(pl.col(<span class="st">"cylinders"</span>).fill_null(pl.lit(<span class="dv">2</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2590,7 +2570,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -2605,7 +2585,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -2665,7 +2645,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="44">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>(df.with_columns(pl.col(<span class="st">"cylinders"</span>).fill_null(strategy<span class="op">=</span><span class="st">"zero"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2677,7 +2657,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -2692,7 +2672,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -2752,7 +2732,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="45">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>(df.with_columns(pl.col(<span class="st">"cylinders"</span>).fill_null(strategy<span class="op">=</span><span class="st">"forward"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2764,7 +2744,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -2779,7 +2759,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -2843,7 +2823,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h3 class="anchored" data-anchor-id="with-an-expression">With an expression</h3>
 <p>This can be very useful for machine learning pipelines. When addressing missing values, you can set them to the mode, median, mean, or any other value that suits your needs.</p>
 <div class="cell" data-tags="[]" data-execution_count="46">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>(df.with_columns(pl.col(<span class="st">"cylinders"</span>).fill_null(pl.col(<span class="st">"cylinders"</span>).mode())))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2855,7 +2835,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 11)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -2870,7 +2850,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">comb08</th>
 <th data-quarto-table-cell-role="th">year</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -2935,7 +2915,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <p>The <code>over</code> function in Polars is used to perform window operations, akin to what you’d achieve with window functions in SQL or the <code>transform</code> function in pandas. This function enables you to compute aggregations over a specified window or range of rows defined by a window specification. It’s perfect for tasks like calculating rolling averages, cumulative sums, and other operations that involve working with a specific subset of rows within the dataset.</p>
 <p>Let’s begin by filtering the car makes to encompass only the top 5 car brands. Following that, we can utilize the <code>over</code> function to derive several statistics.</p>
 <div class="cell" data-tags="[]" data-execution_count="47">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>top5 <span class="op">=</span> (</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    df.select(pl.col(<span class="st">"make"</span>))</span>
@@ -2965,7 +2945,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (9_957, 5)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -2974,7 +2954,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">avg_city_mpg_by_model</th>
 <th data-quarto-table-cell-role="th">avg_comb_mpg_by_model</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>f64</th>
@@ -3019,7 +2999,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="operating-on-multiple-columns-and-renaming-them">Operating on multiple columns and renaming them</h2>
 <p>You have the flexibility to conduct column operations and then easily rename them. Additionally, you can make use of the <code>prefix</code> and <code>suffix</code> functions to streamline your workflow.</p>
 <div class="cell" data-tags="[]" data-execution_count="48">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>(df.with_columns((cs.numeric() <span class="op">*</span> <span class="dv">2</span>).prefix(<span class="st">"changed_"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -3031,7 +3011,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 16)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
@@ -3051,7 +3031,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <th data-quarto-table-cell-role="th">changed_highway08</th>
 <th data-quarto-table-cell-role="th">changed_comb08</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>cat</th>
@@ -3135,7 +3115,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="count-unique-values">Count unique values</h2>
 <p>Absolutely, you can also count the unique values within a series in Polars, much like you would with the <code>unique</code> function in pandas. This can be really useful for understanding the distribution and diversity of data within a specific column.</p>
 <div class="cell" data-tags="[]" data-execution_count="49">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.col(<span class="st">"make"</span>)).n_unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -3149,7 +3129,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <section id="on-a-single-column" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="on-a-single-column">On a single column</h3>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="50">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>(df.select(pl.col(<span class="st">"make"</span>)).to_series().value_counts(sort<span class="op">=</span><span class="va">True</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -3162,13 +3142,13 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (136, 2)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">counts</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>u32</th>
 </tr>
@@ -3191,7 +3171,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </div>
 </div></div></div>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="51">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>(df.select(pl.col(<span class="st">"make"</span>)).groupby(<span class="st">"make"</span>).count().sort(by<span class="op">=</span><span class="st">"count"</span>, descending<span class="op">=</span><span class="va">True</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -3204,13 +3184,13 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (136, 2)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">count</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>u32</th>
 </tr>
@@ -3237,7 +3217,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h3 class="anchored" data-anchor-id="on-multiple-columns">On multiple columns</h3>
 <p>I noticed that Polars lacks the capability to perform value counts on multiple columns, unlike pandas’ <code>value_counts</code> function which operates only on series. However, I’ve discovered that combining a <code>groupby</code> operation with a <code>count</code> function can effectively achieve the same outcome for multiple columns. It’s all about finding alternative approaches that get the job done!</p>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="52">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>    df.select(pl.col(<span class="st">"make"</span>, <span class="st">"model"</span>))</span>
@@ -3255,14 +3235,14 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (4_127, 3)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">model</th>
 <th data-quarto-table-cell-role="th">count</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>cat</th>
 <th>u32</th>
@@ -3294,7 +3274,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 <h2 class="anchored" data-anchor-id="conditionals-if-else-statements">Conditionals/ if-else statements</h2>
 <p>If you’re looking to integrate conditional if-else statements into your Polars chain, you can make use of the <code>when</code>, <code>then</code>, and <code>otherwise</code> functions. However, keep in mind that a series of chained <code>when</code>, <code>then</code> statements should be interpreted as if, elif, … elif, rather than if, if, … if. In other words, the first condition that evaluates to True will be selected. It’s crucial to understand this distinction when crafting your conditions.</p>
 <div class="cell page-columns page-full" data-tags="[]" data-execution_count="53">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>    df.select(</span>
@@ -3317,13 +3297,13 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 }
 </style>
 <small>shape: (41_144, 2)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">make</th>
 <th data-quarto-table-cell-role="th">fuel_economy</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th>cat</th>
 <th>str</th>
 </tr>
@@ -3350,7 +3330,7 @@ head(column: 'str | Series', n: 'int' = 10) -&gt; 'Expr | Series'
 </section>
 <section id="document-version" class="level1">
 <h1>Document version</h1>
-<table class="caption-top table">
+<table class="table">
 <thead>
 <tr class="header">
 <th style="text-align: center;">Version</th>
@@ -3414,33 +3394,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -3509,15 +3462,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -3552,7 +3503,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -3584,27 +3546,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -3656,27 +3598,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/adamcseresznye\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3686,17 +3611,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3708,129 +3624,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -3874,7 +3668,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3900,32 +3693,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -4670,7 +4437,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb65-789"><a href="#cb65-789" aria-hidden="true" tabindex="-1"></a>| Version      | Date      | Comment          |</span>
 <span id="cb65-790"><a href="#cb65-790" aria-hidden="true" tabindex="-1"></a>|  :----:      | :----:    | :----:           |</span>
 <span id="cb65-791"><a href="#cb65-791" aria-hidden="true" tabindex="-1"></a>| 0.1          | 8/11/2023 | Document created |</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -4678,15 +4445,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2024, Adam Cseresznye</p>
-</div>
+    <div class="nav-footer-center">Copyright 2024, Adam Cseresznye</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

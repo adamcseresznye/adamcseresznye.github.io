@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adam Cseresznye">
 <meta name="dcterms.date" content="2023-09-11">
 
-<title>Tidy Tuesday: The Global Human Day – Adam Cseresznye</title>
+<title>Adam Cseresznye - Tidy Tuesday: The Global Human Day</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,25 +72,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b697eb10549dbab267b4169cc0aac045.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6f6a3df318ae731e7885b4e8bdb9d5b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -99,7 +93,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -125,62 +118,63 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Tidy Tuesday: The Global Human Day – Adam Cseresznye">
+<meta property="og:title" content="Adam Cseresznye - Tidy Tuesday: The Global Human Day">
 <meta property="og:description" content="">
-<meta property="og:site_name" content="Adam Cseresznye">
-<meta name="twitter:title" content="Tidy Tuesday: The Global Human Day – Adam Cseresznye">
+<meta property="og:image" content="https://images.unsplash.com/photo-1480480565647-1c4385c7c0bf?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1931&amp;q=80">
+<meta property="og:site-name" content="Adam Cseresznye">
+<meta name="twitter:title" content="Adam Cseresznye - Tidy Tuesday: The Global Human Day">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1480480565647-1c4385c7c0bf?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1931&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Adam Cseresznye</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../scientific_output.html"> 
-<span class="menu-text">Scientific Output</span></a>
+    <a class="nav-link" href="../../scientific_output.html" rel="" target="">
+ <span class="menu-text">Scientific Output</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/adamcseresznye"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/adamcseresznye" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/csenye22"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/csenye22" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -189,6 +183,7 @@ ga('send', {
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -253,11 +248,10 @@ ga('send', {
 
 
 
-
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.unsplash.com/photo-1480480565647-1c4385c7c0bf?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1931&amp;q=80" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Photo by Filip Mroz</figcaption>
+<figcaption class="figure-caption">Photo by Filip Mroz</figcaption>
 </figure>
 </div>
 <p>This week’s <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-09-12/readme.md">Tidy Tuesday</a> takes us to <a href="https://www.pnas.org/doi/10.1073/pnas.2219564120">The Human Chronome Project</a>, an initiative based at McGill University in Montreal. We’re exploring insights from their paper titled “The global human day in PNAS” and the accompanying dataset on <a href="https://zenodo.org/record/8040631">Zenodo</a>.</p>
@@ -265,7 +259,7 @@ ga('send', {
 <section id="import-data" class="level1">
 <h1>Import data</h1>
 <div class="cell" data-tags="[]" data-execution_count="1">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -322,7 +316,7 @@ ga('send', {
 </div>
 <p>While we have four distinct datasets at our disposal, our primary focus will be on two of them. The ‘all_countries’ dataset holds comprehensive information about the time allocated to each activity per region and country, while the ‘country_regions’ dataset provides the essential correspondence between country names and their ISO-2 and ISO-3 abbreviations. Let’s proceed by reading them all in.</p>
 <div class="cell" data-tags="[]" data-execution_count="2">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>all_countries <span class="op">=</span> pd.read_csv(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-09-12/all_countries.csv"</span></span>
@@ -345,7 +339,7 @@ ga('send', {
 <section id="data-dictionary" class="level3">
 <h3 class="anchored" data-anchor-id="data-dictionary">Data Dictionary</h3>
 <p><code>all_countries.csv</code></p>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 40%">
 <col style="width: 20%">
@@ -397,7 +391,7 @@ ga('send', {
 </tbody>
 </table>
 <p><code>country_regions.csv</code></p>
-<table class="caption-top table">
+<table class="table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
@@ -484,7 +478,7 @@ ga('send', {
 </tbody>
 </table>
 <p><code>global_human_day.csv</code></p>
-<table class="caption-top table">
+<table class="table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
@@ -511,7 +505,7 @@ ga('send', {
 </tbody>
 </table>
 <p><code>global_economic_activity.csv</code></p>
-<table class="caption-top table">
+<table class="table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
@@ -544,7 +538,7 @@ ga('send', {
 <h1>Get GDP per capita data from Wikipedia</h1>
 <p>To prepare for our third question, let’s grab <a href="https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)_per_capita">GDP per capita</a> data from Wikipedia. It will come in handy as we dive deeper into our analysis!</p>
 <div class="cell" data-tags="[]" data-execution_count="3">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a dictionary for country name replacements</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>names_to_replace <span class="op">=</span> {</span>
@@ -610,7 +604,7 @@ ga('send', {
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -707,7 +701,7 @@ ga('send', {
 </div>
 <p>After obtaining the GDP per capita data, we’ll integrate it into our main dataset.</p>
 <div class="cell" data-tags="[]" data-execution_count="4">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> (</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    all_countries.assign(</span>
@@ -732,7 +726,7 @@ ga('send', {
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -914,9 +908,9 @@ ga('send', {
 </section>
 <section id="which-regions-allocate-the-most-and-least-time-to-each-subcategory" class="level1">
 <h1>Which regions allocate the most and least time to each subcategory?</h1>
-<p>First, to provide an overview of the prevailing trends, we will begin by examining disparities in time allocation across various subcategories within different regions. Following this, we will delve into a more granular analysis (as part of our second question), considering the data at the country level. As depicted in <a href="#fig-fig1" class="quarto-xref">Figure&nbsp;1</a>, a noticeable pattern emerges. Typically, the minimum and maximum values for each activity type appear quite similar. However, it gets intriguing when we focus on certain categories like ‘Social,’ ‘Food Growth &amp; Collection,’ ‘Schooling &amp; Research,’ ‘Sleep &amp; Bedrest,’ and ‘Passive.’ In these categories, we observe more significant differences, with gaps ranging from 1.05 to 1.59 hours between the maximum and minimum hours spent.</p>
+<p>First, to provide an overview of the prevailing trends, we will begin by examining disparities in time allocation across various subcategories within different regions. Following this, we will delve into a more granular analysis (as part of our second question), considering the data at the country level. As depicted in <a href="#fig-fig1">Figure&nbsp;1</a>, a noticeable pattern emerges. Typically, the minimum and maximum values for each activity type appear quite similar. However, it gets intriguing when we focus on certain categories like ‘Social,’ ‘Food Growth &amp; Collection,’ ‘Schooling &amp; Research,’ ‘Sleep &amp; Bedrest,’ and ‘Passive.’ In these categories, we observe more significant differences, with gaps ranging from 1.05 to 1.59 hours between the maximum and minimum hours spent.</p>
 <div class="cell" data-tags="[]" data-execution_count="5">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>maximum_values <span class="op">=</span> (</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    df.groupby([<span class="st">"region_code"</span>, <span class="st">"Subcategory"</span>])</span>
@@ -991,9 +985,8 @@ ga('send', {
 <span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="60">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="kRXnQv"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -1099,19 +1092,16 @@ ga('send', {
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Regions with the Most and Least Time Spent on Each Subcategory
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;1: Regions with the Most and Least Time Spent on Each Subcategory</figcaption>
 </figure>
 </div>
 </div>
 </section>
 <section id="which-countries-allocate-the-most-and-least-time-to-each-subcategory" class="level1">
 <h1>Which countries allocate the most and least time to each subcategory?</h1>
-<p>As depicted in <a href="#fig-fig2" class="quarto-xref">Figure&nbsp;2</a> below, on average, the most significant time allocation is dedicated to Sleep and Bedrest, followed by Passive, Interactive, and Social Activities, as well as Activities Centered on Eating and Drinking, including Associated Socializing. While drawing definitive conclusions from this figure may be challenging, Japan stands out as a unique case. They allocate the least amount of time to Sleep and Bedrest while devoting the most time to Passive Activities and Hygiene and Grooming—an interesting observation.</p>
+<p>As depicted in <a href="#fig-fig2">Figure&nbsp;2</a> below, on average, the most significant time allocation is dedicated to Sleep and Bedrest, followed by Passive, Interactive, and Social Activities, as well as Activities Centered on Eating and Drinking, including Associated Socializing. While drawing definitive conclusions from this figure may be challenging, Japan stands out as a unique case. They allocate the least amount of time to Sleep and Bedrest while devoting the most time to Passive Activities and Hygiene and Grooming—an interesting observation.</p>
 <div class="cell" data-tags="[]" data-execution_count="6">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the maximum values for each subcategory</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>maximum_values <span class="op">=</span> (</span>
@@ -1191,9 +1181,8 @@ Figure&nbsp;1: Regions with the Most and Least Time Spent on Each Subcategory
 <span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="61">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="3Hoons"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -1296,10 +1285,7 @@ Figure&nbsp;1: Regions with the Most and Least Time Spent on Each Subcategory
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Countries with the Most and Least Time Spent on Each Subcategory
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2: Countries with the Most and Least Time Spent on Each Subcategory</figcaption>
 </figure>
 </div>
 </div>
@@ -1307,9 +1293,9 @@ Figure&nbsp;2: Countries with the Most and Least Time Spent on Each Subcategory
 <section id="is-there-a-discernible-relationship-between-time-spent-on-each-category-and-gdp-per-capita" class="level1">
 <h1>Is there a discernible relationship between time spent on each category and GDP per capita?</h1>
 <p>Now, let’s make the most of our ‘gdp_per_population_log’ column. Please note that I’m not an economics expert, and our goal here is to identify intriguing trends without delving too deeply into interpretation. For a comprehensive understanding of the dataset, I recommend referring to the original publication.</p>
-<p>Let’s begin by examining the broader trends. We aim to identify activities that appear to exhibit a noteworthy correlation with GDP per population, bearing in mind that GDP per population is log-transformed for our analysis. As evident from <a href="#fig-fig3" class="quarto-xref">Figure&nbsp;3</a>, we’ve come across some intriguing, and perhaps not entirely surprising, observations. For instance, the data hints at a negative relationship between the hours per day spent on schooling and research and GDP per capita. This finding might raise eyebrows, as conventional wisdom often suggests that higher education leads to increased economic output. However, it’s worth considering that spending too much time in the educational system could potentially limit one’s participation in economic production compared to individuals with lower levels of education. It’s a thought-provoking discovery, and while it may challenge some assumptions, it certainly adds depth to our understanding of the data.</p>
+<p>Let’s begin by examining the broader trends. We aim to identify activities that appear to exhibit a noteworthy correlation with GDP per population, bearing in mind that GDP per population is log-transformed for our analysis. As evident from <a href="#fig-fig3">Figure&nbsp;3</a>, we’ve come across some intriguing, and perhaps not entirely surprising, observations. For instance, the data hints at a negative relationship between the hours per day spent on schooling and research and GDP per capita. This finding might raise eyebrows, as conventional wisdom often suggests that higher education leads to increased economic output. However, it’s worth considering that spending too much time in the educational system could potentially limit one’s participation in economic production compared to individuals with lower levels of education. It’s a thought-provoking discovery, and while it may challenge some assumptions, it certainly adds depth to our understanding of the data.</p>
 <div class="cell" data-tags="[]" data-execution_count="7">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    df.assign(Subcategory<span class="op">=</span><span class="kw">lambda</span> df: df.Subcategory.<span class="bu">str</span>.replace(<span class="st">"_"</span>, <span class="st">" "</span>)).pipe(</span>
@@ -1335,9 +1321,8 @@ Figure&nbsp;2: Countries with the Most and Least Time Spent on Each Subcategory
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig3" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="62">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="Hlqlu0"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -1423,16 +1408,13 @@ Figure&nbsp;2: Countries with the Most and Least Time Spent on Each Subcategory
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Relationship between Hours per Day Combined and Log(GDP per Population)
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;3: Relationship between Hours per Day Combined and Log(GDP per Population)</figcaption>
 </figure>
 </div>
 </div>
 <p>To further explore the connection between ‘gdp_per_population_log’ and ‘hoursPerDayCombined,’ we can utilize the statsmodels library to execute an Ordinary Least Squares (OLS) regression analysis. This method enables us to compute the β coefficients, in addition to establishing upper and lower confidence intervals, as well as deriving the associated p-values. To streamline this process, we’ll simplify our workflow by creating a function called <code>get_linear_regression_table</code>. This function will initially filter the data based on the unique subcategory of interest and subsequently apply the formula: {outcome_variable} ~ {independent_variable}.</p>
 <div class="cell" data-tags="[]" data-execution_count="8">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_linear_regression_table(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    data, outcome_variable, independent_variable, category, covariate</span>
@@ -1511,7 +1493,7 @@ Figure&nbsp;3: Relationship between Hours per Day Combined and Log(GDP per Popul
 <p>According to our linear regression analysis, it appears that activities like Materials (involving the extraction of substances for various purposes), Food Processing (which includes food transformation and preservation), and Food Growth &amp; Collection (encompassing activities related to edible organic matter) exhibit the most pronounced negative relationships with GDP per capita. Specifically, the β coefficients for these activities are -6.21, -2.86, and -1.03, respectively, with all associated p-values falling below the 0.05 threshold.<br>
 Conversely, we observe the most robust positive relationships with GDP per capita in the case of Active Recreation (involving activities with elevated metabolic activity), Infrastructure (associated with the construction and maintenance of transportation and communication structures), and Waste Management (pertaining to the handling of waste and by-products outside of inhabited areas). These activities exhibit β coefficients of 2.1, 12.17, and 25.17, respectively, with all corresponding p-values falling below the 0.05 significance level.</p>
 <div class="cell" data-tags="[]" data-execution_count="9">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    get_linear_regression_table(</span>
@@ -1606,7 +1588,7 @@ Conversely, we observe the most robust positive relationships with GDP per capit
 }
 </style>
 
-<table id="T_261a3" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table id="T_261a3" data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -1818,7 +1800,7 @@ Conversely, we observe the most robust positive relationships with GDP per capit
 <p>As evident from the table below, none of the coefficients associated with the various subcategories showed significant differences compared to zero. This suggests that these subcategories do not exert a substantial effect on ‘gdp_per_population_log.’ Additionally, the β coefficient for ‘hoursPerDayCombined’ was also not statistically distinct from zero.</p>
 <p>Conversely, when considering the impact of regions, we observe a substantial influence on the correlation. Most regions exhibit negative coefficients in comparison to Western Europe. The exceptions to this trend are North America, New Zealand, and Australia, where the corresponding p-values exceeded 0.05. These findings suggest that the region indeed plays a significant role in the correlation with ‘gdp_per_population_log.’</p>
 <div class="cell" data-tags="[]" data-execution_count="10">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> smf.ols(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"""gdp_per_population_log ~  hoursPerDayCombined</span></span>
@@ -1911,7 +1893,7 @@ Conversely, we observe the most robust positive relationships with GDP per capit
 }
 </style>
 
-<table id="T_d0f1d" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table id="T_d0f1d" data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
@@ -2309,9 +2291,9 @@ Conversely, we observe the most robust positive relationships with GDP per capit
 <section id="regression-diagnostic" class="level2">
 <h2 class="anchored" data-anchor-id="regression-diagnostic">Regression diagnostic</h2>
 <p>Next, we’ll perform some diagnostic procedures for our regression model. These diagnostics will serve the purpose of evaluating how well our model aligns with its underlying assumptions. This step is crucial for ensuring the reliability and validity of our regression analysis.<br>
-As depicted in <a href="#fig-fig4" class="quarto-xref">Figure&nbsp;4</a>, our residuals exhibit a relatively normal distribution. While there are a few data points that may have contributed to some erroneous predictions, we have opted to maintain the current state of the analysis as the results appear reasonable.</p>
+As depicted in <a href="#fig-fig4">Figure&nbsp;4</a>, our residuals exhibit a relatively normal distribution. While there are a few data points that may have contributed to some erroneous predictions, we have opted to maintain the current state of the analysis as the results appear reasonable.</p>
 <div class="cell" data-execution_count="11">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a histogram plot of residuals</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>hist_plot <span class="op">=</span> res.resid.to_frame(name<span class="op">=</span><span class="st">"residuals"</span>).pipe(</span>
@@ -2372,9 +2354,8 @@ As depicted in <a href="#fig-fig4" class="quarto-xref">Figure&nbsp;4</a>, our re
 <span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the three plots into a grid with two columns</span></span>
 <span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>(gggrid([hist_plot, residuals_plot, qqplot, fit_plot], ncol<span class="op">=</span><span class="dv">2</span>) <span class="op">+</span> ggsize(<span class="dv">800</span>, <span class="dv">600</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig4" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="66">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="OiOadI"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -2570,10 +2551,7 @@ As depicted in <a href="#fig-fig4" class="quarto-xref">Figure&nbsp;4</a>, our re
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Regression diagnostic
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;4: Regression diagnostic</figcaption>
 </figure>
 </div>
 </div>
@@ -2627,33 +2605,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -2722,15 +2673,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2765,7 +2714,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2797,27 +2757,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -2869,27 +2809,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/adamcseresznye\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2899,17 +2822,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2921,129 +2835,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -3087,7 +2879,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3113,32 +2904,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -3815,7 +3580,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-637"><a href="#cb12-637" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-638"><a href="#cb12-638" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-639"><a href="#cb12-639" aria-hidden="true" tabindex="-1"></a>And there you have it, folks! We hope you've found this week's exploration insightful. Happy coding to all, and I look forward to seeing you next week for more exciting discoveries and learning opportunities. Until then, stay curious and keep exploring! 👩‍💻👨‍💻</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -3823,15 +3588,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2024, Adam Cseresznye</p>
-</div>
+    <div class="nav-footer-center">Copyright 2024, Adam Cseresznye</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

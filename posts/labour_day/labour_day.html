@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adam Cseresznye">
 <meta name="dcterms.date" content="2023-09-05">
 
-<title>Tidy Tuesday: Union Membership in the United States – Adam Cseresznye</title>
+<title>Adam Cseresznye - Tidy Tuesday: Union Membership in the United States</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,25 +72,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b697eb10549dbab267b4169cc0aac045.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6f6a3df318ae731e7885b4e8bdb9d5b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -99,7 +93,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -125,62 +118,63 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Tidy Tuesday: Union Membership in the United States – Adam Cseresznye">
+<meta property="og:title" content="Adam Cseresznye - Tidy Tuesday: Union Membership in the United States">
 <meta property="og:description" content="">
-<meta property="og:site_name" content="Adam Cseresznye">
-<meta name="twitter:title" content="Tidy Tuesday: Union Membership in the United States – Adam Cseresznye">
+<meta property="og:image" content="https://images.unsplash.com/photo-1572371402638-c654219dd0f8?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80">
+<meta property="og:site-name" content="Adam Cseresznye">
+<meta name="twitter:title" content="Adam Cseresznye - Tidy Tuesday: Union Membership in the United States">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1572371402638-c654219dd0f8?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Adam Cseresznye</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../scientific_output.html"> 
-<span class="menu-text">Scientific Output</span></a>
+    <a class="nav-link" href="../../scientific_output.html" rel="" target="">
+ <span class="menu-text">Scientific Output</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/adamcseresznye"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/adamcseresznye" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/csenye22"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/csenye22" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -189,6 +183,7 @@ ga('send', {
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -247,11 +242,10 @@ ga('send', {
 
 
 
-
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.unsplash.com/photo-1572371402638-c654219dd0f8?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Photo by Claudio Schwarz</figcaption>
+<figcaption class="figure-caption">Photo by Claudio Schwarz</figcaption>
 </figure>
 </div>
 <p>Happy Labor Day! 🛠️ As we celebrate the achievements of workers and the contributions they’ve made to society, what better way to delve into the world of labor and employment than with a fresh <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-09-05/readme.md">Tidy Tuesday dataset</a>? This week’s data comes from the comprehensive “Union Membership, Coverage, and Earnings from the CPS” dataset, courtesy of Barry Hirsch from Georgia State University, David Macpherson from Trinity University, and William Even from Miami University.</p>
@@ -259,7 +253,7 @@ ga('send', {
 <section id="import-data" class="level1">
 <h1>Import data</h1>
 <div class="cell" data-tags="[]" data-execution_count="1">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -311,7 +305,7 @@ ga('send', {
 </div>
 <p>There are three distinct datasets to investigate: one focusing on demographic information, another centered on wage data, and the third associated with various states. Let’s read them all in.</p>
 <div class="cell" data-tags="[]" data-execution_count="2">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>demographic_df <span class="op">=</span> pd.read_csv(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-09-05/demographics.csv"</span></span>
@@ -335,7 +329,7 @@ ga('send', {
 <li>1983-2022: CPS Outgoing Rotation Group (ORG) Earnings Files</li>
 </ul>
 <p>The definition of union membership was expanded in 1977 to include “employee associations similar to a union”.</p>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 35%">
 <col style="width: 29%">
@@ -398,7 +392,7 @@ ga('send', {
 <li>1983-2022: CPS Outgoing Rotation Group (ORG) Earnings Files</li>
 </ul>
 <p>The definition of union membership was expanded in 1977 to include “employee associations similar to a union”.</p>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 42%">
 <col style="width: 15%">
@@ -461,7 +455,7 @@ ga('send', {
 </table>
 <p><strong>States data:</strong></p>
 <p>Data source: Current Population Survey (CPS) Outgoing Rotation Group (ORG) Earnings Files</p>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 39%">
 <col style="width: 20%">
@@ -544,7 +538,7 @@ ga('send', {
 <h1>What are the overarching trends in the labor force, particularly regarding union memberships?</h1>
 <p>The figure below illustrates a consistent upward trajectory in the workforce’s growth, whereas union membership and the number of individuals covered by unions have been on a declining trend over the decades.</p>
 <div class="cell" data-tags="[]" data-execution_count="3">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    demographic_df.query(<span class="st">"facet.str.contains('all wage')"</span>)</span>
@@ -567,9 +561,8 @@ ga('send', {
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="30">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="KcJSqX"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -631,10 +624,7 @@ ga('send', {
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Evolution of Workforce Size and Union Membership Across the Years
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;1: Evolution of Workforce Size and Union Membership Across the Years</figcaption>
 </figure>
 </div>
 </div>
@@ -642,9 +632,9 @@ Figure&nbsp;1: Evolution of Workforce Size and Union Membership Across the Years
 <section id="do-specific-demographic-groups-or-occupations-display-a-higher-likelihood-of-union-membership" class="level1">
 <h1>Do specific demographic groups or occupations display a higher likelihood of union membership?</h1>
 <p>Next, our investigation will focus on identifying potential demographic disparities among workforce members and uncovering the professions with the highest likelihood of union membership. We’ll utilize the <em>“p_members”</em> column, which represents the percentage of employed workers who are union members, to delve into these aspects.</p>
-<p>As evident in <a href="#fig-fig2" class="quarto-xref">Figure&nbsp;2</a>, a substantial decrease in union membership is observable across nearly all demographic groups over the decades.</p>
+<p>As evident in <a href="#fig-fig2">Figure&nbsp;2</a>, a substantial decrease in union membership is observable across nearly all demographic groups over the decades.</p>
 <div class="cell" data-tags="[]" data-execution_count="4">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    demographic_df.query(<span class="st">"facet.str.contains('demographics')"</span>)</span>
@@ -669,9 +659,8 @@ Figure&nbsp;1: Evolution of Workforce Size and Union Membership Across the Years
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="31">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="uVJjS9"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -737,16 +726,13 @@ Figure&nbsp;1: Evolution of Workforce Size and Union Membership Across the Years
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Evolution of Workforce Size and Union Membership Across the Years
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2: Evolution of Workforce Size and Union Membership Across the Years</figcaption>
 </figure>
 </div>
 </div>
-<p>While certain professions exhibit declining trends in union memberships, it’s noteworthy that some public sector occupations, such as postal service, police, and local government jobs, maintain the highest and most consistent levels of union participation (<a href="#fig-fig3" class="quarto-xref">Figure&nbsp;3</a>).</p>
+<p>While certain professions exhibit declining trends in union memberships, it’s noteworthy that some public sector occupations, such as postal service, police, and local government jobs, maintain the highest and most consistent levels of union participation (<a href="#fig-fig3">Figure&nbsp;3</a>).</p>
 <div class="cell" data-tags="[]" data-execution_count="5">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    demographic_df.query(</span>
@@ -771,9 +757,8 @@ Figure&nbsp;2: Evolution of Workforce Size and Union Membership Across the Years
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig3" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="32">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="0tMkkV"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -839,10 +824,7 @@ Figure&nbsp;2: Evolution of Workforce Size and Union Membership Across the Years
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Workforce Sector-Specific Trends in Union Membership
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;3: Workforce Sector-Specific Trends in Union Membership</figcaption>
 </figure>
 </div>
 </div>
@@ -851,7 +833,7 @@ Figure&nbsp;3: Workforce Sector-Specific Trends in Union Membership
 <h1>Do union members experience any financial advantages or benefits compared to non-union workers?</h1>
 <p>The next figure is both straightforward and highly impactful, providing a direct comparison of average wages for union members versus non-union members.</p>
 <div class="cell" data-tags="[]" data-execution_count="6">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    wages_df.query(<span class="st">"facet == 'all wage and salary workers'"</span>)</span>
@@ -885,9 +867,8 @@ Figure&nbsp;3: Workforce Sector-Specific Trends in Union Membership
 <span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig4" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="33">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="w7dRy7"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -949,17 +930,14 @@ Figure&nbsp;3: Workforce Sector-Specific Trends in Union Membership
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Differences in Mean Hourly Earnings for Union and Non-Union Workers
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;4: Differences in Mean Hourly Earnings for Union and Non-Union Workers</figcaption>
 </figure>
 </div>
 </div>
 <p>As with our previous figures, we will now delve into demographic variations and job sector disparities. To unveil these potential distinctions, we will use the <em>“union_wage_premium_raw”</em> column, which indicates the percentage difference between union and non-union wages.</p>
-<p>The most significant disparities in hourly wages (<a href="#fig-fig5" class="quarto-xref">Figure&nbsp;5</a>) between unionized and non-unionized workers are observed within the construction sector. These disparities have fluctuated over the decades, ranging from below 40% to as high as 80%. It’s important to note that almost all sectors exhibit higher earnings for union members, except for federal, manufacturing, and wholesale/retail workers (particularly in recent times).</p>
+<p>The most significant disparities in hourly wages (<a href="#fig-fig5">Figure&nbsp;5</a>) between unionized and non-unionized workers are observed within the construction sector. These disparities have fluctuated over the decades, ranging from below 40% to as high as 80%. It’s important to note that almost all sectors exhibit higher earnings for union members, except for federal, manufacturing, and wholesale/retail workers (particularly in recent times).</p>
 <div class="cell" data-tags="[]" data-execution_count="7">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    wages_df.query(</span>
@@ -985,9 +963,8 @@ Figure&nbsp;4: Differences in Mean Hourly Earnings for Union and Non-Union Worke
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig5" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="34">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="gmQShw"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -1065,16 +1042,13 @@ Figure&nbsp;4: Differences in Mean Hourly Earnings for Union and Non-Union Worke
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Sector-specific Differences in Mean Hourly Earnings for Union and Non-Union Workers
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;5: Sector-specific Differences in Mean Hourly Earnings for Union and Non-Union Workers</figcaption>
 </figure>
 </div>
 </div>
 <p>In addition to gender-specific differences, it’s intriguing to observe the relationship between education levels and wage disparities between unionized and non-unionized workers. Workers with education levels below college tend to benefit more from union membership, whereas, in general, individuals with higher education levels tend to have lower wages when affiliated with a union.</p>
 <div class="cell" data-tags="[]" data-execution_count="8">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    wages_df.query(<span class="st">"facet.str.contains('demographics')"</span>)</span>
@@ -1100,9 +1074,8 @@ Figure&nbsp;5: Sector-specific Differences in Mean Hourly Earnings for Union and
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig6" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="35">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="TvOEXy"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -1180,10 +1153,7 @@ Figure&nbsp;5: Sector-specific Differences in Mean Hourly Earnings for Union and
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Demographics-specific Differences in Mean Hourly Earnings for Union and Non-Union Workers
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;6: Demographics-specific Differences in Mean Hourly Earnings for Union and Non-Union Workers</figcaption>
 </figure>
 </div>
 </div>
@@ -1191,9 +1161,9 @@ Figure&nbsp;6: Demographics-specific Differences in Mean Hourly Earnings for Uni
 <section id="which-states-have-the-highest-number-of-union-members-or-affiliated-unions" class="level1">
 <h1>Which states have the highest number of union members or affiliated unions?</h1>
 <p>To illustrate variations in union membership across states, we will leverage Lets Plot’s capabilities for visualizing spatial data. Given the extensive dataset, our focus will be on highlighting a subset of the data, specifically the most recent trends in 2022 across all sectors.</p>
-<p>As evident in <a href="#fig-fig7" class="quarto-xref">Figure&nbsp;7</a>, certain states like New York, Alaska, Hawaii, Washington, California, and Oregon have a significant portion of their workforce as union members. Conversely, states like Utah, South Dakota, and the Carolinas display lower percentages of union membership among their workforce.</p>
+<p>As evident in <a href="#fig-fig7">Figure&nbsp;7</a>, certain states like New York, Alaska, Hawaii, Washington, California, and Oregon have a significant portion of their workforce as union members. Conversely, states like Utah, South Dakota, and the Carolinas display lower percentages of union membership among their workforce.</p>
 <div class="cell" data-tags="[]" data-execution_count="9">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="op">=</span> states_df.query(<span class="st">"sector == 'Total' and year == 2022"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>boundaries <span class="op">=</span> (</span>
@@ -1222,9 +1192,8 @@ Figure&nbsp;6: Demographics-specific Differences in Mean Hourly Earnings for Uni
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> ggsize(<span class="dv">800</span>, <span class="dv">500</span>)</span>
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig7" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="36">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="jHQdre"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
@@ -1301,10 +1270,7 @@ Figure&nbsp;6: Demographics-specific Differences in Mean Hourly Earnings for Uni
            }});
        })();    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7: Percentage of Union Members Across States
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;7: Percentage of Union Members Across States</figcaption>
 </figure>
 </div>
 </div>
@@ -1358,33 +1324,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1453,15 +1392,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1496,7 +1433,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1528,27 +1476,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -1600,27 +1528,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/adamcseresznye\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1630,17 +1541,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1652,129 +1554,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1818,7 +1598,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1844,32 +1623,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2300,7 +2053,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-387"><a href="#cb10-387" aria-hidden="true" tabindex="-1"></a>There you have it! I hope you found this week's Tidy Tuesday analysis insightful. I would encourage everyone to dive deeper into this dataset as I've only scratched the surface; there's a wealth of knowledge waiting to be uncovered here.  </span>
 <span id="cb10-388"><a href="#cb10-388" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-389"><a href="#cb10-389" aria-hidden="true" tabindex="-1"></a>Happy coding, and until next time, see you in our next exploration!</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -2308,15 +2061,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2024, Adam Cseresznye</p>
-</div>
+    <div class="nav-footer-center">Copyright 2024, Adam Cseresznye</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

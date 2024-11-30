@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adam Cseresznye">
 <meta name="dcterms.date" content="2023-08-05">
 
-<title>How to use the Lets-Plot library by JetBrains – Adam Cseresznye</title>
+<title>Adam Cseresznye - How to use the Lets-Plot library by JetBrains</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,25 +72,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b697eb10549dbab267b4169cc0aac045.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6f6a3df318ae731e7885b4e8bdb9d5b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -99,7 +93,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -125,62 +118,63 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="How to use the Lets-Plot library by JetBrains – Adam Cseresznye">
+<meta property="og:title" content="Adam Cseresznye - How to use the Lets-Plot library by JetBrains">
 <meta property="og:description" content="">
-<meta property="og:site_name" content="Adam Cseresznye">
-<meta name="twitter:title" content="How to use the Lets-Plot library by JetBrains – Adam Cseresznye">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/en/thumb/0/08/JetBrains_beam_logo.svg/1200px-JetBrains_beam_logo.svg.png">
+<meta property="og:site-name" content="Adam Cseresznye">
+<meta name="twitter:title" content="Adam Cseresznye - How to use the Lets-Plot library by JetBrains">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/en/thumb/0/08/JetBrains_beam_logo.svg/1200px-JetBrains_beam_logo.svg.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Adam Cseresznye</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../scientific_output.html"> 
-<span class="menu-text">Scientific Output</span></a>
+    <a class="nav-link" href="../../scientific_output.html" rel="" target="">
+ <span class="menu-text">Scientific Output</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/adamcseresznye"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/adamcseresznye" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/csenye22"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/csenye22" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -189,6 +183,7 @@ ga('send', {
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -236,6 +231,8 @@ ga('send', {
   <li><a href="#syntax-similarities-lets-plot-and-ggplot2" id="toc-syntax-similarities-lets-plot-and-ggplot2" class="nav-link active" data-scroll-target="#syntax-similarities-lets-plot-and-ggplot2">Syntax Similarities: <code>Lets-Plot</code> and <code>ggplot2</code></a></li>
   <li><a href="#visualizing-data-based-on-categorical-variables" id="toc-visualizing-data-based-on-categorical-variables" class="nav-link" data-scroll-target="#visualizing-data-based-on-categorical-variables">Visualizing Data Based on Categorical Variables</a></li>
   <li><a href="#incorporate-multiple-variables-with-facet_wrap" id="toc-incorporate-multiple-variables-with-facet_wrap" class="nav-link" data-scroll-target="#incorporate-multiple-variables-with-facet_wrap">Incorporate Multiple Variables with facet_wrap</a></li>
+  <li><a href="#reordering-categorical-variables-based-on-statistics" id="toc-reordering-categorical-variables-based-on-statistics" class="nav-link" data-scroll-target="#reordering-categorical-variables-based-on-statistics">Reordering Categorical Variables Based On Statistics</a></li>
+  <li><a href="#chaining-pandas-code-with-lets-plot-visualization" id="toc-chaining-pandas-code-with-lets-plot-visualization" class="nav-link" data-scroll-target="#chaining-pandas-code-with-lets-plot-visualization">Chaining Pandas Code with Lets Plot Visualization</a></li>
   </ul>
 </nav>
     </div>
@@ -245,10 +242,9 @@ ga('send', {
 
 
 
-
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/08/JetBrains_beam_logo.svg/1200px-JetBrains_beam_logo.svg.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/08/JetBrains_beam_logo.svg/1200px-JetBrains_beam_logo.svg.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 <p>When I embarked on my data science journey, due to my academics background I quickly gravitated towards the <a href="https://www.r-project.org/">R programming language</a>. Like many R novices, I began with Hadley Wickham’s <a href="https://r4ds.hadley.nz/">R for Data Science</a> book which introduced me to the wonderful <a href="https://ggplot2.tidyverse.org/">ggplot2</a> library. As my interest in machine learning grew, I made the switch to Python. Nowadays, for most of my data plotting needs, I rely mainly on <a href="https://matplotlib.org/">matplotlib</a> or <a href="https://seaborn.pydata.org/">seaborn</a>. Though I love these libraries, their multiple ways of accomplishing the same tasks can be a bit cumbersome and challenging to learn at first.</p>
@@ -256,14 +252,14 @@ ga('send', {
 <p>To showcase (some of) the key features of Lets-Plot, we will be utilizing the <a href="https://gist.githubusercontent.com/slopp/ce3b90b9168f2f921784de84fa445651/raw/4ecf3041f0ed4913e7c230758733948bc561f434/penguins.csv">penguins dataset</a> 🐧 from Github.</p>
 <p>Without further ado, let’s dive right in and discover the power and beauty of Lets-Plot! 🐍📊</p>
 <div class="cell" data-execution_count="1">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installation</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install lets-plot </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="2">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import libraries</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -308,7 +304,7 @@ ga('send', {
 </div>
 </div>
 <div class="cell page-columns page-full" data-execution_count="3">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>address<span class="op">=</span><span class="st">'https://gist.githubusercontent.com/slopp/ce3b90b9168f2f921784de84fa445651/raw/4ecf3041f0ed4913e7c230758733948bc561f434/penguins.csv'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(address)</span>
@@ -318,7 +314,7 @@ ga('send', {
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -408,7 +404,7 @@ ga('send', {
 <p>Additionally, we enhance the plot by using <code>geom_smooth(method=‘lm’)</code>, which adds a smoothed conditional mean. The <code>lm</code> method stands for ‘linear model,’ indicating that the smoothing is based on a linear regression. This smoothed line helps reveal trends and patterns in the data, making it easier to observe any overall relationships between the variables.</p>
 <p>Let’s continue exploring more of what Lets-Plot has in store for us! 📊🐧🌈</p>
 <div class="cell" data-execution_count="4">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(ggplot(df,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        aes(x<span class="op">=</span><span class="st">'flipper_length_mm'</span>,</span>
@@ -475,7 +471,7 @@ ga('send', {
 <p>In the previous example, we highlighted the importance of placing the <code>color</code> parameter at the <em>global level</em>, which grouped the data by the three penguin species and showed separate regression lines for each group. However, if we prefer to depict the regression line for the entire dataset, regardless of the group association, we can do so just as easily. All we need to do is remove the <code>color</code> parameter from the aesthetics of the <code>ggplot</code> function and place it solely in the <code>geom_point</code>.</p>
 <p>Additionally, to enhance the plot further, we can properly label the x and y axes, add a title and subtitle. With these simple adjustments, we can achieve the same output as <a href="https://r4ds.hadley.nz/data-visualize#sec-adding-aesthetics-layers">Hadley’s original code</a>, with little to no modification.</p>
 <div class="cell" data-execution_count="5">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(ggplot(df, </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        aes(x<span class="op">=</span><span class="st">'flipper_length_mm'</span>,</span>
@@ -562,7 +558,7 @@ ga('send', {
 <h1>Visualizing Data Based on Categorical Variables</h1>
 <p>Lets-Plot provides numerous options to showcase our data using categorical variables. From bar plots, box plots, and violin plots to pie charts, the possibilities are diverse. You can check out their <a href="https://lets-plot.org/pages/api.html">API</a> for reference. Let’s explore some examples to demonstrate the versatility of Lets-Plot in visualizing categorical data.</p>
 <div class="cell page-columns page-full" data-execution_count="6">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguin_bar <span class="op">=</span> (ggplot(df,aes(x<span class="op">=</span><span class="st">'species'</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>               <span class="op">+</span> geom_bar()</span>
@@ -726,7 +722,7 @@ ga('send', {
 <p>So far we’ve discovered how easy it is to plot data based on a single categorical variable. However, what if we want to depict relationships involving two or more categorical variables? That’s where <code>facet_wrap</code> comes in handy. This versatile function bears resemblance to similar functions found in <code>seaborn</code> or <code>ggplot2</code> libraries.</p>
 <p>To unlock the potential of <code>facet_wrap</code>, we simply need to define aesthetics, which can either be global or local to the mapping function. Then, we can use <code>facet_wrap</code> with the relevant categorical variable we want to visualize. It’s as simple as that!</p>
 <div class="cell" data-execution_count="7">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(ggplot(df, aes(x <span class="op">=</span> <span class="st">'flipper_length_mm'</span>, y <span class="op">=</span> <span class="st">'body_mass_g'</span>))  </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> geom_point(aes(color <span class="op">=</span> <span class="st">'species'</span>, shape <span class="op">=</span> <span class="st">'species'</span>), size <span class="op">=</span> <span class="dv">4</span>) </span>
@@ -808,13 +804,14 @@ ga('send', {
    </script>
 </div>
 </div>
-</section>
 <div id="id-section4">
+
+</div></section>
 <section id="reordering-categorical-variables-based-on-statistics" class="level1">
 <h1>Reordering Categorical Variables Based On Statistics</h1>
 <p>When visualizing data, a task I frequently encounter is ordering categorical variables in either ascending or descending order, based on statistics like median or mean. In my previous point on “Visualizing Data Based on Categorical Variables,” you noticed that the boxplot displayed categories in an unordered manner. However, consider how we can present them in an ascending order, determined by the median. This not only enhances the aesthetics of the plot but also provides valuable insights into the relationships among the categories.</p>
 <div class="cell" data-execution_count="8">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(ggplot(df,aes(as_discrete(<span class="st">'species'</span>, order<span class="op">=</span><span class="dv">1</span>, order_by<span class="op">=</span><span class="st">'..middle..'</span>), </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>               y <span class="op">=</span> <span class="st">'body_mass_g'</span>))</span>
@@ -894,7 +891,7 @@ ga('send', {
 <p>One of the best features of the <code>pandas</code> library is its remarkable customizability. With the help of the <code>pd.pipe</code> function, we can seamlessly integrate any of our own functions into method chains, as long as they return a <code>DataFrame</code> or <code>Series</code>. This opens up exciting possibilities to fully incorporate <code>Lets-Plot</code> into our code, just like <code>pandas</code>’ own built-in plotting functionality.</p>
 <p>While <code>Lets-Plot</code> may be slightly more verbose than <code>pandas</code> plotting, it offers significantly more flexibility and freedom for customization. Not to mention that some may consider it visually more appealing. With <code>Lets-Plot</code> integrated into our <code>pandas</code> code, we can effortlessly create stunning and informative plots, making data analysis an even more enjoyable experience.</p>
 <div class="cell" data-execution_count="9">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(df</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> .groupby(<span class="st">'species'</span>)</span>
@@ -994,7 +991,6 @@ ga('send', {
 <!-- -->
 
 </section>
-</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1038,33 +1034,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1133,15 +1102,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1176,7 +1143,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1208,27 +1186,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -1280,27 +1238,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/adamcseresznye\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1310,17 +1251,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1332,129 +1264,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1498,7 +1308,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1524,32 +1333,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1664,11 +1447,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>For our first exercise, I thought it would be beneficial to replicate a basic plot inspired by Hadley's book. When comparing my code here with <span class="co">[</span><span class="ot">the one presented by him</span><span class="co">](https://r4ds.hadley.nz/data-visualize#sec-adding-aesthetics-layers)</span>, you'll notice that there is very little difference between the two. The syntax is nearly identical, making it a smooth transition from ggplot to Lets-Plot.</span>
 <span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>Now, let's take a closer look at the code. In the &lt;code&gt;ggplot&lt;/code&gt; function, we define the &lt;code&gt;DataFrame&lt;/code&gt; we'll be working with, and the aesthetic mappings are set at the *global level*. We assign the values for the x and y axes, as well as the &lt;code&gt;color&lt;/code&gt; argument, which groups the data based on the categorical variable representing the three different penguin species: Adelie, Gentoo, and Chinstrap. This color parameter is quite similar to seaborn's &lt;code&gt;hue&lt;/code&gt;, making it easy for those familiar with seaborn to adapt to Lets-Plot seamlessly. </span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>Now, let's take a closer look at the code. In the <span class="kw">&lt;code&gt;</span>ggplot<span class="kw">&lt;/code&gt;</span> function, we define the <span class="kw">&lt;code&gt;</span>DataFrame<span class="kw">&lt;/code&gt;</span> we'll be working with, and the aesthetic mappings are set at the *global level*. We assign the values for the x and y axes, as well as the <span class="kw">&lt;code&gt;</span>color<span class="kw">&lt;/code&gt;</span> argument, which groups the data based on the categorical variable representing the three different penguin species: Adelie, Gentoo, and Chinstrap. This color parameter is quite similar to seaborn's <span class="kw">&lt;code&gt;</span>hue<span class="kw">&lt;/code&gt;</span>, making it easy for those familiar with seaborn to adapt to Lets-Plot seamlessly. </span>
 <span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>After the &lt;code&gt;ggplot()&lt;/code&gt; function sets the global aesthetic mappings, the &lt;code&gt;geom_point()&lt;/code&gt; function comes into play and draws the points defined by the x and y parameters, effectively creating a scatter plot. These points represent the data points from the penguins dataset, with x and y coordinates corresponding to the specified variables.</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>After the <span class="kw">&lt;code&gt;</span>ggplot()<span class="kw">&lt;/code&gt;</span> function sets the global aesthetic mappings, the <span class="kw">&lt;code&gt;</span>geom_point()<span class="kw">&lt;/code&gt;</span> function comes into play and draws the points defined by the x and y parameters, effectively creating a scatter plot. These points represent the data points from the penguins dataset, with x and y coordinates corresponding to the specified variables.</span>
 <span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>Additionally, we enhance the plot by using &lt;code&gt;geom_smooth(method='lm')&lt;/code&gt;, which adds a smoothed conditional mean. The &lt;code&gt;lm&lt;/code&gt; method stands for 'linear model,' indicating that the smoothing is based on a linear regression. This smoothed line helps reveal trends and patterns in the data, making it easier to observe any overall relationships between the variables.</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>Additionally, we enhance the plot by using <span class="kw">&lt;code&gt;</span>geom_smooth(method='lm')<span class="kw">&lt;/code&gt;</span>, which adds a smoothed conditional mean. The <span class="kw">&lt;code&gt;</span>lm<span class="kw">&lt;/code&gt;</span> method stands for 'linear model,' indicating that the smoothing is based on a linear regression. This smoothed line helps reveal trends and patterns in the data, making it easier to observe any overall relationships between the variables.</span>
 <span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>Let's continue exploring more of what Lets-Plot has in store for us! 📊🐧🌈</span>
 <span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a></span>
@@ -1684,7 +1467,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>) </span>
 <span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>In the previous example, we highlighted the importance of placing the &lt;code&gt;color&lt;/code&gt; parameter at the *global level*, which grouped the data by the three penguin species and showed separate regression lines for each group. However, if we prefer to depict the regression line for the entire dataset, regardless of the group association, we can do so just as easily. All we need to do is remove the &lt;code&gt;color&lt;/code&gt; parameter from the aesthetics of the &lt;code&gt;ggplot&lt;/code&gt; function and place it solely in the &lt;code&gt;geom_point&lt;/code&gt;.</span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>In the previous example, we highlighted the importance of placing the <span class="kw">&lt;code&gt;</span>color<span class="kw">&lt;/code&gt;</span> parameter at the *global level*, which grouped the data by the three penguin species and showed separate regression lines for each group. However, if we prefer to depict the regression line for the entire dataset, regardless of the group association, we can do so just as easily. All we need to do is remove the <span class="kw">&lt;code&gt;</span>color<span class="kw">&lt;/code&gt;</span> parameter from the aesthetics of the <span class="kw">&lt;code&gt;</span>ggplot<span class="kw">&lt;/code&gt;</span> function and place it solely in the <span class="kw">&lt;code&gt;</span>geom_point<span class="kw">&lt;/code&gt;</span>.</span>
 <span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>Additionally, to enhance the plot further, we can properly label the x and y axes, add a title and subtitle. With these simple adjustments, we can achieve the same output as <span class="co">[</span><span class="ot">Hadley's original code</span><span class="co">](https://r4ds.hadley.nz/data-visualize#sec-adding-aesthetics-layers)</span>, with little to no modification.</span>
 <span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a></span>
@@ -1733,9 +1516,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a><span class="fu"># Incorporate Multiple Variables with facet_wrap</span></span>
 <span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>So far we've discovered how easy it is to plot data based on a single categorical variable. However, what if we want to depict relationships involving two or more categorical variables? That's where &lt;code&gt;facet_wrap&lt;/code&gt; comes in handy. This versatile function bears resemblance to similar functions found in &lt;code&gt;seaborn&lt;/code&gt; or &lt;code&gt;ggplot2&lt;/code&gt; libraries.</span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>So far we've discovered how easy it is to plot data based on a single categorical variable. However, what if we want to depict relationships involving two or more categorical variables? That's where <span class="kw">&lt;code&gt;</span>facet_wrap<span class="kw">&lt;/code&gt;</span> comes in handy. This versatile function bears resemblance to similar functions found in <span class="kw">&lt;code&gt;</span>seaborn<span class="kw">&lt;/code&gt;</span> or <span class="kw">&lt;code&gt;</span>ggplot2<span class="kw">&lt;/code&gt;</span> libraries.</span>
 <span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a>To unlock the potential of &lt;code&gt;facet_wrap&lt;/code&gt;, we simply need to define aesthetics, which can either be global or local to the mapping function. Then, we can use &lt;code&gt;facet_wrap&lt;/code&gt; with the relevant categorical variable we want to visualize. It's as simple as that! </span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a>To unlock the potential of <span class="kw">&lt;code&gt;</span>facet_wrap<span class="kw">&lt;/code&gt;</span>, we simply need to define aesthetics, which can either be global or local to the mapping function. Then, we can use <span class="kw">&lt;code&gt;</span>facet_wrap<span class="kw">&lt;/code&gt;</span> with the relevant categorical variable we want to visualize. It's as simple as that! </span>
 <span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>(ggplot(df, aes(x <span class="op">=</span> <span class="st">'flipper_length_mm'</span>, y <span class="op">=</span> <span class="st">'body_mass_g'</span>))  </span>
@@ -1750,7 +1533,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a>&lt;div id='id-section4'/&gt;</span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">'id-section4'</span><span class="kw">/&gt;</span></span>
 <span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reordering Categorical Variables Based On Statistics</span></span>
 <span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a></span>
@@ -1763,13 +1546,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a>By incorporating the &lt;code&gt;as_discrete&lt;/code&gt; function, specifying the column, the ordering direction (1 for ascending, -1 for descending), and setting the &lt;code&gt;order_by&lt;/code&gt; variable to *middle* (representing the median), the plot has become significantly more informative. This simple addition has allowed us to organize the categorical variables in a meaningful manner, improving the visualization's clarity and aiding in the interpretation of relationships among the categories.</span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a>By incorporating the <span class="kw">&lt;code&gt;</span>as_discrete<span class="kw">&lt;/code&gt;</span> function, specifying the column, the ordering direction (1 for ascending, -1 for descending), and setting the <span class="kw">&lt;code&gt;</span>order_by<span class="kw">&lt;/code&gt;</span> variable to *middle* (representing the median), the plot has become significantly more informative. This simple addition has allowed us to organize the categorical variables in a meaningful manner, improving the visualization's clarity and aiding in the interpretation of relationships among the categories.</span>
 <span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a><span class="fu"># Chaining Pandas Code with Lets Plot Visualization</span></span>
 <span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a>One of the best features of the &lt;code&gt;pandas&lt;/code&gt; library is its remarkable customizability. With the help of the &lt;code&gt;pd.pipe&lt;/code&gt; function, we can seamlessly integrate any of our own functions into method chains, as long as they return a &lt;code&gt;DataFrame&lt;/code&gt; or &lt;code&gt;Series&lt;/code&gt;. This opens up exciting possibilities to fully incorporate &lt;code&gt;Lets-Plot&lt;/code&gt; into our code, just like &lt;code&gt;pandas&lt;/code&gt;' own built-in plotting functionality.</span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a>One of the best features of the <span class="kw">&lt;code&gt;</span>pandas<span class="kw">&lt;/code&gt;</span> library is its remarkable customizability. With the help of the <span class="kw">&lt;code&gt;</span>pd.pipe<span class="kw">&lt;/code&gt;</span> function, we can seamlessly integrate any of our own functions into method chains, as long as they return a <span class="kw">&lt;code&gt;</span>DataFrame<span class="kw">&lt;/code&gt;</span> or <span class="kw">&lt;code&gt;</span>Series<span class="kw">&lt;/code&gt;</span>. This opens up exciting possibilities to fully incorporate <span class="kw">&lt;code&gt;</span>Lets-Plot<span class="kw">&lt;/code&gt;</span> into our code, just like <span class="kw">&lt;code&gt;</span>pandas<span class="kw">&lt;/code&gt;</span>' own built-in plotting functionality.</span>
 <span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a>While &lt;code&gt;Lets-Plot&lt;/code&gt; may be slightly more verbose than &lt;code&gt;pandas&lt;/code&gt; plotting, it offers significantly more flexibility and freedom for customization. Not to mention that some may consider it visually more appealing. With &lt;code&gt;Lets-Plot&lt;/code&gt; integrated into our &lt;code&gt;pandas&lt;/code&gt; code, we can effortlessly create stunning and informative plots, making data analysis an even more enjoyable experience.</span>
+<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a>While <span class="kw">&lt;code&gt;</span>Lets-Plot<span class="kw">&lt;/code&gt;</span> may be slightly more verbose than <span class="kw">&lt;code&gt;</span>pandas<span class="kw">&lt;/code&gt;</span> plotting, it offers significantly more flexibility and freedom for customization. Not to mention that some may consider it visually more appealing. With <span class="kw">&lt;code&gt;</span>Lets-Plot<span class="kw">&lt;/code&gt;</span> integrated into our <span class="kw">&lt;code&gt;</span>pandas<span class="kw">&lt;/code&gt;</span> code, we can effortlessly create stunning and informative plots, making data analysis an even more enjoyable experience.</span>
 <span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>(df</span>
@@ -1797,7 +1580,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a>That's a wrap on the Lets-Plot library! There's so much more to explore and learn about this powerful tool. I hope you found this introduction helpful and consider integrating Lets-Plot into your daily data analysis routine.</span>
 <span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a>Happy coding 🐍🖥️🔍🚀</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1805,15 +1588,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2024, Adam Cseresznye</p>
-</div>
+    <div class="nav-footer-center">Copyright 2024, Adam Cseresznye</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

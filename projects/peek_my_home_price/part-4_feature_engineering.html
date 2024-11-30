@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adam Cseresznye">
 <meta name="dcterms.date" content="2024-11-23">
 
-<title>Peek My Home Price Part-4: Feature engineering – Adam Cseresznye</title>
+<title>Adam Cseresznye - Peek My Home Price Part-4: Feature engineering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -72,25 +72,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b697eb10549dbab267b4169cc0aac045.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d6f6a3df318ae731e7885b4e8bdb9d5b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -99,7 +93,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -120,67 +113,68 @@ ga('send', {
 });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Peek My Home Price Part-4: Feature engineering – Adam Cseresznye">
+<meta property="og:title" content="Adam Cseresznye - Peek My Home Price Part-4: Feature engineering">
 <meta property="og:description" content="">
-<meta property="og:site_name" content="Adam Cseresznye">
-<meta name="twitter:title" content="Peek My Home Price Part-4: Feature engineering – Adam Cseresznye">
+<meta property="og:image" content="https://raw.githubusercontent.com/adamcseresznye/peek_my_home_price/refs/heads/main/screenshot.png">
+<meta property="og:site-name" content="Adam Cseresznye">
+<meta name="twitter:title" content="Adam Cseresznye - Peek My Home Price Part-4: Feature engineering">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/adamcseresznye/peek_my_home_price/refs/heads/main/screenshot.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Adam Cseresznye</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../scientific_output.html"> 
-<span class="menu-text">Scientific Output</span></a>
+    <a class="nav-link" href="../../scientific_output.html" rel="" target="">
+ <span class="menu-text">Scientific Output</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../articles.html"> 
-<span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/adamcseresznye"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/adamcseresznye" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/csenye22"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/csenye22" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/adam-cseresznye" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -189,6 +183,7 @@ ga('send', {
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -261,11 +256,10 @@ ga('send', {
 
 
 
-
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://images.unsplash.com/photo-1549407408-4b016f497e4d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Photo by Christian Allard UnSplash</figcaption>
+<p><img src="https://raw.githubusercontent.com/adamcseresznye/peek_my_home_price/refs/heads/main/screenshot.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Peek My Home Price Home Page</figcaption>
 </figure>
 </div>
 <p>In Part 3, we looked at the significance of features in the initial scraped dataset using both the <code>feature_importances_</code> method of CatBoostRegressor and SHAP values. We conducted feature elimination based on their importance and predictive capability.</p>
@@ -282,11 +276,11 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>You can explore the project’s app on its <a href="https://peek-my-home-price.fly.dev/">website</a>. For more details, visit the <a href="https://github.com/adamcseresznye/peek_my_home_price">GitHub repository</a>.</p>
-<p>Check out the series for a deeper dive: - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-1_characterizing_the_data.html">Part 1: Characterizing the Data</a> - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-2_building_a_baseline_model.html">Part 2: Building a Baseline Model</a> - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-3_feature_selection.html">Part 3: Feature Selection</a> - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-4_feature_engineering.html">Part 4: Feature Engineering</a> - <a href="https://adamcseresznye.github.io/blog/projects/peek_my_home_price/part-5_fine_tuning.html">Part 5: Fine-Tuning</a></p>
+<p>Check out the series for a deeper dive: - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-1_characterizing_the_data.html">Part 1: Characterizing the Data</a> - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-2_building_a_baseline_model.html">Part 2: Building a Baseline Model</a> - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-3_feature_selection.html">Part 3: Feature Selection</a> - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-4_feature_engineering.html">Part 4: Feature Engineering</a> - <a href="https://adamcseresznye.github.io/projects/peek_my_home_price/part-5_fine_tuning.html">Part 5: Fine-Tuning</a></p>
 </div>
 </div>
-<div id="44e3f512-9015-4941-9e7d-12db057fee2d" class="cell" data-execution_count="1">
-<details class="code-fold">
+<div class="cell" data-execution_count="1">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
@@ -294,8 +288,8 @@ Note
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="bu">str</span>(Path.cwd()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cc3c6a54-530c-4491-bb08-3dfc054d78a6" class="cell" data-editable="true" data-slideshow="{&quot;slide_type&quot;:&quot;&quot;}" data-tags="[]" data-execution_count="2">
-<details class="code-fold">
+<div class="cell" data-editable="true" data-slideshow="{&quot;slide_type&quot;:&quot;&quot;}" data-tags="[]" data-execution_count="2">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gc</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
@@ -374,16 +368,16 @@ Note
 <li>Separating the dataset into features (X) and the target variable (y).</li>
 </ol>
 <p>Let’s dive into the details of this function and prepare our X and y for the subsequent processing pipeline.</p>
-<div id="72d6ba3f-01d0-4f8d-9a08-1c3d99c01210" class="cell" data-execution_count="3">
-<details class="code-fold">
+<div class="cell" data-execution_count="3">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    Path.cwd().joinpath(<span class="st">"data"</span>).joinpath(<span class="st">"2023-10-01_Processed_dataset_for_NB_use.gzip"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="d5ad608f-e618-4753-ae85-5ee5d94dd62f" class="cell" data-execution_count="4">
-<details class="code-fold">
+<div class="cell" data-execution_count="4">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prepare_data(df: pd.DataFrame) <span class="op">-&gt;</span> Tuple[pd.DataFrame, pd.Series]:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -431,8 +425,8 @@ Note
 <span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X, y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="5cd828f2-657c-49d9-96d3-7a731a64d95f" class="cell" data-execution_count="5">
-<details class="code-fold">
+<div class="cell" data-execution_count="5">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> prepare_data(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -446,8 +440,8 @@ Note
 <h1>Cross-validation strategy</h1>
 <p>Our next critical step is to establish a well-structured cross-validation strategy. This step is imperative as it enables us to assess the effectiveness of various feature engineering approaches without risking overfitting our model. A robust cross-validation strategy ensures that our model’s performance evaluations are reliable and that the insights gained are generalizable to new data. To accomplish this, we will employ <code>RepeatedKFold</code> validation, setting the parameters with n_splits as 10 and n_repeats as 1.</p>
 <p>In essence, this configuration signifies that we will perform a 10-fold cross-validation, and this entire process will be repeated once. Importantly, due to the modular nature of this function, we retain the flexibility to easily adapt and alter the design of our cross-validation strategy as needed.</p>
-<div id="fd6b5995-8d42-4139-8795-c29d7c258151" class="cell" data-execution_count="6">
-<details class="code-fold">
+<div class="cell" data-execution_count="6">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_catboost_CV(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    X: pd.DataFrame,</span>
@@ -548,8 +542,8 @@ Note
 </details>
 </div>
 <p>Now, let’s proceed to train our model with the updated settings:</p>
-<div id="45fee9ec-c1d7-4768-ad35-e94dc7eeddac" class="cell" data-scrolled="true" data-execution_count="7">
-<details class="code-fold">
+<div class="cell" data-scrolled="true" data-execution_count="7">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>train_model.run_catboost_CV(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -575,9 +569,9 @@ Note
 <section id="outlier-detection" class="level1">
 <h1>Outlier detection</h1>
 <p>An outlier is a data point that significantly differs from the rest of the data. One common way to define an outlier is a data point that falls more than 1.5 interquartile ranges (IQRs) below the first quartile or above the third quartile. Detecting and removing outliers from the dataset is crucial for building a stable model that can effectively generalize to new data.</p>
-<p>When we create a scatter plot of our features (as shown in <a href="#fig-fig1" class="quarto-xref">Figure&nbsp;1</a>), such as cadastral income against living area, and adjust the points’ color and size based on price, we can identify at least two data points that notably deviate from the expected range of values. One data point suggests a 300 m2 property is associated with a cadastral income exceeding 320,000 EURO, while the other point indicates a 2,500 EUR cadastral income for an 11,000 m2 property. Both observations seem implausible when compared to the majority of data points on the graph.</p>
-<div id="cell-fig-fig1" class="cell" data-execution_count="8">
-<details class="code-fold">
+<p>When we create a scatter plot of our features (as shown in <a href="#fig-fig1">Figure&nbsp;1</a>), such as cadastral income against living area, and adjust the points’ color and size based on price, we can identify at least two data points that notably deviate from the expected range of values. One data point suggests a 300 m2 property is associated with a cadastral income exceeding 320,000 EURO, while the other point indicates a 2,500 EUR cadastral income for an 11,000 m2 property. Both observations seem implausible when compared to the majority of data points on the graph.</p>
+<div class="cell" data-execution_count="8">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pd.concat([X, y], axis<span class="op">=</span><span class="dv">1</span>).pipe(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> df: ggplot(</span>
@@ -602,9 +596,8 @@ Note
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> ggsize(<span class="dv">800</span>, <span class="dv">600</span>)</span>
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-fig1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
    <div id="1psbr0"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
@@ -769,17 +762,14 @@ Note
    })();
    
    </script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Assessing Feature Cardinality: Percentage of Unique Values per Feature
-</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;1: Assessing Feature Cardinality: Percentage of Unique Values per Feature</figcaption>
 </figure>
 </div>
 </div>
 <p>For identifying potential outliers within our data, we can employ <code>Scikit-learn</code>’s <code>LocalOutlierFactor</code>. This algorithm, known as the Local Outlier Factor (LOF), is an unsupervised technique for anomaly detection. It assesses the local density deviation of a data point relative to its neighboring points. LOF identifies outliers as those data points demonstrating notably lower density in comparison to their neighbors.</p>
 <p>In the provided code, we’ve created a function called <code>identify_outliers</code>. This function generates a mask that we can use to filter out data points potentially flagged as outliers.</p>
-<div id="534508f1-c5ce-4abc-a773-ca2026379705" class="cell" data-execution_count="9">
-<details class="code-fold">
+<div class="cell" data-execution_count="9">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> identify_outliers(df: pd.DataFrame) <span class="op">-&gt;</span> pd.Series:</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -849,8 +839,8 @@ Figure&nbsp;1: Assessing Feature Cardinality: Percentage of Unique Values per Fe
 </details>
 </div>
 <p>As a comparison, here’s the scatter plot after removing outliers. It appears that the LocalOutlierFactor method was effective in addressing the outlier data points.</p>
-<div id="0aa55936-a3e4-4651-b445-176136506d11" class="cell" data-execution_count="10">
-<details class="code-fold">
+<div class="cell" data-execution_count="10">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>outlier_mask <span class="op">=</span> pre_process.identify_outliers(X)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1053,8 +1043,8 @@ Figure&nbsp;1: Assessing Feature Cardinality: Percentage of Unique Values per Fe
 </div>
 </div>
 <p>Now, let’s assess whether our efforts to improve the model by addressing outliers have enhanced its predictive capabilities:</p>
-<div id="20f40ab8-2085-4aa6-8261-11cc6da6f75d" class="cell" data-execution_count="11">
-<details class="code-fold">
+<div class="cell" data-execution_count="11">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>train_model.run_catboost_CV(X_wo_outliers, y_wo_outliers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1083,8 +1073,8 @@ Note
 <section id="utilize-categorical-columns-for-grouping-and-transform-each-numerical-variable-based-on-the-median" class="level2">
 <h2 class="anchored" data-anchor-id="utilize-categorical-columns-for-grouping-and-transform-each-numerical-variable-based-on-the-median">Utilize categorical columns for grouping and transform each numerical variable based on the median</h2>
 <p>The idea behind this feature engineering step is to leverage categorical columns as grouping criteria and then calculate the median value for each numerical variable within each group. By doing so, it aims to create new features that capture the central tendency of the numerical data for different categories, allowing the model to better understand and utilize the inherent patterns and variations within the data.</p>
-<div id="0d164b87-bef4-4a59-abd1-a0926e55330c" class="cell" data-execution_count="12">
-<details class="code-fold">
+<div class="cell" data-execution_count="12">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of unique categories per categorical variables:</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1099,8 +1089,8 @@ city                  230
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="08d1da86-1b70-4d59-ac38-24f210974dbe" class="cell" data-execution_count="13">
-<details class="code-fold">
+<div class="cell" data-execution_count="13">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> FE_categorical_transform(</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    X: pd.DataFrame, y: pd.Series, transform_type: <span class="bu">str</span> <span class="op">=</span> <span class="st">"mean"</span></span>
@@ -1185,8 +1175,8 @@ Note
 <p>Please, bear in mind that these feature engineering steps were precomputed due to the considerable computational time required. The outcomes were saved rather than executed during the notebook rendering to save time. However, it’s important to note that the results should remain unchanged.</p>
 </div>
 </div>
-<div id="f3443f1d-7840-4521-ac93-9ceb9b349465" class="cell" data-execution_count="14">
-<details class="code-fold">
+<div class="cell" data-execution_count="14">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>script echo skipping</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1198,8 +1188,8 @@ Note
 <pre><code>Couldn't find program: 'echo'</code></pre>
 </div>
 </div>
-<div id="46f939d1-2b4c-4bf3-ba9a-ac24f863c2b6" class="cell" data-execution_count="15">
-<details class="code-fold">
+<div class="cell" data-execution_count="15">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>script echo skipping</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1215,8 +1205,8 @@ Note
 </div>
 </div>
 <p>As evident, the best result was obtained by treating the city feature as a categorical variable and calculating the median of cadastral_income based on this categorization. This result aligns logically with the feature importances seen in Part 3.</p>
-<div id="ef81da53-c9ea-47b6-9249-1caddf010d66" class="cell" data-execution_count="16">
-<details class="code-fold">
+<div class="cell" data-execution_count="16">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>pd.read_parquet(</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    Path.cwd().joinpath(<span class="st">"data"</span>).joinpath(<span class="st">"FE_categorical_transform_mean.parquet.gzip"</span>)</span>
@@ -1226,7 +1216,7 @@ Note
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1282,8 +1272,8 @@ Note
 <section id="generate-bins-from-the-continuous-variables" class="level2">
 <h2 class="anchored" data-anchor-id="generate-bins-from-the-continuous-variables">Generate bins from the continuous variables</h2>
 <p>The idea behind this feature engineering step is to discretize continuous variables by creating bins or categories from their values. These bins then serve as categorical columns. By using these new categorical columns for grouping, we can transform each numerical variable by replacing its values with the median of the respective category it belongs to, just like the feature engineering method we demonstrated above.</p>
-<div id="503cddfd-3224-489e-82f6-1c3804e38723" class="cell" data-scrolled="true" data-execution_count="17">
-<details class="code-fold">
+<div class="cell" data-scrolled="true" data-execution_count="17">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> FE_continuous_transform(</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    X: pd.DataFrame, y: pd.Series, transform_type: <span class="bu">str</span> <span class="op">=</span> <span class="st">"mean"</span></span>
@@ -1386,8 +1376,8 @@ Note
 <span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="d279df62-4788-41a9-a74c-2a955ceb9500" class="cell" data-scrolled="true" data-execution_count="18">
-<details class="code-fold">
+<div class="cell" data-scrolled="true" data-execution_count="18">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>script echo skipping</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1407,8 +1397,8 @@ Note
 </div>
 </div>
 <p>This approach was not as effective as our prior method. However, combining bathrooms with yearly_theoretical_total_energy_consumption yielded the best outcome.</p>
-<div id="e9bf6228-9edd-4817-ba59-8d6a1ad1aa82" class="cell" data-execution_count="19">
-<details class="code-fold">
+<div class="cell" data-execution_count="19">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pd.read_parquet(</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    Path.cwd().joinpath(<span class="st">"data"</span>).joinpath(<span class="st">"FE_continuous_transform_mean.parquet.gzip"</span>)</span>
@@ -1418,7 +1408,7 @@ Note
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1509,8 +1499,8 @@ Note
 <section id="introduce-polynomial-features" class="level2">
 <h2 class="anchored" data-anchor-id="introduce-polynomial-features">Introduce polynomial features</h2>
 <p>The idea behind introducing polynomial features is to capture non-linear relationships within the data. By raising individual features to higher powers or considering interactions between pairs of features, this step allows the model to better represent complex patterns that cannot be adequately expressed with linear relationships alone. It enhances the model’s ability to learn and predict outcomes that exhibit curvilinear or interactive behavior.</p>
-<div id="adf47d82-5752-49f7-8db8-c6a01fa2f9b7" class="cell" data-execution_count="20">
-<details class="code-fold">
+<div class="cell" data-execution_count="20">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> FE_polynomial_features(</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    X: pd.DataFrame, y: pd.Series, combinations: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1</span></span>
@@ -1587,8 +1577,8 @@ Note
 <section id="n1" class="level3">
 <h3 class="anchored" data-anchor-id="n1">n=1</h3>
 <p>Let’s see the impact of applying polynomial feature engineering to a single feature.</p>
-<div id="a6d4296b-76e0-4b6d-9e7c-247d6af927ea" class="cell" data-execution_count="21">
-<details class="code-fold">
+<div class="cell" data-execution_count="21">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>script echo skipping</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1607,8 +1597,8 @@ Note
 <pre><code>Couldn't find program: 'echo'</code></pre>
 </div>
 </div>
-<div id="2672ed57-3010-4c78-bf33-657df58ebe5a" class="cell" data-execution_count="22">
-<details class="code-fold">
+<div class="cell" data-execution_count="22">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pd.read_parquet(</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    Path.cwd()</span>
@@ -1620,7 +1610,7 @@ Note
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1700,8 +1690,8 @@ Note
 <section id="n2" class="level3">
 <h3 class="anchored" data-anchor-id="n2">n=2</h3>
 <p>How about two features combined…</p>
-<div id="9bd8d39a-8386-4e24-85ab-22e09b042c6d" class="cell" data-execution_count="23">
-<details class="code-fold">
+<div class="cell" data-execution_count="23">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>script echo skipping</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1720,8 +1710,8 @@ Note
 <pre><code>Couldn't find program: 'echo'</code></pre>
 </div>
 </div>
-<div id="1bc6c241-9f61-429e-9232-949cbadfe6db" class="cell" data-execution_count="24">
-<details class="code-fold">
+<div class="cell" data-execution_count="24">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pd.read_parquet(</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    Path.cwd()</span>
@@ -1733,7 +1723,7 @@ Note
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1814,8 +1804,8 @@ Note
 <section id="form-clusters-of-instances-using-k-means-clustering" class="level2">
 <h2 class="anchored" data-anchor-id="form-clusters-of-instances-using-k-means-clustering">Form clusters of instances using k-means clustering</h2>
 <p>The idea behind using k-means clustering in feature engineering is to group data points into clusters based on their similarity. By doing so, we create a new set of features that represent these clusters, which can capture patterns or relationships within the data that might be less apparent in the original features. These cluster features can be valuable for machine learning models, as they provide a more compact and informative representation of the data, potentially improving predictive performance.</p>
-<div id="cb08cb73-1e17-4c67-af85-51424aec5533" class="cell" data-execution_count="25">
-<details class="code-fold">
+<div class="cell" data-execution_count="25">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FeatureSelector(BaseEstimator, TransformerMixin):</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -1870,8 +1860,8 @@ Note
 <span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> X.loc[:, <span class="va">self</span>.feature_names_in_].copy(deep<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="194e33c9-d9d8-4838-8e6d-bdb429a8b37d" class="cell" data-execution_count="26">
-<details class="code-fold">
+<div class="cell" data-execution_count="26">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> FE_KMeans(</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    X: pd.DataFrame,</span>
@@ -1965,8 +1955,8 @@ Note
 <span id="cb35-90"><a href="#cb35-90" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="e4b6d05b-1ff9-4a07-be0b-290da1bf41de" class="cell" data-execution_count="27">
-<details class="code-fold">
+<div class="cell" data-execution_count="27">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>script echo skipping</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1989,8 +1979,8 @@ Note
 </div>
 </div>
 <p>As k-means clustering is an unsupervised algorithm, determining the appropriate k-values requires testing various values to assess their impact on our validation scores. As observed, this approach didn’t yield significant results in our case, as the best validation score was obtained when n=1.</p>
-<div id="1184b2d8-6a24-4dc1-aa22-b3d2f6c7e68d" class="cell" data-execution_count="28">
-<details class="code-fold">
+<div class="cell" data-execution_count="28">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pd.read_parquet(Path.cwd().joinpath(<span class="st">"data"</span>).joinpath(<span class="st">"FE_KNN_df.parquet.gzip"</span>)).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1998,7 +1988,7 @@ Note
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2108,8 +2098,8 @@ Note
 <li>similarly, Divide cadastral_income by living_area</li>
 </ul></li>
 </ol>
-<div id="fa7365cc-aec4-4d9f-8cc3-d71092fd4637" class="cell" data-execution_count="29">
-<details class="code-fold">
+<div class="cell" data-execution_count="29">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> FE_ideas(X):</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Performs additional feature engineering on the input DataFrame.</span></span>
@@ -2137,8 +2127,8 @@ Note
 <span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> temp.loc[:, <span class="st">"energy_efficiency_1"</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="a24297aa-fdff-4034-ae26-4a383f27f767" class="cell" data-execution_count="30">
-<details class="code-fold">
+<div class="cell" data-execution_count="30">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> FE_try_ideas(</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    X: pd.DataFrame,</span>
@@ -2195,8 +2185,8 @@ Note
 <span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="abd5518f-2a07-4850-8264-bbd5d881c9eb" class="cell" data-execution_count="31">
-<details class="code-fold">
+<div class="cell" data-execution_count="31">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>script echo skipping</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2214,8 +2204,8 @@ Note
 </div>
 </div>
 <p>As can be seen below, the best feature this time was <code>spaciousness_1</code>, representing <code>df.living_area</code> divided by <code>df.surface_of_the_plot</code>.</p>
-<div id="31d160a3-181e-48e3-830d-c32a2251e863" class="cell" data-execution_count="32">
-<details class="code-fold">
+<div class="cell" data-execution_count="32">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>pd.read_parquet(Path.cwd().joinpath(<span class="st">"data"</span>).joinpath(<span class="st">"FE_try_ideas.parquet.gzip"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2223,7 +2213,7 @@ Note
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2294,7 +2284,7 @@ Note
 <p>The initial model achieved the best mean out-of-folds score of 0.1107. However, we made modifications to expedite training by reducing iterations to 100 and increasing the learning rate to 0.2, resulting in a new baseline model with a score of 0.1105 after outlier removal. This serves as our reference point to assess the impact of various feature engineering techniques.</p>
 <p>Subsequent feature engineering approaches, including utilizing categorical columns for groupby and transformation, creating bins from continuous data, and implementing other ideas, led to marginal score improvements, with the lowest at 0.1089. Polynomial features, with n=2 and n=1, demonstrated slightly higher scores of 0.1094 and 0.1099, respective.</p>
 <p>Now, we will proceed to assess the efficacy of two of the best approaches, namely: utilizing categorical columns for groupby and transformation and implementing additional ideas. We will conduct this evaluation using CatBoost’s built-in <code>select_features</code> as outlined in part 3. Let’s dive in…</p>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 64%">
 <col style="width: 20%">
@@ -2358,8 +2348,8 @@ Note
 </section>
 <section id="final-feature-selection" class="level1">
 <h1>Final feature selection</h1>
-<div id="8bdccd5d-68c3-48b5-9180-0223f300a8c8" class="cell" data-execution_count="33">
-<details class="code-fold">
+<div class="cell" data-execution_count="33">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prepare_df_for_final_feature_selection(X):</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X.assign(</span>
@@ -2384,8 +2374,8 @@ Note
 <span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>X_final_feature_selection <span class="op">=</span> prepare_df_for_final_feature_selection(X_wo_outliers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="efdb8a06-4b3d-4edb-9aab-93255c99d6a0" class="cell" data-execution_count="34">
-<details class="code-fold">
+<div class="cell" data-execution_count="34">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>X_train, X_val, y_train, y_val <span class="op">=</span> model_selection.train_test_split(</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    X_final_feature_selection,</span>
@@ -2395,8 +2385,8 @@ Note
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="1a059df9-0adc-4dfa-a93b-af112fe9fdb5" class="cell" data-execution_count="35">
-<details class="code-fold">
+<div class="cell" data-execution_count="35">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>regressor <span class="op">=</span> catboost.CatBoostRegressor(</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    iterations<span class="op">=</span><span class="dv">1000</span>,</span>
@@ -2624,8 +2614,8 @@ Shrink model to first 115 iterations.</code></pre>
 </ul>
 <p>These feature selections should help optimize our model even further.</p>
 <p>Based on these insights, we crafted the <code>prepare_data_for_modelling</code> function, which is stored in the <code>pre_process.py</code> file. This function includes the feature engineering steps we discussed, setting the stage for effective modeling performance.</p>
-<div id="4f8714b7-c163-4124-a127-fa5cdf7eb7e9" class="cell" data-execution_count="36">
-<details class="code-fold">
+<div class="cell" data-execution_count="36">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prepare_data_for_modelling(df: pd.DataFrame) <span class="op">-&gt;</span> Tuple[pd.DataFrame, pd.Series]:</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -2702,8 +2692,8 @@ Shrink model to first 115 iterations.</code></pre>
 <span id="cb48-73"><a href="#cb48-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X_wo_outliers, y_wo_outliers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="9a07ac0a-9075-4ae1-a867-b8b8ae903d5e" class="cell" data-execution_count="37">
-<details class="code-fold">
+<div class="cell" data-execution_count="37">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> pre_process.prepare_data_for_modelling(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2759,33 +2749,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -2854,15 +2817,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2897,7 +2858,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2929,27 +2901,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -3001,27 +2953,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/adamcseresznye\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3031,17 +2966,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3053,129 +2979,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -3219,7 +3023,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3245,32 +3048,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -3336,15 +3113,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2024, Adam Cseresznye</p>
-</div>
+    <div class="nav-footer-center">Copyright 2024, Adam Cseresznye</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 
