@@ -13,6 +13,7 @@ about:
       text: Github
       href: https://github.com/adamcseresznye
 ---
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b134c5ff26ba4229bfc39a67e0b3e7c4"}'></script><!-- End Cloudflare Web Analytics --> 
 
 <style>
 body {

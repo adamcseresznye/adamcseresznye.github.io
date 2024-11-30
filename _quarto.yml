@@ -4,8 +4,6 @@ project:
 website:
   title: "Adam Cseresznye"
   page-footer: "Copyright 2024, Adam Cseresznye" 
-  google-analytics:
-    tracking-id: "UA-BQF3JENT9N"
   favicon: favicon_lower_A.png
   open-graph: true
   twitter-card: true
