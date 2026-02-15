@@ -1,0 +1,55 @@
+---
+page-layout: full
+about:
+  template: marquee
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/csenye22
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/adam-cseresznye
+    - icon: github
+      text: Github
+      href: https://github.com/adamcseresznye
+---
+
+
+
+::: {.content-block}
+
+::: {.section}
+<h1>Adam Cseresznye</h1>
+
+<p>Scientific software developer and consultant based in San Francisco. I specialize in machine learning, computer vision, and high-performance computing for analytical chemistry and biotech applications.</p>
+:::
+
+::: {.section}
+## Explore My Work
+
+::: {.grid}
+
+::: {.grid-item}
+### [Research](scientific_output.qmd)
+Research publications.
+:::
+
+::: {.grid-item}
+### [Projects](projects.qmd)
+Software and tools.
+:::
+
+::: {.grid-item}
+### [Blog](articles.qmd)
+Writing and tutorials.
+:::
+
+:::
+:::
+
+::: {.section}
+<p class="collab-text">Interested in collaboration or have questions? Get in touch!</p>
+
+<a href="mailto:csenye.chem@gmail.com" class="btn-primary">Contact me</a>
+:::
+:::

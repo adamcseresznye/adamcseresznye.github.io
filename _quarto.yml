@@ -1,0 +1,35 @@
+project:
+  type: website
+
+website:
+  title: ""
+  page-footer: "Copyright 2026, Adam Cseresznye" 
+  google-analytics: "UA-BQF3JENT9N"
+  favicon: favicon_lower_A.png
+  open-graph: true
+  twitter-card: true
+  reader-mode: true
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd 
+      - text: "Research"
+        href: scientific_output.qmd
+      - text: "Projects"
+        href: projects.qmd
+      - text: "Blog"
+        href: articles.qmd
+    right:
+      - icon: github
+        href: https://github.com/adamcseresznye
+      - icon: twitter
+        href: https://twitter.com/csenye22
+      - icon: linkedin
+        href: https://www.linkedin.com/in/adam-cseresznye
+
+format:
+  html:
+    css: styles.css
+    theme: 
+       light: [litera, styles.scss]
+       dark: [darkly, styles-dark.scss]

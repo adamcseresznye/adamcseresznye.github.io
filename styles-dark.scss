@@ -1,0 +1,128 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+$font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, sans-serif !default;
+
+/*-- scss:rules --*/
+
+/* Global Layout */
+body {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.content-block {
+  padding: 40px 20px;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 6em;
+  padding: 3em 0;
+  border-bottom: 1px solid #444;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section:first-child {
+  background: transparent;
+  color: #fff;
+  padding: 4em 0;
+  border-radius: 0;
+  border-bottom: none;
+}
+
+h1,
+h2 {
+  margin-bottom: 1.5em;
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em;
+}
+
+.grid-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 1em;
+  text-align: center;
+  margin-bottom: 2em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.grid-item h3 {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.grid-item p {
+  margin: 0;
+}
+
+/* Button Styling */
+.btn-primary {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.75em 1.5em;
+  background-color: #171717;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2d2d2d;
+}
+
+/* Navbar - match body background */
+.navbar {
+  background-color: transparent !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Blog post header override - blend with background */
+header.page-header,
+.quarto-title-banner {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Code blocks */
+kbd,
+.kbd {
+  background-color: #222222 !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+
+  .grid-item {
+    margin-bottom: 2em;
+  }
+
+  .section {
+    padding: 2em 0;
+  }
+}

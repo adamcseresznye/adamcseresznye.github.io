@@ -1,0 +1,445 @@
+---
+title: 'Tidy Tuesday: Refugees'
+author: Adam Cseresznye
+date: '2023-08-22'
+categories:
+  - Tidy Tuesday
+toc: true
+format:
+  html:
+    code-fold: true
+    code-tools: true
+jupyter: python3
+---
+
+![Teowodros Hagos](https://assets.nst.com.my/images/articles/vibes061220lucienrefugeeb_1607218243.jpg){fig-align="center" width=50%}
+
+Welcome to our blog dedicated to [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-08-22). This week, we venture into the sobering realm of refugee statistics using the [{refugees}](https://cran.r-project.org/web/packages/refugees/index.html) R package. This tool grants access to the United Nations High Commissioner for Refugees (UNHCR) Refugee Data Finder, providing critical insights into forcibly displaced populations spanning over seven decades. With data from UNHCR, UNRWA, and the Internal Displacement Monitoring Centre, we'll explore a subset of this information, focusing on population statistics from 2010 to 2022. 
+
+Join us as we explore the landscape of refugee data.
+
+# Setup
+
+```{python}
+#| tags: []
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+import numpy as np
+
+from pathlib import Path
+import json
+from urllib.request import urlopen
+
+
+from lets_plot import *
+from lets_plot.mapping import as_discrete
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+
+LetsPlot.setup_html()
+
+import plotly.io as pio
+import plotly.express as px
+
+pio.templates.default = "presentation"
+```
+
+```{python}
+try:
+    df = pd.read_csv(
+        "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-08-22/population.csv"
+    )
+except:
+    df = pd.read_csv(
+        Path.cwd().joinpath(
+            "raw.githubusercontent.com_rfordatascience_tidytuesday_master_data_2023_2023-08-22_population.csv"
+        )
+    )
+
+df = (
+    df
+    # .assign(year=lambda df: pd.to_datetime(df.year, format='%Y'))
+)
+
+df.sample(5)
+```
+
+Here is the data dictionary:
+
+|variable          |class     |description       |
+|:-----------------|:---------|:-----------------|
+|year              |double    |The year.              |
+|coo_name          |character |Country of origin name.        |
+|coo               |character |Country of origin UNHCR code.   |
+|coo_iso           |character |Country of origin ISO code.  |
+|coa_name          |character |Country of asylum name.    |
+|coa               |character |Country of asylum UNHCR code.  |
+|coa_iso           |character |Country of asylum ISO code.    |
+|refugees          |double    |The number of refugees.   |
+|asylum_seekers    |double    |The number of asylum-seekers.  |
+|returned_refugees |double    |The number of returned refugees. |
+|idps              |double    |The number of internally displaced persons.     |
+|returned_idps     |double    |The number of returned internally displaced persons.  |
+|stateless         |double    |The number of stateless persons.  |
+|ooc               |double    |The number of others of concern to UNHCR.   |
+|oip               |double    |The number of other people in need of international protection.     |
+|hst               |double    |The number of host community members.     |
+
+
+**Looking at the data dictionary, here are the questions we will be exploring in this blog post:**
+
+* How has the overall refugee count evolved over the years?
+* What countries experience the highest annual refugee outflows?
+* What countries receive the most refugees annually?
+* Where do most refugees from the country with the highest numbers go?
+* Which countries have the highest numbers of internally displaced persons?
+* What countries have the highest stateless populations?
+
+In this blog, to visualize the topological data, we will be utilizing Plotly's `choropleth_mapbox` function as well as `scatter_geo`. For a quick overview about Plotly check out this [website](https://plotly.com/python/plotly-express/). In addition, our GeoJSON file, which represents simple geographical features along with their non-spatial attributes, is sourced from [GitHub](https://github.com/datasets/geo-boundaries-world-110m/blob/master/countries.geojson) curated by Rufus Pollock.
+
+```{python}
+#| tags: []
+try:
+    with urlopen(
+        "https://raw.githubusercontent.com/datasets/geo-boundaries-world-110m/master/countries.geojson"
+    ) as response:
+        countries = json.load((response))
+except:
+    countries = json.load(open("countries.geojson"))
+```
+
+# How has the overall refugee count evolved over the years?
+
+As you can see, the number of stateless persons has not changed significantly over the period studied; on the other hand, the number of internally displaced persons has dramatically increased from over 14 million in 2010 to just shy of 60 million by 2022
+
+```{python}
+#| fig-cap: Overall statistics
+#| label: fig-fig1
+#| tags: []
+
+fig = (
+    df.groupby("year")[["refugees", "asylum_seekers", "stateless", "idps"]]
+    .sum()
+    .reset_index()
+    .melt(id_vars="year")
+    .pipe(
+        lambda df: px.line(
+            df,
+            x=df.year,
+            y=df.value,
+            color=df.variable,
+            width=750,
+            height=600,
+            # markers=True,
+            labels={
+                "year": "Year",
+                "value": "Number of individuals",
+            },
+        )
+    )
+)
+fig.update_layout(legend_title_text="Categories")
+```
+
+# What countries experience the highest annual refugee outflows?
+
+Among all the countries under examination, the highlighted ones represent the top 5 nations with the highest registered refugee populations. It's evident that the Syrian Arab Republic consistently maintained the highest number of registered refugees from 2013 to 2022, followed closely by Afghanistan
+
+```{python}
+#| fig-cap: Top 5 countries with highest number of sum annual refugee outflows
+#| label: fig-fig2
+#| tags: []
+
+fig = go.Figure()
+
+top10_countries = (
+    df.groupby("coo_name")
+    .refugees.sum()
+    .to_frame()
+    .reset_index()
+    .sort_values(by="refugees", ascending=False)
+    .head(5)
+    .coo_name.values
+)
+
+test = (
+    df.groupby(["year", "coo_name"])
+    .refugees.sum()
+    .to_frame()
+    .reset_index()
+    .assign(
+        color=lambda df: df.coo_name.mask(
+            df.coo_name == (top10_countries[0]), "#6eb14a"
+        )
+        .mask(df.coo_name == (top10_countries[1]), "#2d4526")
+        .mask(df.coo_name == (top10_countries[2]), "#f6d19b")
+        .mask(df.coo_name == (top10_countries[3]), "#ca3780")
+        .mask(df.coo_name == (top10_countries[4]), "#e9b4cd")
+        .mask(~df.coo_name.isin(top10_countries), "#dadadc")
+    )
+)
+
+# Loop over each unique 'coo_name'
+for coo_name in test["coo_name"].unique():
+    df_subset = test[test["coo_name"] == coo_name]
+    if coo_name in top10_countries:
+        fig.add_trace(
+            go.Scatter(
+                x=df_subset["year"],
+                y=df_subset["refugees"],
+                mode="lines+markers",
+                name=coo_name,
+                showlegend=True,
+                line=dict(
+                    color=df_subset["color"].iloc[0], dash="dash"
+                ),  # Use the first color from the subset
+            )
+        )
+    else:
+        fig.add_trace(
+            go.Scatter(
+                x=df_subset["year"],
+                y=df_subset["refugees"],
+                mode="lines",
+                name=coo_name,
+                showlegend=False,
+                line=dict(
+                    color=df_subset["color"].iloc[0], dash="dot"
+                ),  # Use the first color from the subset
+            )
+        )
+
+
+fig.update_layout(
+    autosize=False, width=750, height=600, yaxis_title="Sum Annual Refugee Outflows"
+)
+fig.show()
+```
+
+I have also prepared a short animation that depicts the year-by-year pattern of refugee outflows.
+
+```{python}
+#| fig-cap: 'Patterns of Annual Refugee Outflows '
+#| label: fig-fig3
+#| tags: []
+
+(
+    df.assign(year=lambda df: df.year.astype(str).str.split("-", expand=True)[0])
+    .groupby(["year", "coo_iso", "coo_name"])["refugees"]
+    .sum()
+    .to_frame()
+    .reset_index()
+    .pipe(
+        lambda df: px.choropleth_mapbox(
+            data_frame=df,
+            locations="coo_iso",
+            geojson=countries,
+            color="refugees",
+            animation_frame="year",
+            animation_group="coo_iso",
+            hover_name="coo_name",
+            hover_data={
+                "coo_iso": "",
+            },
+            range_color=(0, 8_000_000),
+            color_continuous_scale=px.colors.sequential.Oranges,
+            featureidkey="properties.iso_a3",
+            zoom=1.2,
+            mapbox_style="carto-positron",
+            opacity=0.6,
+            width=1200,
+            height=700
+            # **fig_dict
+        )
+    )
+)
+```
+
+# What countries receive the most refugees annually?
+
+After examining which countries have the most refugees leaving, we will shift our focus to the countries with the highest number of refugees received.
+
+```{python}
+#| fig-cap: Top 5 countries with highest number of refugees accepted
+#| label: fig-fig4
+
+
+fig = go.Figure()
+
+top5_countries_accept = (
+    df.groupby("coa_name")[["refugees"]]
+    .sum()
+    .sort_values(by="refugees", ascending=False)
+    .head(5)
+    .index
+)
+
+test = (
+    df.groupby(["year", "coa_name"])
+    .refugees.sum()
+    .to_frame()
+    .reset_index()
+    .assign(
+        color=lambda df: df.coa_name.mask(
+            df.coa_name == (top5_countries_accept[0]), "#6eb14a"
+        )
+        .mask(df.coa_name == (top5_countries_accept[1]), "#2d4526")
+        .mask(df.coa_name == (top5_countries_accept[2]), "#f6d19b")
+        .mask(df.coa_name == (top5_countries_accept[3]), "#ca3780")
+        .mask(df.coa_name == (top5_countries_accept[4]), "#e9b4cd")
+        .mask(~df.coa_name.isin(top5_countries_accept), "#dadadc")
+    )
+)
+
+# Loop over each unique 'coo_name'
+for coa_name in test["coa_name"].unique():
+    df_subset = test[test["coa_name"] == coa_name]
+    if coa_name in top5_countries_accept:
+        fig.add_trace(
+            go.Scatter(
+                x=df_subset["year"],
+                y=df_subset["refugees"],
+                mode="lines+markers",
+                name=coa_name,
+                showlegend=True,
+                line=dict(
+                    color=df_subset["color"].iloc[0], dash="dash"
+                ),  # Use the first color from the subset
+            )
+        )
+    else:
+        fig.add_trace(
+            go.Scatter(
+                x=df_subset["year"],
+                y=df_subset["refugees"],
+                mode="lines",
+                name=coa_name,
+                showlegend=False,
+                line=dict(
+                    color=df_subset["color"].iloc[0], dash="dot"
+                ),  # Use the first color from the subset
+            )
+        )
+
+
+fig.update_layout(
+    autosize=False, width=750, height=600, yaxis_title="Total Annual Refugee Arrivals"
+)
+fig.show()
+```
+
+# Where do most refugees from the country with the highest numbers go?
+
+Next, we wanted to find out where Syrian refugees have found welcomes for their new homes.
+
+```{python}
+#| fig-cap: Welcoming Destinations for Syrian Refugees
+#| label: fig-fig5
+#| tags: []
+
+fig = (
+    df.query("coo_name == 'Syrian Arab Rep.'")
+    .groupby("coa_name")
+    .refugees.sum()
+    .pipe(lambda x: x / x.sum())
+    .mul(100)
+    .sort_values(ascending=False)
+    .head(10)
+    .to_frame()
+    .reset_index()
+    .pipe(
+        lambda df: px.bar(
+            df,
+            y="coa_name",
+            x="refugees",
+            labels={
+                "refugees": "Acceptance Rate of Syrian Refugees (%)",
+                "coa_name": "",
+            },
+            height=500,
+            width=1000,
+        )
+    )
+)
+fig.update_yaxes(tickangle=0, automargin=True)
+fig
+```
+
+# Which countries have the highest numbers of internally displaced persons?
+
+Next, we'll explore the count of internally displaced persons (IDPs). An IDP is someone who has had to leave their home or usual residence because of reasons like armed conflict, violence, human rights violations, natural disasters, or humanitarian emergencies. Unlike refugees, IDPs haven't crossed international borders to find safety; they stay within their own country's borders
+
+```{python}
+#| fig-cap: Top 50 nations hosting the largest internally displaced populations
+#| label: fig-fig6
+#| tags: []
+
+
+fig = (
+    df.groupby(["coo_iso", "coo_name"])
+    .idps.sum()
+    .sort_values(ascending=False)
+    .to_frame()
+    .reset_index()
+    .head(50)
+    .pipe(
+        lambda df: px.scatter_geo(
+            df,
+            locations="coo_iso",
+            geojson=countries,
+            hover_name="coo_name",
+            # color='coo_name',
+            featureidkey="properties.iso_a3",
+            size="idps",
+            # opacity = 0.6,
+            width=1200,
+            height=700,
+        )
+    )
+)
+fig
+```
+
+# What countries have received the highest stateless populations?
+
+Next, we focus on countries that have provided refuge to a substantial number of stateless individuals. Stateless persons are individuals who don't have the legal status of citizenship in any country. They lack the rights and protection typically granted to citizens. Stateless people often encounter significant difficulties in accessing education, healthcare, jobs, and the freedom to travel.
+
+```{python}
+#| fig-cap: Top 10 nations sheltering the largest stateless populations
+#| label: fig-fig7
+#| tags: []
+
+
+fig = (
+    df.groupby(["coa_iso", "coa_name"])
+    .stateless.sum()
+    .pipe(lambda x: x / 49036122)
+    .sort_values(ascending=False)
+    .mul(100)
+    .to_frame()
+    .reset_index()
+    .head(10)
+    .pipe(
+        lambda df: px.scatter(
+            df,
+            y="coa_name",
+            x="stateless",
+            labels={
+                "stateless": "Acceptance Rate of Stateless Populations (%)",
+                "coa_name": "",
+            },
+            height=500,
+            width=800,
+        )
+    )
+)
+fig.update_yaxes(tickangle=0, automargin=True)
+fig.update_layout(xaxis_range=[0, 100])
+
+fig
+```
+
+And there you have it, everyone. That wraps up this week's data exploration. I'm cant't wait for what Tidy Tuesday has in store for us next week. Until then, take good care of yourselves, and I'll catch you soon!
+
