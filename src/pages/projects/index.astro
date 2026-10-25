@@ -1,0 +1,15 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import PostPreview from '~/components/PostPreview.astro'
+import PageHeader from '~/components/PageHeader.astro'
+import { getSortedProjects } from '~/projects'
+
+const projects = await getSortedProjects()
+---
+
+<Layout title="Projects" description="Software and tools">
+  <div class="mt-2 sm:mt-0">
+    <PageHeader />
+    {projects.map((project) => <PostPreview post={project} />)}
+  </div>
+</Layout>
