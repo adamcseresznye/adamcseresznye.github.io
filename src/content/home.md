@@ -1,3 +1,1 @@
-# Adam Cseresznye
-
-Scientific software developer and consultant based in San Francisco. I specialize in machine learning, computer vision, and high-performance computing for analytical chemistry and biotech applications.
+Mass spectrometry scientist, consultant and hobby scientific software developer for analytical chemistry and biotech applications. Based in San Francisco.
