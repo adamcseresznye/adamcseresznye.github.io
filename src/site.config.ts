@@ -33,8 +33,8 @@ const config: SiteConfig = {
       url: '/',
     },
     {
-      name: 'Research',
-      url: '/research',
+      name: 'Scientific research',
+      url: '/scientific-research',
     },
     {
       name: 'Projects',
@@ -151,7 +151,7 @@ const config: SiteConfig = {
   // Social links to display in the footer.
   socialLinks: {
     github: 'https://github.com/adamcseresznye',
-    email: 'csenye.chem@gmail.com',
+    email: 'acseresznye@outlook.com',
     linkedin: 'https://www.linkedin.com/in/adam-cseresznye',
     twitter: 'https://twitter.com/csenye22',
     rss: true, // Set to true to include an RSS feed link in the footer

@@ -1,6 +1,6 @@
 ---
 layout: '~/layouts/MarkdownLayout.astro'
-title: "Research Output"
+title: "Scientific research"
 ---
 
 View my complete publication record on:
@@ -38,4 +38,3 @@ Paraffins (C8-36): a Pilot Study. Dioxin, Maastricht, the Netherlands, 2023.
 * Huguenard C, Cseresznye A, Oberlin S, Langlois H, Darcey T, Dretsch M, Evans J, Crawford F, Mullan M, Abdullah L. Plasma lipidomics analyses for diagnostic classification of mild TBI and PTSD. **Keystone Conference, 2018**. 
 * Abdullah L, Huguenard C, Cseresznye A, Evans J, Darcey T, Bachmeier C, Luis C, Crawford F, Mullan M. APOE4 and altered acylcarnitine profiles implicate mitochondria specific lipid metabolism dysfunction in preclinical Alzhemier’s disease. **Keystone Conference, 2018**. 
 * Abdullah L, Huguenard C, Cseresznye A, Evans J, Darcey T, Bachmeier C, Luis C, Keegan A, Crawford F, Mullan M. APOE4 and altered carnitine, TMAO acylcarnitines implicate mitochondrial dysfunction in preclinical Alzhemier’s disease. **Keystone Conference, 2018**.
-

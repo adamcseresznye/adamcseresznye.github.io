@@ -73,4 +73,9 @@ const postsHaveSeries = sortedPosts.some((post) => post.data.series)
   a.heading-anchor {
     display: none !important;
   }
+
+  /* Home intro: show the name without the markdown "#" marker */
+  .prose > h1:first-child::before {
+    content: none;
+  }
 </style>
