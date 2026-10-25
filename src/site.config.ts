@@ -7,7 +7,7 @@ const config: SiteConfig = {
   title: 'Adam Cseresznye',
   // The description of your site, used for SEO and RSS feed.
   description:
-    'Scientific software developer and consultant based in San Francisco. I specialize in machine learning, computer vision, and high-performance computing for analytical chemistry and biotech applications.',
+    'Mass spectrometry scientist, consultant and hobby scientific software developer for analytical chemistry and biotech applications. Based in San Francisco.',
   // The author of the site, used in the footer, SEO, and RSS feed.
   author: 'Adam Cseresznye',
   // Keywords for SEO, used in the meta tags.
