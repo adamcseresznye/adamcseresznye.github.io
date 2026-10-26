@@ -25,7 +25,7 @@ The 0.3 series is my attempt to close that gap. Chromascope is now a free, light
 
 Everything begins with the Data explorer. You can open mzML files directly, and vendor files too once you have ProteoWizard's `msconvert` installed and linked in the app. Traces can be TIC, BPC or XIC, with an m/z tolerance in ppm or mDa. You can overlay or grid several traces, smooth them, and click on any retention time to see the mass spectrum at that scan.
 
-<img src="./data-explorer.png" alt="The Data explorer: six traces of one file, the mass spectrum of the selected scan and the trace settings" />
+![The Data explorer: six traces of one file, the mass spectrum of the selected scan and the trace settings](./data-explorer.png)
 
 ## Quantification and QC
 
@@ -35,7 +35,7 @@ The biggest addition is the **Quantification and QC** workspace. It runs in thre
 2. **Calibration and concentrations.** Weighted linear and quadratic calibration, internal standards, qualifiers and dilution.
 3. **Batch QC and method validation.** Rules are checked across the batch. When a rule fails, the acknowledgement needs a reason, and an acknowledgement can never turn a failing rule into a pass.
 
-<img src="./quantification.png" alt="Quantification and QC: every peak of the batch with its confidence score and the integration window of one peak" />
+![Quantification and QC: every peak of the batch with its confidence score and the integration window of one peak](./quantification.png)
 
 The point of the confidence score is not to replace your judgement. It tells you where to spend your attention: a batch with 20 results and "nothing needs review" is a different situation from one where 6 peaks have a medium score and an unclear baseline.
 
@@ -58,7 +58,7 @@ This release also adds support for AI agents. You can delegate data review or ta
 
 When an assistant runs in `chromascope-mcp`, the status bar shows how many requests it has made, with a link to a call log. If you ask it to *propose* a change, such as new peak boundaries, the proposal appears under **Audit package → Review AI proposals** with its reason and evidence. Only your **Approve** changes a result, and the assistant cannot approve its own proposal. If you do not use AI assistants, none of this gets in your way: the desktop app works the same without them.
 
-<video controls width="100%" src="./demo.mp4"></video>
+<video controls width="100%" src="/posts/chromascope-0-3-1/demo.mp4"></video>
 
 ## Installing it
 
