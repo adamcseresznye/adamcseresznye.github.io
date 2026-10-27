@@ -6,6 +6,10 @@ author: "Adam Cseresznye"
 toc: true
 ---
 
+:::note
+**New article:** [Chromascope 0.3: from mzML viewer to LC-MS quantification workbench](/posts/chromascope-0-3-1) covers batch quantification, calibration, QC, projects, a command-line interface and MCP servers for AI assistants.
+:::
+
 ![](chromascope_icon.png "Chromascope icon")
 
 Have you ever needed to quickly review mass spectrometry data stored in mzML format but struggled to find software that was both fast and efficient? You’re not alone—this very challenge inspired the creation of Chromascope.
