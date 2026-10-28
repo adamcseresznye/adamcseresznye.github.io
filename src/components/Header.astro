@@ -11,22 +11,24 @@ const selectTheme =
 ---
 
 <header>
-  <div class="relative flex items-center justify-between bg-accent/10 rounded-xl">
+  <div
+    class="relative flex items-center justify-between gap-3 rounded-2xl border border-accent/20 bg-accent/5 p-1.5"
+  >
     <a
       id="logo"
       href="/"
-      class="block px-4 py-1.5 max-w-full no-underline items-center bg-accent text-background font-bold rounded-xl"
+      class="block px-4 py-1.5 max-w-full no-underline items-center bg-accent text-background font-bold rounded-xl transition-opacity hover:opacity-90"
     >
       {siteConfig.title}
     </a>
-    <div class="flex items-center gap-3 sm:mr-3">
+    <div class="flex items-center gap-1 rounded-xl border border-accent/15 bg-background/60 px-1">
       <Search trailingSlashes={siteConfig.trailingSlashes} />
       {lightDarkAutoTheme && <LightDarkAutoButton />}
       {selectTheme && <SelectTheme />}
       <nav id="nav-mobile" aria-label="Menu" class="p-0 text-accent sm:hidden">
         <button
           id="nav-mobile-button"
-          class="px-3 py-1 h-full cursor-pointer border-2 rounded-xl bg-background"
+          class="flex size-9 cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-accent/10"
           type="button"
           aria-expanded="false"
           aria-controls="nav-menu-list"
